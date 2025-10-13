@@ -1,0 +1,33 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@mendable/firecrawl-js": "^4.3.8",
+    "cheerio": "^1.1.2",
+    "crawlee": "^3.15.1",
+    "exif-parser": "^0.1.12",
+    "file-type": "^21.0.0",
+    "next": "15.5.4",
+    "playwright": "^1.56.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/node-fetch": "^2.6.13",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "node-fetch": "^3.3.2",
+    "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
