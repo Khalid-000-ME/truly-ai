@@ -3,7 +3,7 @@ import { URL } from 'url';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';  // Allow self-signed certificates for testing
 
-const BASE_URL = 'http://localhost:3000/api';
+const BASE_URL = 'http://localhost:3002/api';
 
 interface MediaSources {
   text: string[];
@@ -119,38 +119,115 @@ async function testAggregateAPI(sources: ValidationSource[], claim: string): Pro
   }
 }
 
+async function testSearchAPI(): Promise<string[]> {
+  console.log('\n🔍 Testing Search API...');
+  try {
+    const response = await fetch(`${BASE_URL}/search`);
+    
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const searchResults = await response.json() as string[];
+    
+    console.log('✅ Search results found:');
+    console.log(`   Total URLs: ${searchResults.length}`);
+    searchResults.forEach((result, index) => {
+      console.log(`   ${index + 1}. ${result}`);
+    });
+    
+    return searchResults;
+  } catch (error) {
+    console.error('❌ Search API Error:', error);
+    throw error;
+  }
+}
+
 async function runTest() {
-  const testURL = 'https://www.who.int/news-room/fact-sheets/detail/coronavirus-disease-(covid-19)';
   const testClaim = 'Drinking 3 liters of water cures COVID-19';
 
-  console.log('🚀 Starting Validation Test...');
-  console.log(`URL: ${testURL}`);
+  console.log('🚀 Starting Enhanced Validation Test...');
   console.log(`Claim: ${testClaim}`);
 
   try {
-    // Step 1: Find all media in the URL
-    const media = await testSegregateAPI(testURL);
+    // Step 1: Get search results from Perplexity
+    const searchResults = await testSearchAPI();
+    
+    // Extract URLs from search results (format: "Title: URL")
+    const urls = searchResults.map(result => {
+      const parts = result.split(': ');
+      return parts.length > 1 ? parts.slice(1).join(': ') : result;
+    }).filter(url => url.startsWith('http'));
+    
+    console.log(`\n📋 Processing ${urls.length} URLs from search results...`);
+    
+    // Step 2: Process each URL with segregate API
+    const allMediaSources: MediaSources = {
+      text: [],
+      images: [],
+      videos: [],
+      audio: []
+    };
+    
+    for (const [index, url] of urls.entries()) {
+      console.log(`\n📄 Processing URL ${index + 1}/${urls.length}: ${url}`);
+      try {
+        const media = await testSegregateAPI(url);
+        
+        // Aggregate all media sources
+        allMediaSources.text.push(...media.text);
+        allMediaSources.images.push(...media.images);
+        allMediaSources.videos.push(...media.videos);
+        allMediaSources.audio.push(...media.audio);
+        
+        // Output JSON for this URL
+        console.log(`📊 Media breakdown for ${url}:`);
+        console.log(JSON.stringify(media, null, 2));
+        
+      } catch (error) {
+        console.error(`❌ Failed to process ${url}:`, error);
+      }
+    }
+    
+    // Remove duplicates
+    allMediaSources.text = [...new Set(allMediaSources.text)];
+    allMediaSources.images = [...new Set(allMediaSources.images)];
+    allMediaSources.videos = [...new Set(allMediaSources.videos)];
+    allMediaSources.audio = [...new Set(allMediaSources.audio)];
+    
+    console.log('\n📊 Aggregated Media Sources:');
+    console.log(`   Total Text sources: ${allMediaSources.text.length}`);
+    console.log(`   Total Images: ${allMediaSources.images.length}`);
+    console.log(`   Total Videos: ${allMediaSources.videos.length}`);
+    console.log(`   Total Audio: ${allMediaSources.audio.length}`);
 
-    // Step 2: Test individual validations
+    // Step 3: Test validation APIs on collected media
+    console.log('\n🔬 Testing validation APIs...');
+    
     const validationPromises = [
-      // Always validate the main URL as text
-      testValidationAPI(testURL, 'text', testClaim),
-      // Test first image if available
-      ...(media.images.length > 0 ? [testValidationAPI(media.images[0], 'images', testClaim)] : []),
-      // Test first video if available
-      ...(media.videos.length > 0 ? [testValidationAPI(media.videos[0], 'videos', testClaim)] : []),
-      // Test first audio if available
-      ...(media.audio.length > 0 ? [testValidationAPI(media.audio[0], 'audio', testClaim)] : [])
+      // Validate text sources (limit to first 3 to avoid overwhelming)
+      ...allMediaSources.text.slice(0, 3).map(url => 
+        testValidationAPI(url, 'text', testClaim)
+      ),
+      // Validate images (limit to first 2)
+      ...allMediaSources.images.slice(0, 2).map(url => 
+        testValidationAPI(url, 'images', testClaim)
+      ),
+      // Validate videos (limit to first 1)
+      ...allMediaSources.videos.slice(0, 1).map(url => 
+        testValidationAPI(url, 'videos', testClaim)
+      ),
+      // Validate audio (limit to first 1)
+      ...allMediaSources.audio.slice(0, 1).map(url => 
+        testValidationAPI(url, 'audio', testClaim)
+      )
     ];
 
     await Promise.all(validationPromises);
 
-    // Step 3: Test aggregation
+    // Step 4: Test aggregation with all sources
     const sources: ValidationSource[] = [
-      { url: testURL, type: 'text' },
-      ...media.images.map(url => ({ url, type: 'images' as const })),
-      ...media.videos.map(url => ({ url, type: 'videos' as const })),
-      ...media.audio.map(url => ({ url, type: 'audio' as const }))
+      ...allMediaSources.text.map(url => ({ url, type: 'text' as const })),
+      ...allMediaSources.images.map(url => ({ url, type: 'images' as const })),
+      ...allMediaSources.videos.map(url => ({ url, type: 'videos' as const })),
+      ...allMediaSources.audio.map(url => ({ url, type: 'audio' as const }))
     ];
 
     const finalResult = await testAggregateAPI(sources, testClaim);
