@@ -1,0 +1,70 @@
+import { writeFileSync, appendFileSync, existsSync } from 'fs';
+import { join } from 'path';
+
+const LOG_FILE_PATH = join(process.cwd(), 'logs.txt');
+
+class Logger {
+  private static instance: Logger;
+  
+  private constructor() {
+    // Initialize log file
+    if (!existsSync(LOG_FILE_PATH)) {
+      writeFileSync(LOG_FILE_PATH, '');
+    }
+  }
+
+  public static getInstance(): Logger {
+    if (!Logger.instance) {
+      Logger.instance = new Logger();
+    }
+    return Logger.instance;
+  }
+
+  private formatMessage(level: string, route: string, message: string): string {
+    const timestamp = new Date().toISOString();
+    return `[${timestamp}] [${level}] [${route}] ${message}\n`;
+  }
+
+  public log(route: string, message: string): void {
+    const formattedMessage = this.formatMessage('INFO', route, message);
+    appendFileSync(LOG_FILE_PATH, formattedMessage);
+    // Also log to console for immediate feedback during development
+    console.log(`[${route}] ${message}`);
+  }
+
+  public error(route: string, message: string, error?: any): void {
+    const errorDetails = error ? ` | Error: ${error instanceof Error ? error.message : JSON.stringify(error)}` : '';
+    const formattedMessage = this.formatMessage('ERROR', route, message + errorDetails);
+    appendFileSync(LOG_FILE_PATH, formattedMessage);
+    console.error(`[${route}] ${message}`, error);
+  }
+
+  public warn(route: string, message: string): void {
+    const formattedMessage = this.formatMessage('WARN', route, message);
+    appendFileSync(LOG_FILE_PATH, formattedMessage);
+    console.warn(`[${route}] ${message}`);
+  }
+
+  public json(route: string, label: string, data: any): void {
+    const jsonString = JSON.stringify(data, null, 2);
+    const message = `${label}:\n${jsonString}`;
+    const formattedMessage = this.formatMessage('JSON', route, message);
+    appendFileSync(LOG_FILE_PATH, formattedMessage);
+    console.log(`[${route}] ${label}:`, data);
+  }
+
+  public separator(route: string, title: string): void {
+    const separator = '==========================================';
+    const message = `\n${separator}\n${title}\n${separator}`;
+    const formattedMessage = this.formatMessage('SEP', route, message);
+    appendFileSync(LOG_FILE_PATH, formattedMessage);
+    console.log(`\n${separator}\n[${route}] ${title}\n${separator}`);
+  }
+
+  public clear(): void {
+    writeFileSync(LOG_FILE_PATH, '');
+    console.log('Log file cleared');
+  }
+}
+
+export const logger = Logger.getInstance();

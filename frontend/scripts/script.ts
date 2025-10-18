@@ -3,7 +3,7 @@ import { URL } from 'url';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';  // Allow self-signed certificates for testing
 
-const BASE_URL = 'http://localhost:3002/api';
+const BASE_URL = 'http://localhost:3000/api';
 
 interface MediaSources {
   text: string[];

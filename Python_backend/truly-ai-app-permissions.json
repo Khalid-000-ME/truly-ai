@@ -1,0 +1,30 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "BedrockAccess",
+        "Effect": "Allow",
+        "Action": [
+          "bedrock:InvokeModel",
+          "bedrock:InvokeModelWithResponseStream",
+          "bedrock-data-automation-runtime:InvokeDataAutomationAsync",
+          "bedrock-data-automation-runtime:GetDataAutomationStatus"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Sid": "S3Access",
+        "Effect": "Allow",
+        "Action": [
+          "s3:PutObject",
+          "s3:GetObject",
+          "s3:DeleteObject",
+          "s3:ListBucket"
+        ],
+        "Resource": [
+          "arn:aws:s3:::truly-ai-multimodal",
+          "arn:aws:s3:::truly-ai-multimodal/*"
+        ]
+      }
+    ]
+  }

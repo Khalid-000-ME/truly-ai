@@ -1,5 +1,6 @@
 import { load } from 'cheerio';
 import { NextResponse } from 'next/server';
+import { generateText, getTextModel } from '@/lib/gemini';
 
 interface ValidationResult {
   isValid: boolean;
@@ -146,7 +147,49 @@ function getSourceCredibility(url: string): number {
 }
 
 /**
- * Validates text content against a claim using OpenAI's LLM
+ * Splits text into manageable chunks for processing
+ * @param text - The text to split
+ * @param maxChunkSize - Maximum characters per chunk
+ * @returns Array of text chunks
+ */
+function splitTextIntoChunks(text: string, maxChunkSize: number = 4000): string[] {
+  console.log('✂️ [splitTextIntoChunks] Splitting text into chunks, max size:', maxChunkSize);
+  console.log('📝 [splitTextIntoChunks] Input text length:', text.length, 'characters');
+  
+  if (text.length <= maxChunkSize) {
+    console.log('📤 [splitTextIntoChunks] Text fits in single chunk, returning as-is');
+    return [text];
+  }
+  
+  const chunks: string[] = [];
+  const sentences = text.split(/[.!?]+\s+/);
+  let currentChunk = '';
+  
+  console.log('📊 [splitTextIntoChunks] Found', sentences.length, 'sentences to process');
+  
+  for (const sentence of sentences) {
+    if ((currentChunk + sentence).length <= maxChunkSize) {
+      currentChunk += sentence + '. ';
+    } else {
+      if (currentChunk) {
+        chunks.push(currentChunk.trim());
+        console.log('📦 [splitTextIntoChunks] Created chunk', chunks.length, 'with length:', currentChunk.length);
+      }
+      currentChunk = sentence + '. ';
+    }
+  }
+  
+  if (currentChunk) {
+    chunks.push(currentChunk.trim());
+    console.log('📦 [splitTextIntoChunks] Created final chunk', chunks.length, 'with length:', currentChunk.length);
+  }
+  
+  console.log('✅ [splitTextIntoChunks] Split complete. Total chunks:', chunks.length);
+  return chunks;
+}
+
+/**
+ * Validates text content against a claim using Gemini LLM
  * @param text - The extracted text content to analyze
  * @param claim - The claim to validate against
  * @param mockForDev - Whether to use mock response for development
@@ -157,71 +200,144 @@ async function validateWithLLM(text: string, claim: string, mockForDev: boolean 
   confidence: number;
   reasoning: string;
 }> {
-  console.log('🤖 [validateWithLLM] Starting LLM validation');
+  console.log('🤖 [validateWithLLM] Starting Gemini LLM validation');
   console.log('📝 [validateWithLLM] Input text length:', text.length, 'characters');
   console.log('🎯 [validateWithLLM] Claim to validate:', claim);
   console.log('🔧 [validateWithLLM] Mock mode:', mockForDev);
   
-  const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-  console.log('🔑 [validateWithLLM] API key available:', !!OPENAI_API_KEY);
+  const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+  console.log('🔑 [validateWithLLM] Gemini API key available:', !!GEMINI_API_KEY);
   
   // Return mock response for development if no API key
-  if (!OPENAI_API_KEY || mockForDev) {
+  if (!GEMINI_API_KEY || mockForDev) {
     console.log('🎭 [validateWithLLM] Using mock LLM response for development');
     const mockResult = {
       isValid: false,
       confidence: 0.95,
-      reasoning: 'Mock response: This is a development environment without API keys. The WHO website contains authoritative information about COVID-19 and does not support the claim that drinking water cures the disease.'
+      reasoning: 'Mock response: This is a development environment without Gemini API key. The content analysis suggests the claim about drinking water curing COVID-19 is not supported by scientific evidence.'
     };
     console.log('📤 [validateWithLLM] Returning mock result:', mockResult);
     return mockResult;
   }
 
   try {
-    console.log('📡 [validateWithLLM] Sending request to OpenAI API...');
-    const requestBody = {
-      model: 'gpt-4',
-      messages: [
-        {
-          role: 'system',
-          content: 'You are a fact-checking AI. Analyze if the provided text supports or refutes the given claim. Respond with JSON containing: isValid (boolean), confidence (0-1), and reasoning (string).'
-        },
-        {
-          role: 'user',
-          content: `Text: ${text}\n\nClaim: ${claim}\n\nAnalyze if this content supports or refutes the claim.`
+    console.log('📡 [validateWithLLM] Initializing Gemini model...');
+    const model = getTextModel();
+    
+    // Split text into manageable chunks
+    const textChunks = splitTextIntoChunks(text, 4000);
+    console.log('📊 [validateWithLLM] Processing', textChunks.length, 'text chunks');
+    
+    const chunkAnalyses: Array<{isValid: boolean, confidence: number, reasoning: string}> = [];
+    
+    // Analyze each chunk
+    for (let i = 0; i < textChunks.length; i++) {
+      const chunk = textChunks[i];
+      console.log(`🔍 [validateWithLLM] Analyzing chunk ${i + 1}/${textChunks.length} (${chunk.length} chars)`);
+      
+      const prompt = `You are a fact-checking AI. Analyze if the provided text content is in phase with (supports) or contradicts the given claim.
+
+Text Content:
+${chunk}
+
+Claim: ${claim}
+
+Analyze if this content supports or refutes the claim. Respond with JSON containing:
+- isValid (boolean): true if text supports the claim, false if it refutes or contradicts
+- confidence (number): confidence level between 0 and 1
+- reasoning (string): brief explanation of your analysis
+
+Respond only with valid JSON.`;
+      
+      console.log(`📤 [validateWithLLM] Sending chunk ${i + 1} to Gemini...`);
+      const response = await generateText(model, prompt, 0.1);
+      console.log(`📥 [validateWithLLM] Received response for chunk ${i + 1}:`, response.substring(0, 200) + '...');
+      
+      try {
+        // Extract JSON from markdown code blocks if present
+        let jsonString = response.trim();
+        
+        // Check if response is wrapped in markdown code blocks
+        if (jsonString.startsWith('```json') && jsonString.endsWith('```')) {
+          console.log(`🔧 [validateWithLLM] Extracting JSON from markdown code block for chunk ${i + 1}`);
+          jsonString = jsonString.slice(7, -3).trim(); // Remove ```json and ```
+        } else if (jsonString.startsWith('```') && jsonString.endsWith('```')) {
+          console.log(`🔧 [validateWithLLM] Extracting content from generic code block for chunk ${i + 1}`);
+          jsonString = jsonString.slice(3, -3).trim(); // Remove ``` and ```
         }
-      ],
-      temperature: 0.1
+        
+        console.log(`🔍 [validateWithLLM] Attempting to parse JSON for chunk ${i + 1}:`, jsonString.substring(0, 100) + '...');
+        const chunkResult = JSON.parse(jsonString);
+        chunkAnalyses.push(chunkResult);
+        console.log(`✅ [validateWithLLM] Chunk ${i + 1} analysis:`, {
+          isValid: chunkResult.isValid,
+          confidence: chunkResult.confidence
+        });
+      } catch (parseError) {
+        console.error(`❌ [validateWithLLM] Failed to parse JSON for chunk ${i + 1}:`, parseError);
+        console.log(`🔍 [validateWithLLM] Raw response for debugging:`, response);
+        
+        // Enhanced fallback analysis based on response content
+        const lowerResponse = response.toLowerCase();
+        const containsFalse = lowerResponse.includes('"isvalid": false') || lowerResponse.includes('false');
+        const containsRefute = lowerResponse.includes('refute') || lowerResponse.includes('contradict') || lowerResponse.includes('not support');
+        const containsSupport = lowerResponse.includes('support') || lowerResponse.includes('confirm') || lowerResponse.includes('true');
+        
+        // Try to extract confidence if visible in text
+        const confidenceMatch = response.match(/"confidence":\s*([0-9.]+)/i);
+        const extractedConfidence = confidenceMatch ? parseFloat(confidenceMatch[1]) : 0.6;
+        
+        const isValid = !containsFalse && !containsRefute && containsSupport;
+        
+        chunkAnalyses.push({
+          isValid,
+          confidence: Math.min(Math.max(extractedConfidence, 0), 1), // Clamp between 0 and 1
+          reasoning: `Fallback analysis for chunk ${i + 1}: Response parsing failed, analyzed content suggests ${isValid ? 'support' : 'refutation'} of claim.`
+        });
+        
+        console.log(`🔄 [validateWithLLM] Applied fallback analysis for chunk ${i + 1}:`, {
+          isValid,
+          confidence: extractedConfidence,
+          containsFalse,
+          containsRefute,
+          containsSupport
+        });
+      }
+    }
+    
+    console.log('🔄 [validateWithLLM] Aggregating results from', chunkAnalyses.length, 'chunks');
+    
+    // Aggregate results from all chunks
+    const supportingChunks = chunkAnalyses.filter(analysis => analysis.isValid);
+    const refutingChunks = chunkAnalyses.filter(analysis => !analysis.isValid);
+    
+    console.log('📊 [validateWithLLM] Chunk analysis summary:');
+    console.log('   Supporting chunks:', supportingChunks.length);
+    console.log('   Refuting chunks:', refutingChunks.length);
+    
+    // Calculate overall validity and confidence
+    const totalChunks = chunkAnalyses.length;
+    const supportRatio = supportingChunks.length / totalChunks;
+    const avgConfidence = chunkAnalyses.reduce((sum, analysis) => sum + analysis.confidence, 0) / totalChunks;
+    
+    const isValid = supportRatio > 0.5; // Majority rule
+    const confidence = avgConfidence * (Math.abs(supportRatio - 0.5) * 2); // Adjust by consensus strength
+    
+    const reasoning = `Analysis of ${totalChunks} text chunks: ${supportingChunks.length} supporting, ${refutingChunks.length} refuting. ${isValid ? 'Majority supports' : 'Majority refutes'} the claim with ${(confidence * 100).toFixed(1)}% confidence.`;
+    
+    const result = {
+      isValid,
+      confidence: Math.min(confidence, 1), // Cap at 1.0
+      reasoning
     };
     
-    console.log('📊 [validateWithLLM] Request payload prepared, model: gpt-4, temperature: 0.1');
-    
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${OPENAI_API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(requestBody)
-    });
-
-    console.log('📡 [validateWithLLM] OpenAI API response status:', response.status, response.statusText);
-    
-    const data = await response.json();
-    console.log('📄 [validateWithLLM] Raw API response received, parsing JSON content...');
-    
-    const result = JSON.parse(data.choices[0].message.content);
-    console.log('✅ [validateWithLLM] Successfully parsed LLM response:', {
-      isValid: result.isValid,
-      confidence: result.confidence,
-      reasoningLength: result.reasoning?.length || 0
-    });
-    console.log('📤 [validateWithLLM] Returning LLM result:', result);
+    console.log('✅ [validateWithLLM] Final aggregated result:', result);
+    console.log('📤 [validateWithLLM] Returning Gemini LLM result');
     
     return result;
   } catch (error) {
-    console.error('❌ [validateWithLLM] Error during LLM validation:', error);
-    throw new Error('Failed to validate content with LLM');
+    console.error('❌ [validateWithLLM] Error during Gemini LLM validation:', error);
+    throw new Error('Failed to validate content with Gemini LLM');
   }
 }
 
@@ -261,8 +377,8 @@ export async function POST(request: Request) {
     console.log('✅ [POST] Credibility evaluation completed:', credibility);
 
     // Validate with LLM (use mock in development)
-    console.log('🤖 [POST] Step 3: Validating with LLM...');
-    const llmResult = await validateWithLLM(text, claim, !process.env.OPENAI_API_KEY);
+    console.log('🤖 [POST] Step 3: Validating with Gemini LLM...');
+    const llmResult = await validateWithLLM(text, claim, !process.env.GEMINI_API_KEY);
     console.log('✅ [POST] LLM validation completed');
     
     console.log('🔧 [POST] Step 4: Assembling final result...');

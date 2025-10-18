@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const GEMINI_TEXT_MODEL = 'gemini-2.5-flash';
-const GEMINI_VISION_MODEL = 'gemini-2.5-flash';
+const GEMINI_TEXT_MODEL = 'gemini-2.0-flash';
+const GEMINI_VISION_MODEL = 'gemini-2.0-flash';
 
 let geminiClient: GoogleGenerativeAI | null = null;
 
