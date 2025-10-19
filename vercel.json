@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "Python_backend/app/main.py": {
-      "runtime": "python3.11"
-    }
-  },
   "builds": [
     {
       "src": "Python_backend/requirements.txt",
