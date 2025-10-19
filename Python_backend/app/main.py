@@ -7,6 +7,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from app.config import (
     API_TITLE, API_DESCRIPTION, API_VERSION, CORS_ORIGINS, 
@@ -56,7 +57,14 @@ app = FastAPI(
     version=API_VERSION,
     lifespan=lifespan,
     docs_url="/docs",
-    redoc_url="/redoc"
+    redoc_url="/redoc",
+    openapi_url="/openapi.json",
+    # Ensure docs work on Vercel
+    root_path="",
+    servers=[
+        {"url": "https://truly-ai-backend.vercel.app", "description": "Production"},
+        {"url": "http://localhost:8000", "description": "Development"}
+    ]
 )
 
 # Add CORS middleware
@@ -71,7 +79,7 @@ app.add_middleware(
 # Add trusted host middleware for security
 app.add_middleware(
     TrustedHostMiddleware,
-    allowed_hosts=["localhost", "127.0.0.1", "0.0.0.0"]
+    allowed_hosts=["localhost", "127.0.0.1", "0.0.0.0", "*.vercel.app", "truly-ai-backend.vercel.app"]
 )
 
 # Setup error handlers
@@ -103,7 +111,21 @@ async def root():
         "message": "Multimodal Analysis API",
         "version": API_VERSION,
         "docs": "/docs",
-        "health": "/api/health"
+        "redoc": "/redoc",
+        "openapi": "/openapi.json",
+        "health": "/api/health",
+        "status": "✅ FastAPI is running on Vercel"
+    }
+
+@app.get("/test")
+async def test_endpoint():
+    """
+    Simple test endpoint to verify deployment
+    """
+    return {
+        "status": "success",
+        "message": "FastAPI backend is working!",
+        "docs_url": "https://truly-ai-backend.vercel.app/docs"
     }
 
 
