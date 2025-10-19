@@ -57,7 +57,7 @@ async function transcribeAudio(audioBuffer: Buffer): Promise<string> {
   if (!OPENAI_API_KEY) throw new Error('OpenAI API key not configured');
 
   try {
-    // Convert buffer to form data
+    // Convert buffer to form data for OpenAI Whisper API
     const formData = new FormData();
     const blob = new Blob([new Uint8Array(audioBuffer)], { type: 'audio/mp3' });
     formData.append('file', blob, 'audio.mp3');
