@@ -21,8 +21,38 @@ const unbounded = Unbounded({
 });
 
 export const metadata: Metadata = {
-  title: "TrulyAI - Fact Checking Assistant",
-  description: "Validate claims using AI-powered analysis of text, images, videos, and audio",
+  title: "TrulyAI - Advanced Fact-Checking & Misinformation Detection Platform",
+  description: "Combat misinformation with AI-powered multimodal analysis. Verify claims through comprehensive analysis of text, images, videos, and audio content with transparent credibility scoring.",
+  keywords: ["fact-checking", "misinformation detection", "AI analysis", "multimodal", "credibility scoring", "social media verification"],
+  authors: [{ name: "TrulyAI Team" }],
+  creator: "TrulyAI",
+  publisher: "TrulyAI",
+  robots: "index, follow",
+  openGraph: {
+    type: "website",
+    title: "TrulyAI - Advanced Fact-Checking Platform",
+    description: "Combat misinformation with AI-powered multimodal analysis and transparent credibility scoring.",
+    siteName: "TrulyAI",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "TrulyAI Logo - Fact-Checking Platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TrulyAI - Advanced Fact-Checking Platform",
+    description: "Combat misinformation with AI-powered multimodal analysis and transparent credibility scoring.",
+    images: ["/logo.png"],
+  },
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({

@@ -1,100 +1,162 @@
-"use client";
+'use client';
 
-import { useState } from 'react';
-import { ValidatorForm } from '../components/ValidatorForm';
-import { ResultsDisplay } from '../components/ResultsDisplay';
-import { LoadingOverlay } from '../components/LoadingOverlay';
+import React, { useEffect } from 'react';
+import Image from 'next/image';
+import Button from '@/components/button';
+import { useRouter } from 'next/navigation';
+
+// Load Google Fonts
+const loadGoogleFonts = () => {
+  if (typeof window !== 'undefined') {
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+  }
+};
 
 export default function Home() {
-  const [isValidating, setIsValidating] = useState(false);
-  const [currentStep, setCurrentStep] = useState<string>('');
-  const [results, setResults] = useState<any>(null);
+  const router = useRouter();
 
-  const handleValidation = async (url: string, claim: string) => {
-    setIsValidating(true);
-    setResults(null);
-    
-    try {
-      // Step 1: Segregate content
-      setCurrentStep('segregate');
-      const segregateResponse = await fetch('/api/segregate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url, claim })
-      });
-      const media = await segregateResponse.json();
+  // Load fonts on component mount
+  useEffect(() => {
+    loadGoogleFonts();
+  }, []);
 
-      // Step 2: Validate each type
-      setCurrentStep('validate');
-      const validationPromises = [
-        // Text validation
-        ...media.text.map((url: string) =>
-          fetch('/api/validate/text', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ url, claim })
-          })
-        ),
-        // Image validation
-        ...media.images.map((url: string) =>
-          fetch('/api/validate/images', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ url, claim })
-          })
-        ),
-      ];
-
-      await Promise.all(validationPromises);
-
-      // Step 3: Aggregate results
-      setCurrentStep('aggregate');
-      const sources = [
-        ...media.text.map((url: string) => ({ url, type: 'text' as const })),
-        ...media.images.map((url: string) => ({ url, type: 'images' as const })),
-        ...media.videos.map((url: string) => ({ url, type: 'videos' as const })),
-        ...media.audio.map((url: string) => ({ url, type: 'audio' as const }))
-      ];
-
-      const aggregateResponse = await fetch('/api/aggregate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sources, claim })
-      });
-
-      const finalResults = await aggregateResponse.json();
-      setResults(finalResults);
-    } catch (error) {
-      console.error('Validation error:', error);
-      // Handle error state here
-    } finally {
-      setIsValidating(false);
-      setCurrentStep('');
-    }
+  const handleGetStarted = () => {
+    router.push('/ask');
   };
 
   return (
-    <div className="min-h-screen bg-white text-black font-mono">
-      <main className="container mx-auto px-4 py-8 max-w-3xl">
-        <h1 className="text-4xl font-bold mb-8 border-b-2 border-black pb-2">TrulyAI 🔍</h1>
-        
-        <ValidatorForm 
-          onSubmit={handleValidation} 
-          isValidating={isValidating} 
-        />
-
-        {isValidating && (
-          <LoadingOverlay 
-            currentStep={currentStep} 
+    <div className="min-h-screen relative overflow-hidden bg-white">
+      {/* Hero Background with Gradient Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div className="relative w-full h-full">
+          <Image
+            src="/hero.png"
+            alt="Truth illumination"
+            fill
+            className="object-cover object-top"
+            priority
           />
-        )}
+          {/* Gradient overlay from hero to white */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-white"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/60 to-transparent"></div>
+        </div>
+      </div>
 
-        {results && (
-          <ResultsDisplay 
-            results={results} 
-          />
-        )}
-      </main>
+      {/* Main Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-12">
+        <div className="w-full max-w-5xl mx-auto text-center">
+          
+          {/* Logo */}
+          <div className="mb-12">
+            <div className="relative w-32 h-32 mx-auto mb-6">
+              <Image
+                src="/logo.png"
+                alt="TrulyAI Logo"
+                fill
+                className="object-cover rounded-full"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Hero Text */}
+          <div className="mb-16">
+            <h1 className="font-instrument-serif text-6xl md:text-7xl lg:text-8xl font-light text-gray-800 mb-6 tracking-wide leading-tight">
+              TrulyAI
+            </h1>
+            <h2 className="font-instrument-serif text-3xl md:text-4xl lg:text-5xl font-extralight text-gray-700 mb-8 tracking-wide">
+              Where Truth Meets Technology
+            </h2>
+            
+            {/* Catchy taglines */}
+            <div className="max-w-4xl mx-auto space-y-4 mb-12">
+              <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
+                Combat misinformation with AI-powered multimodal analysis
+              </p>
+              <p className="text-lg md:text-xl text-gray-500 font-light">
+                Verify claims through comprehensive analysis of text, images, videos, and audio
+              </p>
+              <p className="text-base md:text-lg text-gray-400 italic">
+                "Your journey to truth starts with a single question"
+              </p>
+            </div>
+
+            {/* Feature highlights */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16">
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100">
+                <div className="text-3xl mb-3">🔍</div>
+                <h3 className="font-semibold text-gray-800 mb-2">Multimodal Analysis</h3>
+                <p className="text-sm text-gray-600">Analyze text, images, videos, and audio with advanced AI models</p>
+              </div>
+              
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100">
+                <div className="text-3xl mb-3">📊</div>
+                <h3 className="font-semibold text-gray-800 mb-2">Credibility Scoring</h3>
+                <p className="text-sm text-gray-600">Get transparent 0-100% credibility ratings with supporting evidence</p>
+              </div>
+              
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100">
+                <div className="text-3xl mb-3">🛡️</div>
+                <h3 className="font-semibold text-gray-800 mb-2">Authentic Sources</h3>
+                <p className="text-sm text-gray-600">Cross-reference with 19+ curated news sources and fact-checkers</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="mb-12">
+            <Button
+              onClick={handleGetStarted}
+              size="md"
+              className="mx-auto transform hover:scale-105 transition-all duration-300 rounded-full"
+            >
+              Start Fact-Checking
+            </Button>
+          </div>
+
+          {/* Subtitle */}
+          <div className="max-w-3xl mx-auto">
+            <p className="text-sm text-gray-500 leading-relaxed">
+              Powered by AWS Bedrock Nova models, Google Gemini AI, and advanced multimodal analysis
+              <br />
+              <span className="text-gray-400">
+                Join the fight against misinformation with cutting-edge AI technology
+              </span>
+            </p>
+          </div>
+
+          {/* Stats or badges */}
+          <div className="mt-16 flex flex-wrap justify-center items-center gap-8 text-sm text-gray-400">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+              <span>Real-time Analysis</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+              <span>Multi-platform Support</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
+              <span>Evidence-based Results</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-amber-400 rounded-full"></span>
+              <span>Transparent Scoring</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Floating Elements for Visual Interest */}
+      <div className="absolute top-20 left-10 w-3 h-3 bg-amber-300 rounded-full opacity-60 animate-pulse"></div>
+      <div className="absolute top-40 right-20 w-2 h-2 bg-blue-400 rounded-full opacity-40 animate-pulse delay-1000"></div>
+      <div className="absolute bottom-32 left-1/4 w-2.5 h-2.5 bg-green-300 rounded-full opacity-50 animate-pulse delay-2000"></div>
+      <div className="absolute bottom-20 right-1/3 w-2 h-2 bg-purple-300 rounded-full opacity-30 animate-pulse delay-3000"></div>
+      <div className="absolute top-1/3 left-20 w-1.5 h-1.5 bg-pink-300 rounded-full opacity-40 animate-pulse delay-4000"></div>
+      <div className="absolute top-2/3 right-16 w-1 h-1 bg-indigo-300 rounded-full opacity-50 animate-pulse delay-5000"></div>
     </div>
   );
 }
