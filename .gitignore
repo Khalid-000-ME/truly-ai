@@ -73,6 +73,27 @@ coverage.xml
 *.log
 .pytest_cache/
 
+# Uploads and temporary files
+uploads/
+frontend/uploads/
+Python_backend/uploads/
+*.mp4
+*.mp3
+*.wav
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webm
+*.mkv
+*.avi
+*.mov
+*.flac
+*.ogg
+*.m4a
+*.part
+*.ytdl
+
 # Misc
 *.pem
 .vercel
