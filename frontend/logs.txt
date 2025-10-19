@@ -1,457 +1,96 @@
-[2025-10-19T17:43:49.103Z] [SYSTEM] [LOGGER] Log file cleared - reached 2661 lines (max: 2000)
-[2025-10-19T17:43:49.108Z] [INFO] [ANALYZE] Analyzing content: text=77chars, type=general, mediaType=image
-[2025-10-19T17:43:49.109Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760895822480_0.jpg
-[2025-10-19T17:43:54.966Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760895822480_0.jpg
-[2025-10-19T17:43:54.969Z] [INFO] [ANALYZE] Analysis complete: success=true
-[2025-10-19T17:43:55.312Z] [INFO] [ANALYZE] Analyzing content: text=77chars, type=general, mediaType=image
-[2025-10-19T17:43:55.313Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760895822480_1.jpg
-[2025-10-19T17:43:57.294Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760895822480_1.jpg
-[2025-10-19T17:43:57.295Z] [INFO] [ANALYZE] Analysis complete: success=true
-[2025-10-19T17:44:08.668Z] [INFO] [CLEANUP] 🧹 Starting old files cleanup via API
-[2025-10-19T17:44:08.671Z] [INFO] [CLEANUP] 🔍 Checking 107 files for cleanup...
-[2025-10-19T17:44:08.697Z] [INFO] [CLEANUP] ✨ No old files found for cleanup
-[2025-10-19T17:53:52.272Z] [INFO] [HANDLE] POST - Prompt: 86chars, Files: 0
-[2025-10-19T17:54:01.055Z] [INFO] [HANDLE] 🤖 Gemini Raw Response:
-[2025-10-19T17:54:01.057Z] [JSON] [HANDLE] Raw Response:
-"```json\n{\n  \"refinedText\": \"Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes.\",\n  \"links\": []\n}\n```"
-[2025-10-19T17:54:01.058Z] [INFO] [HANDLE] 🧹 Cleaned Response
-[2025-10-19T17:54:01.059Z] [INFO] [HANDLE] Gemini Success: 0 links, 86→103 chars
-[2025-10-19T17:54:01.060Z] [JSON] [HANDLE] Parsed Result:
-{
-  "refinedText": "Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes.",
-  "links": []
-}
-[2025-10-19T17:54:01.062Z] [INFO] [HANDLE] FormData keys: prompt
-[2025-10-19T17:54:01.063Z] [INFO] [HANDLE] Checking file_0: null
-[2025-10-19T17:54:01.064Z] [INFO] [HANDLE] Checking file_1: null
-[2025-10-19T17:54:01.065Z] [INFO] [HANDLE] Checking file_2: null
-[2025-10-19T17:54:01.066Z] [INFO] [HANDLE] Files: 0 saved, 0 failed
-[2025-10-19T17:54:01.067Z] [INFO] [HANDLE] Complete: 8803ms | 86→103chars | 0links | 0files
-[2025-10-19T17:54:01.068Z] [SEP] [HANDLE] 
-==========================================
-📋 HANDLE API RESPONSE
-==========================================
-[2025-10-19T17:54:01.070Z] [JSON] [HANDLE] Final Response:
-{
-  "success": true,
-  "data": {
-    "refinedText": "Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes.",
-    "extractedLinks": [],
-    "mediaFiles": [],
-    "originalPrompt": "Pakistan won a permanent presidency in the UN Security Council by 182 out of 193 votes",
-    "timeframeSelections": []
-  },
-  "message": "Request processed successfully",
-  "meta": {
-    "processingTimeMs": 8803,
-    "geminiUsed": true,
-    "filesProcessed": 0,
-    "linksExtracted": 0
-  }
-}
-[2025-10-19T17:54:01.564Z] [INFO] [INITIAL] Starting analysis pipeline
-[2025-10-19T17:54:01.566Z] [INFO] [INITIAL] Calling handle API: 86chars, 0files
-[2025-10-19T17:54:01.941Z] [INFO] [HANDLE] POST - Prompt: 86chars, Files: 0
-[2025-10-19T17:54:21.880Z] [INFO] [HANDLE] 🤖 Gemini Raw Response:
-[2025-10-19T17:54:21.893Z] [JSON] [HANDLE] Raw Response:
-"```json\n{\n  \"refinedText\": \"Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes.\",\n  \"links\": []\n}\n```"
-[2025-10-19T17:54:21.910Z] [INFO] [HANDLE] 🧹 Cleaned Response
-[2025-10-19T17:54:21.925Z] [INFO] [HANDLE] Gemini Success: 0 links, 86→103 chars
-[2025-10-19T17:54:21.926Z] [JSON] [HANDLE] Parsed Result:
-{
-  "refinedText": "Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes.",
-  "links": []
-}
-[2025-10-19T17:54:21.928Z] [INFO] [HANDLE] FormData keys: prompt
-[2025-10-19T17:54:21.929Z] [INFO] [HANDLE] Checking file_0: null
-[2025-10-19T17:54:21.931Z] [INFO] [HANDLE] Checking file_1: null
-[2025-10-19T17:54:21.932Z] [INFO] [HANDLE] Checking file_2: null
-[2025-10-19T17:54:21.937Z] [INFO] [HANDLE] Files: 0 saved, 0 failed
-[2025-10-19T17:54:21.940Z] [INFO] [HANDLE] Complete: 20000ms | 86→103chars | 0links | 0files
-[2025-10-19T17:54:21.943Z] [SEP] [HANDLE] 
-==========================================
-📋 HANDLE API RESPONSE
-==========================================
-[2025-10-19T17:54:21.944Z] [JSON] [HANDLE] Final Response:
-{
-  "success": true,
-  "data": {
-    "refinedText": "Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes.",
-    "extractedLinks": [],
-    "mediaFiles": [],
-    "originalPrompt": "Pakistan won a permanent presidency in the UN Security Council by 182 out of 193 votes",
-    "timeframeSelections": []
-  },
-  "message": "Request processed successfully",
-  "meta": {
-    "processingTimeMs": 20000,
-    "geminiUsed": true,
-    "filesProcessed": 0,
-    "linksExtracted": 0
-  }
-}
-[2025-10-19T17:54:21.958Z] [INFO] [INITIAL] HANDLE API RESPONSE
-[2025-10-19T17:54:21.973Z] [INFO] [INITIAL] Step 2: Analyzing 0 media files
-[2025-10-19T17:54:21.975Z] [INFO] [INITIAL] MEDIA ANALYSES COMPLETED
-[2025-10-19T17:54:21.977Z] [INFO] [INITIAL] Step 3: Generating conclusion (fallback mode)
-[2025-10-19T17:54:21.978Z] [INFO] [INITIAL] Analyzing viral content with Gemini...
-[2025-10-19T17:54:28.794Z] [INFO] [INITIAL] Viral analysis complete: 673chars
-[2025-10-19T17:54:28.796Z] [JSON] [INITIAL] Viral Content Analysis:
-"**Content Type:** News, but the \"Original\" version represents **Misinformation/Exaggerated Claim** that would spark **Controversy** or **Fact-Checking** efforts, while the \"Refined\" is factual news.\n\n**Key Topics/Themes:** UN Security Council election, Pakistan's international role, UN diplomacy, misinformation vs. fact, national pride, regional politics.\n\n**Search Terms:** \"Pakistan UN Security Council,\" \"Pakistan UNSC,\" \"Pakistan non-permanent seat,\" \"UNSC election Pakistan,\" \"Pakistan 182 votes UN,\" \"Pakistan permanent presidency UN\" (for the misinformation).\n\n**Likely Platforms:** Twitter (X), Reddit (r/worldnews, r/geopolitics, r/pakistan), Facebook, WhatsApp."
-[2025-10-19T17:54:28.797Z] [INFO] [INITIAL] Searching social media posts...
-[2025-10-19T17:54:29.173Z] [INFO] [SEARCH] Request: query=103chars, links=0, analysis=673chars
-[2025-10-19T17:54:29.175Z] [INFO] [SEARCH] Query: Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes. site:reddit.com
-[2025-10-19T17:54:29.891Z] [INFO] [SEARCH] Query: Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes. site:twitter.com OR site:x.com
-[2025-10-19T17:54:30.876Z] [INFO] [SEARCH] Query: Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes. site:youtube.com
-[2025-10-19T17:54:31.559Z] [INFO] [SEARCH] Query: Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes. site:instagram.com
-[2025-10-19T17:54:32.279Z] [INFO] [SEARCH] Query: Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes. viral social media reddit twitter youtube instagram
-[2025-10-19T17:54:32.829Z] [INFO] [SEARCH] Results: 2 posts found
-[2025-10-19T17:54:32.832Z] [JSON] [SEARCH] Social Media Results:
-[
-  "Pakistan Wins Non-Permanent Seat on UNSC With Big Majority in UNGA Vote | DAWN News English: https://www.youtube.com/watch?v=Rb-ZAAcTjoc",
-  "Pakistan's Presidency of the UN Security Council - Press Conference | United Nations: https://www.youtube.com/watch?v=1c-3wr9yNEs"
-]
-[2025-10-19T17:54:32.835Z] [SEP] [SEARCH] 
-==========================================
-🔍 SEARCH API FINAL RESPONSE
-==========================================
-[2025-10-19T17:54:32.838Z] [JSON] [SEARCH] Final Response:
-{
-  "success": true,
-  "query": "Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes.",
-  "viralContentAnalysis": "**Content Type:** News, but the \"Original\" version represents **Misinformation/Exaggerated Claim** that would spark **Controversy** or **Fact-Checking** efforts, while the \"Refined\" is factual news.\n\n**Key Topics/Themes:** UN Security Council election, Pakistan's international role, UN diplomacy, misinformation vs. fact, national pride, regional politics.\n\n**Search Terms:** \"Pakistan UN Security Council,\" \"Pakistan UNSC,\" \"Pakistan non-permanent seat,\" \"UNSC election Pakistan,\" \"Pakistan 182 votes UN,\" \"Pakistan permanent presidency UN\" (for the misinformation).\n\n**Likely Platforms:** Twitter (X), Reddit (r/worldnews, r/geopolitics, r/pakistan), Facebook, WhatsApp.",
-  "extractedLinks": [],
-  "socialMediaResults": [
-    "Pakistan Wins Non-Permanent Seat on UNSC With Big Majority in UNGA Vote | DAWN News English: https://www.youtube.com/watch?v=Rb-ZAAcTjoc",
-    "Pakistan's Presidency of the UN Security Council - Press Conference | United Nations: https://www.youtube.com/watch?v=1c-3wr9yNEs"
-  ],
-  "totalResults": 2
-}
-[2025-10-19T17:54:32.852Z] [INFO] [INITIAL] Social media search complete: 2 posts
-[2025-10-19T17:54:32.853Z] [JSON] [INITIAL] Search Results:
-{
-  "success": true,
-  "query": "Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes.",
-  "viralContentAnalysis": "**Content Type:** News, but the \"Original\" version represents **Misinformation/Exaggerated Claim** that would spark **Controversy** or **Fact-Checking** efforts, while the \"Refined\" is factual news.\n\n**Key Topics/Themes:** UN Security Council election, Pakistan's international role, UN diplomacy, misinformation vs. fact, national pride, regional politics.\n\n**Search Terms:** \"Pakistan UN Security Council,\" \"Pakistan UNSC,\" \"Pakistan non-permanent seat,\" \"UNSC election Pakistan,\" \"Pakistan 182 votes UN,\" \"Pakistan permanent presidency UN\" (for the misinformation).\n\n**Likely Platforms:** Twitter (X), Reddit (r/worldnews, r/geopolitics, r/pakistan), Facebook, WhatsApp.",
-  "extractedLinks": [],
-  "socialMediaResults": [
-    "Pakistan Wins Non-Permanent Seat on UNSC With Big Majority in UNGA Vote | DAWN News English: https://www.youtube.com/watch?v=Rb-ZAAcTjoc",
-    "Pakistan's Presidency of the UN Security Council - Press Conference | United Nations: https://www.youtube.com/watch?v=1c-3wr9yNEs"
-  ],
-  "totalResults": 2
-}
-[2025-10-19T17:54:32.855Z] [INFO] [INITIAL] Complete: 31290ms | 0/0 media | 0links | 2posts | 0.0% confidence
-[2025-10-19T17:54:32.856Z] [SEP] [INITIAL] 
-==========================================
-🎉 INITIAL API FINAL RESPONSE
-==========================================
-[2025-10-19T17:54:32.861Z] [JSON] [INITIAL] Final Response:
-{
-  "textAnalysis": {
-    "originalPrompt": "Pakistan won a permanent presidency in the UN Security Council by 182 out of 193 votes",
-    "refinedText": "Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes.",
-    "extractedLinks": []
-  },
-  "mediaAnalysis": [],
-  "aggregatedConclusion": "Analysis of \"Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes.\" completed. Processed 0 media files with 0 successful analyses. Review complete.",
-  "confidence": 0,
-  "viralContentAnalysis": "**Content Type:** News, but the \"Original\" version represents **Misinformation/Exaggerated Claim** that would spark **Controversy** or **Fact-Checking** efforts, while the \"Refined\" is factual news.\n\n**Key Topics/Themes:** UN Security Council election, Pakistan's international role, UN diplomacy, misinformation vs. fact, national pride, regional politics.\n\n**Search Terms:** \"Pakistan UN Security Council,\" \"Pakistan UNSC,\" \"Pakistan non-permanent seat,\" \"UNSC election Pakistan,\" \"Pakistan 182 votes UN,\" \"Pakistan permanent presidency UN\" (for the misinformation).\n\n**Likely Platforms:** Twitter (X), Reddit (r/worldnews, r/geopolitics, r/pakistan), Facebook, WhatsApp.",
-  "socialMediaSearch": {
-    "success": true,
-    "query": "Pakistan was elected to a non-permanent seat on the UN Security Council, securing 182 out of 193 votes.",
-    "viralContentAnalysis": "**Content Type:** News, but the \"Original\" version represents **Misinformation/Exaggerated Claim** that would spark **Controversy** or **Fact-Checking** efforts, while the \"Refined\" is factual news.\n\n**Key Topics/Themes:** UN Security Council election, Pakistan's international role, UN diplomacy, misinformation vs. fact, national pride, regional politics.\n\n**Search Terms:** \"Pakistan UN Security Council,\" \"Pakistan UNSC,\" \"Pakistan non-permanent seat,\" \"UNSC election Pakistan,\" \"Pakistan 182 votes UN,\" \"Pakistan permanent presidency UN\" (for the misinformation).\n\n**Likely Platforms:** Twitter (X), Reddit (r/worldnews, r/geopolitics, r/pakistan), Facebook, WhatsApp.",
-    "extractedLinks": [],
-    "socialMediaResults": [
-      "Pakistan Wins Non-Permanent Seat on UNSC With Big Majority in UNGA Vote | DAWN News English: https://www.youtube.com/watch?v=Rb-ZAAcTjoc",
-      "Pakistan's Presidency of the UN Security Council - Press Conference | United Nations: https://www.youtube.com/watch?v=1c-3wr9yNEs"
-    ],
-    "totalResults": 2
-  },
-  "processingStats": {
-    "totalFiles": 0,
-    "successfulAnalyses": 0,
-    "failedAnalyses": 0,
-    "totalProcessingTime": 31290
-  }
-}
-[2025-10-19T17:56:02.112Z] [INFO] [SEGREGATE] Starting segregation process
-[2025-10-19T17:56:02.113Z] [INFO] [SEGREGATE] Processing 2 social media posts
-[2025-10-19T17:56:02.114Z] [INFO] [SEGREGATE] Analyzing post 1: Pakistan Wins Non-Permanent Seat on UNSC With Big Majority in UNGA Vote | DAWN News English
-[2025-10-19T17:56:03.421Z] [INFO] [SEGREGATE] Downloaded: youtube_1760896562979_1000.jpg (40432 bytes)
-[2025-10-19T17:56:06.290Z] [INFO] [SEGREGATE] ✅ yt-dlp found via Python module
-[2025-10-19T17:56:06.294Z] [INFO] [SEGREGATE] ✅ yt-dlp found via Python module
-[2025-10-19T17:56:06.300Z] [INFO] [SEGREGATE] 🎵 Downloading YouTube audio: https://www.youtube.com/watch?v=Rb-ZAAcTjoc
-[2025-10-19T17:56:06.332Z] [INFO] [SEGREGATE] 🎥 Downloading YouTube video: https://www.youtube.com/watch?v=Rb-ZAAcTjoc
-[2025-10-19T17:56:13.278Z] [ERROR] [SEGREGATE] YouTube video download failed for https://www.youtube.com/watch?v=Rb-ZAAcTjoc: | Error: Command failed: python -m yt_dlp -f "best[height<=720]" --no-playlist -o "C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760896563422_0.%(ext)s" "https://www.youtube.com/watch?v=Rb-ZAAcTjoc"
-WARNING: [youtube] No title found in player responses; falling back to title from initial data. Other metadata may also be missing
-ERROR: [youtube] Rb-ZAAcTjoc: Video unavailable. This content is currently unavailable in this country because of an order from the government related to national security or public order. For more details about government removal requests, please visit the Google Transparency Report.
-
-[2025-10-19T17:56:13.389Z] [ERROR] [SEGREGATE] YouTube audio download failed for https://www.youtube.com/watch?v=Rb-ZAAcTjoc: | Error: Command failed: python -m yt_dlp -f "bestaudio" --extract-audio --audio-format mp3 --no-playlist -o "C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760896563422_0.%(ext)s" "https://www.youtube.com/watch?v=Rb-ZAAcTjoc"
-WARNING: [youtube] No title found in player responses; falling back to title from initial data. Other metadata may also be missing
-ERROR: [youtube] Rb-ZAAcTjoc: Video unavailable. This content is currently unavailable in this country because of an order from the government related to national security or public order. For more details about government removal requests, please visit the Google Transparency Report.
-
-[2025-10-19T17:56:13.393Z] [ERROR] [SEGREGATE] ❌ Both YouTube video and audio downloads failed
-[2025-10-19T17:56:13.396Z] [INFO] [SEGREGATE] Analyzing post 2: Pakistan's Presidency of the UN Security Council - Press Conference | United Nations
-[2025-10-19T17:56:15.471Z] [INFO] [SEGREGATE] Downloaded: youtube_1760896575174_1000.jpg (25519 bytes)
-[2025-10-19T17:56:18.388Z] [INFO] [SEGREGATE] ✅ yt-dlp found via Python module
-[2025-10-19T17:56:18.393Z] [INFO] [SEGREGATE] 🎥 Downloading YouTube video: https://www.youtube.com/watch?v=1c-3wr9yNEs
-[2025-10-19T17:56:18.424Z] [INFO] [SEGREGATE] ✅ yt-dlp found via Python module
-[2025-10-19T17:56:18.429Z] [INFO] [SEGREGATE] 🎵 Downloading YouTube audio: https://www.youtube.com/watch?v=1c-3wr9yNEs
-[2025-10-19T17:57:48.502Z] [ERROR] [SEGREGATE] YouTube audio download failed for https://www.youtube.com/watch?v=1c-3wr9yNEs: | Error: Command failed: python -m yt_dlp -f "bestaudio" --extract-audio --audio-format mp3 --no-playlist -o "C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760896575473_0.%(ext)s" "https://www.youtube.com/watch?v=1c-3wr9yNEs"
-
-[2025-10-19T17:58:18.441Z] [ERROR] [SEGREGATE] YouTube video download failed for https://www.youtube.com/watch?v=1c-3wr9yNEs: | Error: Command failed: python -m yt_dlp -f "best[height<=720]" --no-playlist -o "C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760896575473_0.%(ext)s" "https://www.youtube.com/watch?v=1c-3wr9yNEs"
-
-[2025-10-19T17:58:18.594Z] [ERROR] [SEGREGATE] ❌ Both YouTube video and audio downloads failed
-[2025-10-19T17:58:18.639Z] [INFO] [SEGREGATE] Segregation complete: 2 posts processed
-[2025-10-19T17:58:18.651Z] [JSON] [SEGREGATE] Segregated Posts:
+[2025-10-19T22:25:37.389Z] [SYSTEM] [LOGGER] Log file cleared - reached 1799 lines (max: 1000)
+[2025-10-19T22:25:37.390Z] [INFO] [ANALYZE] Analyzing content: text=32chars, type=general, mediaType=image
+[2025-10-19T22:25:37.391Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912718226_1.jpg
+[2025-10-19T22:25:38.412Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912718226_1.jpg
+[2025-10-19T22:25:38.413Z] [INFO] [ANALYZE] Analysis complete: success=true
+[2025-10-19T22:25:38.772Z] [INFO] [ANALYZE] Analyzing content: text=32chars, type=general, mediaType=image
+[2025-10-19T22:25:38.773Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912718227_2.jpg
+[2025-10-19T22:25:39.786Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912718227_2.jpg
+[2025-10-19T22:25:39.787Z] [INFO] [ANALYZE] Analysis complete: success=true
+[2025-10-19T22:25:40.123Z] [INFO] [ANALYZE] Analyzing content: text=68chars, type=general, mediaType=image
+[2025-10-19T22:25:40.124Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912728388_0.jpg
+[2025-10-19T22:25:41.147Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912728388_0.jpg
+[2025-10-19T22:25:41.147Z] [INFO] [ANALYZE] Analysis complete: success=true
+[2025-10-19T22:25:41.470Z] [INFO] [ANALYZE] Analyzing content: text=68chars, type=general, mediaType=image
+[2025-10-19T22:25:41.471Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912728388_1.jpg
+[2025-10-19T22:25:42.496Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912728388_1.jpg
+[2025-10-19T22:25:42.497Z] [INFO] [ANALYZE] Analysis complete: success=true
+[2025-10-19T22:25:58.766Z] [INFO] [INTERNET_SEARCH] Request: query=40chars, links=0, analysis=96chars
+[2025-10-19T22:25:58.769Z] [INFO] [INTERNET_SEARCH] Query: Neal Mohan current YouTube health safety site:snopes.com OR site:factcheck.org OR site:politifact.com
+[2025-10-19T22:25:59.399Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
+[2025-10-19T22:25:59.401Z] [INFO] [INTERNET_SEARCH]   1. Analyzing and Fact Checking - Fake news sources and how to ... - https://library.alamancecc.edu/fake/analyzing
+[2025-10-19T22:25:59.403Z] [INFO] [INTERNET_SEARCH]   2. Fact Checking Sites - Intermediate Senior Media and Digital ... - https://guides.library.queensu.ca/is-media-literacy/fact-checking
+[2025-10-19T22:25:59.405Z] [INFO] [INTERNET_SEARCH]   3. Wired Wednesdays: Fact-Checking Online: Trusted Sources - https://www.youtube.com/watch?v=rGz3p01DXJg
+[2025-10-19T22:25:59.406Z] [INFO] [INTERNET_SEARCH] After social media filtering: 2 results
+[2025-10-19T22:25:59.409Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Analyzing and Fact Checking - Fake news sources and how to ... - https://library.alamancecc.edu/fake/analyzing
+[2025-10-19T22:25:59.411Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Fact Checking Sites - Intermediate Senior Media and Digital ... - https://guides.library.queensu.ca/is-media-literacy/fact-checking
+[2025-10-19T22:25:59.412Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
+[2025-10-19T22:25:59.414Z] [INFO] [INTERNET_SEARCH] Query: Neal Mohan current YouTube health safety fact check verification debunk
+[2025-10-19T22:26:00.632Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
+[2025-10-19T22:26:00.640Z] [INFO] [INTERNET_SEARCH]   1. Welcome to 'Is This Legit?' - https://www.youtube.com/watch?v=5XhjbGpqwmw
+[2025-10-19T22:26:00.646Z] [INFO] [INTERNET_SEARCH]   2. Verification of news and information by using fact checking is easier than you think.  #factscheck - https://www.youtube.com/watch?v=bN0YJeOKT4k
+[2025-10-19T22:26:00.655Z] [INFO] [INTERNET_SEARCH]   3. YouTube says removing videos isn't enough to combat COVID-19 misinformation - https://www.mobihealthnews.com/news/youtube-says-removing-videos-isnt-enough-combat-covid-19-misinformation
+[2025-10-19T22:26:00.663Z] [INFO] [INTERNET_SEARCH] After social media filtering: 1 results
+[2025-10-19T22:26:00.669Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): YouTube says removing videos isn't enough to combat COVID-19 misinformation - https://www.mobihealthnews.com/news/youtube-says-removing-videos-isnt-enough-combat-covid-19-misinformation
+[2025-10-19T22:26:00.674Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
+[2025-10-19T22:26:00.677Z] [INFO] [INTERNET_SEARCH] Query: Neal Mohan current YouTube health safety site:reuters.com OR site:apnews.com OR site:bbc.com
+[2025-10-19T22:26:02.016Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
+[2025-10-19T22:26:02.021Z] [INFO] [INTERNET_SEARCH]   1. YouTube CEO says safety is "above anything else we do" - https://www.youtube.com/watch?v=hnayOg7QjoM
+[2025-10-19T22:26:02.023Z] [INFO] [INTERNET_SEARCH]   2. Reacting to Neal Mohan's 2024 @YouTube Priorities Letter - https://www.youtube.com/watch?v=l2-ktAOxyiA
+[2025-10-19T22:26:02.027Z] [INFO] [INTERNET_SEARCH]   3. YouTube - Wikipedia - https://en.wikipedia.org/wiki/YouTube_user_(identifier)
+[2025-10-19T22:26:02.031Z] [INFO] [INTERNET_SEARCH] After social media filtering: 1 results
+[2025-10-19T22:26:02.034Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): YouTube - Wikipedia - https://en.wikipedia.org/wiki/YouTube_user_(identifier)
+[2025-10-19T22:26:02.039Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
+[2025-10-19T22:26:02.043Z] [INFO] [INTERNET_SEARCH] Query: Neal Mohan current YouTube health safety site:nytimes.com OR site:washingtonpost.com OR site:theguardian.com
+[2025-10-19T22:26:03.261Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
+[2025-10-19T22:26:03.262Z] [INFO] [INTERNET_SEARCH]   1. Reacting to Neal Mohan's 2024 @YouTube Priorities Letter - https://www.youtube.com/watch?v=l2-ktAOxyiA
+[2025-10-19T22:26:03.263Z] [INFO] [INTERNET_SEARCH]   2. Neal Mohan, CEO of YouTube - https://www.youtube.com/watch?v=TwHn-O_GeSg
+[2025-10-19T22:26:03.264Z] [INFO] [INTERNET_SEARCH]   3. Articles by Neal Mohan - YouTube CEO - https://blog.youtube/neal/
+[2025-10-19T22:26:03.265Z] [INFO] [INTERNET_SEARCH] After social media filtering: 1 results
+[2025-10-19T22:26:03.265Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Articles by Neal Mohan - YouTube CEO - https://blog.youtube/neal/
+[2025-10-19T22:26:03.266Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
+[2025-10-19T22:26:03.266Z] [INFO] [INTERNET_SEARCH] Query: Neal Mohan current YouTube health safety site:techcrunch.com OR site:theverge.com OR site:wired.com
+[2025-10-19T22:26:04.757Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
+[2025-10-19T22:26:04.758Z] [INFO] [INTERNET_SEARCH]   1. YouTube's Neal Mohan describes the company's efforts on ... - https://techcrunch.com/2019/10/02/youtubes-neal-mohan-describes-the-companys-efforts-on-safety-and-trust/
+[2025-10-19T22:26:04.759Z] [INFO] [INTERNET_SEARCH]   2. YouTube’s Neal Mohan describes the company’s efforts on safety and trust - People & Tech - https://peopleandtech.org/youtubes-neal-mohan-describes-the-companys-efforts-on-safety-and-trust/
+[2025-10-19T22:26:04.760Z] [INFO] [INTERNET_SEARCH]   3. Q&A with YouTube CEO Neil Mohan ... - https://www.techmeme.com/250918/p41
+[2025-10-19T22:26:04.761Z] [INFO] [INTERNET_SEARCH] After social media filtering: 3 results
+[2025-10-19T22:26:04.763Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): YouTube’s Neal Mohan describes the company’s efforts on safety and trust - People & Tech - https://peopleandtech.org/youtubes-neal-mohan-describes-the-companys-efforts-on-safety-and-trust/
+[2025-10-19T22:26:04.764Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Q&A with YouTube CEO Neil Mohan ... - https://www.techmeme.com/250918/p41
+[2025-10-19T22:26:04.765Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 1 results
+[2025-10-19T22:26:04.766Z] [INFO] [INTERNET_SEARCH] Query: Neal Mohan current YouTube health safety news report authentic source verification
+[2025-10-19T22:26:05.916Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
+[2025-10-19T22:26:05.917Z] [INFO] [INTERNET_SEARCH]   1. YouTube CEO Neal Mohan Shares How the Platform Innovates - https://www.youtube.com/watch?v=9aUSUwZzutQ
+[2025-10-19T22:26:05.920Z] [INFO] [INTERNET_SEARCH]   2. YouTube CEO says safety is "above anything else we do" - https://www.youtube.com/watch?v=hnayOg7QjoM
+[2025-10-19T22:26:05.922Z] [INFO] [INTERNET_SEARCH]   3. Perspective: Tackling Misinformation on YouTube - https://blog.youtube/inside-youtube/tackling-misinfo/
+[2025-10-19T22:26:05.924Z] [INFO] [INTERNET_SEARCH] After social media filtering: 1 results
+[2025-10-19T22:26:05.925Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Perspective: Tackling Misinformation on YouTube - https://blog.youtube/inside-youtube/tackling-misinfo/
+[2025-10-19T22:26:05.925Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
+[2025-10-19T22:26:05.927Z] [INFO] [INTERNET_SEARCH] Results: 1 authentic sources found
+[2025-10-19T22:26:05.928Z] [JSON] [INTERNET_SEARCH] Internet Sources:
 [
   {
-    "url": "https://www.youtube.com/watch?v=Rb-ZAAcTjoc",
-    "platform": "youtube",
-    "title": "Pakistan Wins Non-Permanent Seat on UNSC With Big Majority in UNGA Vote | DAWN News English",
-    "content": {
-      "text": [],
-      "images": [
-        {
-          "url": "https://i.ytimg.com/vi/Rb-ZAAcTjoc/hqdefault.jpg",
-          "filename": "youtube_1760896562979_1000.jpg",
-          "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\youtube_1760896562979_1000.jpg"
-        }
-      ],
-      "videos": [
-        {
-          "url": "https://www.youtube.com/watch?v=Rb-ZAAcTjoc",
-          "filename": "youtube_1760896563422_0.mp4",
-          "type": "video",
-          "localPath": null,
-          "linkedAudio": "youtube_1760896563422_0.mp3"
-        }
-      ],
-      "audio": [
-        {
-          "url": "https://www.youtube.com/watch?v=Rb-ZAAcTjoc",
-          "filename": "youtube_1760896563422_0.mp3",
-          "type": "audio",
-          "localPath": null,
-          "linkedVideo": "youtube_1760896563422_0.mp4"
-        }
-      ]
-    }
-  },
-  {
-    "url": "https://www.youtube.com/watch?v=1c-3wr9yNEs",
-    "platform": "youtube",
-    "title": "Pakistan's Presidency of the UN Security Council - Press Conference | United Nations",
-    "content": {
-      "text": [],
-      "images": [
-        {
-          "url": "https://i.ytimg.com/vi/1c-3wr9yNEs/hqdefault.jpg",
-          "filename": "youtube_1760896575174_1000.jpg",
-          "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\youtube_1760896575174_1000.jpg"
-        }
-      ],
-      "videos": [
-        {
-          "url": "https://www.youtube.com/watch?v=1c-3wr9yNEs",
-          "filename": "youtube_1760896575473_0.mp4",
-          "type": "video",
-          "localPath": null,
-          "linkedAudio": "youtube_1760896575473_0.mp3"
-        }
-      ],
-      "audio": [
-        {
-          "url": "https://www.youtube.com/watch?v=1c-3wr9yNEs",
-          "filename": "youtube_1760896575473_0.mp3",
-          "type": "audio",
-          "localPath": null,
-          "linkedVideo": "youtube_1760896575473_0.mp4"
-        }
-      ]
-    }
-  }
-]
-[2025-10-19T17:58:22.396Z] [INFO] [ANALYZE_HANDLER] Starting analysis for session session_1760896561342 with 2 posts
-[2025-10-19T17:58:22.530Z] [INFO] [ANALYZE_HANDLER] 📁 Using local file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760896562979_1000.jpg
-[2025-10-19T17:58:25.567Z] [INFO] [ANALYZE] Analyzing content: text=108chars, type=social_media_post, mediaType=image
-[2025-10-19T17:58:25.574Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760896562979_1000.jpg
-[2025-10-19T17:58:29.902Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760896562979_1000.jpg
-[2025-10-19T17:58:29.908Z] [INFO] [ANALYZE] Analysis complete: success=true
-[2025-10-19T17:58:29.958Z] [WARN] [ANALYZE_HANDLER] ⚠️  Failed to cleanup file youtube_1760896562979_1000.jpg: Error: ENOENT: no such file or directory, unlink 'C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760896562979_1000.jpg'
-[2025-10-19T17:58:29.962Z] [INFO] [ANALYZE_HANDLER] Image analysis completed: youtube_1760896562979_1000.jpg
-[2025-10-19T17:58:29.965Z] [INFO] [ANALYZE_HANDLER] ✅ Image Analysis Result for youtube_1760896562979_1000.jpg:
-[2025-10-19T17:58:30.023Z] [INFO] [ANALYZE_HANDLER] 📝 Description: Pakistan secured a non-permanent seat on the United Nations Security Council (UNSC) with a significant majority in the UN General Assembly vote. This victory marks Pakistan's eighth term on the UNSC, ...
-[2025-10-19T17:58:30.112Z] [INFO] [ANALYZE_HANDLER] 🤖 Model: amazon.nova-pro-v1:0
-[2025-10-19T17:58:30.221Z] [INFO] [ANALYZE_HANDLER] 📁 Using URL: https://www.youtube.com/watch?v=Rb-ZAAcTjoc
-[2025-10-19T17:58:31.434Z] [INFO] [ANALYZE] Analyzing content: text=108chars, type=social_media_post, mediaType=video
-[2025-10-19T17:58:31.437Z] [INFO] [ANALYZE] Sending to /api/analyze/video/path: video - https://www.youtube.com/watch?v=Rb-ZAAcTjoc
-[2025-10-19T17:58:34.275Z] [ERROR] [ANALYZE] ❌ Python backend error response: 500 Internal Server Error | Error: "{\"success\":false,\"error\":{\"code\":\"INTERNAL_ERROR\",\"message\":\"Video analysis failed: Could not open video file\"},\"timestamp\":\"2025-10-19T17:58:34.272066Z\"}"
-[2025-10-19T17:58:34.277Z] [ERROR] [ANALYZE] video analysis failed: | Error: Python backend error: 500 Internal Server Error - {"success":false,"error":{"code":"INTERNAL_ERROR","message":"Video analysis failed: Could not open video file"},"timestamp":"2025-10-19T17:58:34.272066Z"}
-[2025-10-19T17:58:34.425Z] [INFO] [ANALYZE] Analysis complete: success=false
-[2025-10-19T17:58:34.434Z] [INFO] [ANALYZE_HANDLER] Video analysis completed: youtube_1760896563422_0.mp4
-[2025-10-19T17:58:34.438Z] [INFO] [ANALYZE_HANDLER] 📁 Using URL: https://www.youtube.com/watch?v=Rb-ZAAcTjoc
-[2025-10-19T17:58:34.863Z] [INFO] [ANALYZE] Analyzing content: text=108chars, type=social_media_post, mediaType=audio
-[2025-10-19T17:58:34.864Z] [INFO] [ANALYZE] Sending to /api/analyze/audio/path: audio - https://www.youtube.com/watch?v=Rb-ZAAcTjoc
-[2025-10-19T17:58:36.106Z] [ERROR] [ANALYZE] ❌ Python backend error response: 500 Internal Server Error | Error: "{\"success\":false,\"error\":{\"code\":\"INTERNAL_ERROR\",\"message\":\"Comprehensive audio analysis failed: Unknown error\"},\"timestamp\":\"2025-10-19T17:58:36.098116Z\"}"
-[2025-10-19T17:58:36.110Z] [ERROR] [ANALYZE] audio analysis failed: | Error: Python backend error: 500 Internal Server Error - {"success":false,"error":{"code":"INTERNAL_ERROR","message":"Comprehensive audio analysis failed: Unknown error"},"timestamp":"2025-10-19T17:58:36.098116Z"}
-[2025-10-19T17:58:36.530Z] [INFO] [ANALYZE] Analysis complete: success=false
-[2025-10-19T17:58:36.555Z] [INFO] [ANALYZE_HANDLER] Audio analysis completed: youtube_1760896563422_0.mp3
-[2025-10-19T17:58:36.558Z] [INFO] [ANALYZE_HANDLER] 📁 Using local file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760896575174_1000.jpg
-[2025-10-19T17:58:37.242Z] [INFO] [ANALYZE] Analyzing content: text=101chars, type=social_media_post, mediaType=image
-[2025-10-19T17:58:37.243Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760896575174_1000.jpg
-[2025-10-19T17:58:39.859Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760896575174_1000.jpg
-[2025-10-19T17:58:39.860Z] [INFO] [ANALYZE] Analysis complete: success=true
-[2025-10-19T17:58:39.883Z] [WARN] [ANALYZE_HANDLER] ⚠️  Failed to cleanup file youtube_1760896575174_1000.jpg: Error: ENOENT: no such file or directory, unlink 'C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760896575174_1000.jpg'
-[2025-10-19T17:58:39.885Z] [INFO] [ANALYZE_HANDLER] Image analysis completed: youtube_1760896575174_1000.jpg
-[2025-10-19T17:58:39.888Z] [INFO] [ANALYZE_HANDLER] ✅ Image Analysis Result for youtube_1760896575174_1000.jpg:
-[2025-10-19T17:58:39.890Z] [INFO] [ANALYZE_HANDLER] 📝 Description: The man in the image is likely a representative from Pakistan, given the context of the image and the background knowledge provided. He is wearing a black suit and a blue shirt, and he is sitting at a...
-[2025-10-19T17:58:39.894Z] [INFO] [ANALYZE_HANDLER] 🤖 Model: amazon.nova-pro-v1:0
-[2025-10-19T17:58:40.001Z] [INFO] [ANALYZE_HANDLER] 📁 Using URL: https://www.youtube.com/watch?v=1c-3wr9yNEs
-[2025-10-19T17:58:41.093Z] [INFO] [ANALYZE] Analyzing content: text=101chars, type=social_media_post, mediaType=video
-[2025-10-19T17:58:41.094Z] [INFO] [ANALYZE] Sending to /api/analyze/video/path: video - https://www.youtube.com/watch?v=1c-3wr9yNEs
-[2025-10-19T17:58:42.421Z] [ERROR] [ANALYZE] ❌ Python backend error response: 500 Internal Server Error | Error: "{\"success\":false,\"error\":{\"code\":\"INTERNAL_ERROR\",\"message\":\"Video analysis failed: Could not open video file\"},\"timestamp\":\"2025-10-19T17:58:42.416764Z\"}"
-[2025-10-19T17:58:42.437Z] [ERROR] [ANALYZE] video analysis failed: | Error: Python backend error: 500 Internal Server Error - {"success":false,"error":{"code":"INTERNAL_ERROR","message":"Video analysis failed: Could not open video file"},"timestamp":"2025-10-19T17:58:42.416764Z"}
-[2025-10-19T17:58:42.689Z] [INFO] [ANALYZE] Analysis complete: success=false
-[2025-10-19T17:58:42.698Z] [INFO] [ANALYZE_HANDLER] Video analysis completed: youtube_1760896575473_0.mp4
-[2025-10-19T17:58:42.700Z] [INFO] [ANALYZE_HANDLER] 📁 Using URL: https://www.youtube.com/watch?v=1c-3wr9yNEs
-[2025-10-19T17:58:43.507Z] [INFO] [ANALYZE] Analyzing content: text=101chars, type=social_media_post, mediaType=audio
-[2025-10-19T17:58:43.510Z] [INFO] [ANALYZE] Sending to /api/analyze/audio/path: audio - https://www.youtube.com/watch?v=1c-3wr9yNEs
-[2025-10-19T17:58:44.768Z] [ERROR] [ANALYZE] ❌ Python backend error response: 500 Internal Server Error | Error: "{\"success\":false,\"error\":{\"code\":\"INTERNAL_ERROR\",\"message\":\"Comprehensive audio analysis failed: Unknown error\"},\"timestamp\":\"2025-10-19T17:58:44.761423Z\"}"
-[2025-10-19T17:58:44.773Z] [ERROR] [ANALYZE] audio analysis failed: | Error: Python backend error: 500 Internal Server Error - {"success":false,"error":{"code":"INTERNAL_ERROR","message":"Comprehensive audio analysis failed: Unknown error"},"timestamp":"2025-10-19T17:58:44.761423Z"}
-[2025-10-19T17:58:44.947Z] [INFO] [ANALYZE] Analysis complete: success=false
-[2025-10-19T17:58:44.957Z] [INFO] [ANALYZE_HANDLER] Audio analysis completed: youtube_1760896575473_0.mp3
-[2025-10-19T17:58:44.959Z] [INFO] [ANALYZE_HANDLER] Analysis complete for session session_1760896561342: 6 completed, 0 errors
-[2025-10-19T17:58:44.961Z] [INFO] [ANALYZE_HANDLER] 🎉 ANALYSIS SUMMARY:
-[2025-10-19T17:58:44.963Z] [INFO] [ANALYZE_HANDLER] 📊 Total Items: 6
-[2025-10-19T17:58:44.964Z] [INFO] [ANALYZE_HANDLER] ✅ Successful: 2
-[2025-10-19T17:58:44.965Z] [INFO] [ANALYZE_HANDLER] ❌ Failed: 0
-[2025-10-19T17:58:44.967Z] [INFO] [ANALYZE_HANDLER] 🖼️  Images analyzed: 2
-[2025-10-19T17:58:44.970Z] [INFO] [ANALYZE_HANDLER] 🎯 FINAL CLAIMS ANALYSIS:
-[2025-10-19T17:58:44.972Z] [INFO] [ANALYZE_HANDLER] [
-  {
-    "postIndex": 0,
-    "postTitle": "Pakistan Wins Non-Permanent Seat on UNSC With Big Majority in UNGA Vote | DAWN News English",
-    "postUrl": "https://www.youtube.com/watch?v=Rb-ZAAcTjoc",
-    "platform": "youtube",
-    "overallClaim": "Comprehensive evidence supports: Pakistan Wins Non-Permanent Seat on UNSC With Big Majority in UNGA Vote | DAWN News English - Multiple media sources provide detailed documentation of events.",
-    "evidenceAnalysis": {
-      "images": [
-        "Pakistan secured a non-permanent seat on the United Nations Security Council (UNSC) with a significant majority in the UN General Assembly vote. This victory marks Pakistan's eighth term on the UNSC, reflecting its ongoing commitment to international diplomacy and peacekeeping efforts. The successful bid underscores Pakistan's active role in global affairs and its dedication to contributing to international peace and security. This achievement is a testament to Pakistan's diplomatic efforts and its ability to garner support from the international community."
-      ],
-      "videos": [],
-      "audio": []
-    },
-    "confidenceLevel": "low",
-    "analysisCount": {
-      "total": 3,
-      "successful": 1,
-      "failed": 2
-    }
-  },
-  {
-    "postIndex": 1,
-    "postTitle": "Pakistan's Presidency of the UN Security Council - Press Conference | United Nations",
-    "postUrl": "https://www.youtube.com/watch?v=1c-3wr9yNEs",
-    "platform": "youtube",
-    "overallClaim": "Comprehensive evidence supports: Pakistan's Presidency of the UN Security Council - Press Conference | United Nations - Multiple media sources provide detailed documentation of events.",
-    "evidenceAnalysis": {
-      "images": [
-        "The man in the image is likely a representative from Pakistan, given the context of the image and the background knowledge provided. He is wearing a black suit and a blue shirt, and he is sitting at a desk with a microphone and a computer monitor in front of him. He is looking at the camera and seems to be giving a speech or press conference. Behind him is a blue wall with the United Nations logo and the words \"United Nations\" in different languages. There is also a flag of the United Nations on the left side of the image. The image is likely from a press conference held during Pakistan's presidency of the UN Security Council in January 2024."
-      ],
-      "videos": [],
-      "audio": []
-    },
-    "confidenceLevel": "low",
-    "analysisCount": {
-      "total": 3,
-      "successful": 1,
-      "failed": 2
-    }
-  }
-]
-[2025-10-19T17:58:58.861Z] [INFO] [INTERNET_SEARCH] Request: query=60chars, links=0, analysis=116chars
-[2025-10-19T17:58:58.863Z] [INFO] [INTERNET_SEARCH] Query: Pakistan secured permanent seat United Nations health safety site:snopes.com OR site:factcheck.org OR site:politifact.com
-[2025-10-19T17:58:59.558Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T17:58:59.561Z] [INFO] [INTERNET_SEARCH]   1. FACT CHECK: Has Pakistan Won Permanent Presidency of UNSC with 182 out of 193 Votes? - https://www.youtube.com/watch?v=Cxzyji_fvD4
-[2025-10-19T17:58:59.563Z] [INFO] [INTERNET_SEARCH]   2. Pakistan elected to UNSC for historic eighth term - https://www.dawn.com/news/1838300
-[2025-10-19T17:58:59.565Z] [INFO] [INTERNET_SEARCH]   3. Pakistan wins non-permanent seat on UNSC with big majority in UNGA vote - https://www.youtube.com/watch?v=QwYOJF4qJmA
-[2025-10-19T17:58:59.568Z] [INFO] [INTERNET_SEARCH] After social media filtering: 1 results
-[2025-10-19T17:58:59.571Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan elected to UNSC for historic eighth term - https://www.dawn.com/news/1838300
-[2025-10-19T17:58:59.573Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T17:58:59.575Z] [INFO] [INTERNET_SEARCH] Query: Pakistan secured permanent seat United Nations health safety fact check verification debunk
-[2025-10-19T17:59:00.093Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T17:59:00.096Z] [INFO] [INTERNET_SEARCH]   1. Permanent Mission of Pakistan to The United Nations | New ... - https://pakun.org
-[2025-10-19T17:59:00.098Z] [INFO] [INTERNET_SEARCH]   2. FACT CHECK: Has Pakistan Won Permanent Presidency of UNSC with 182 out of 193 Votes? - https://www.youtube.com/watch?v=Cxzyji_fvD4
-[2025-10-19T17:59:00.101Z] [INFO] [INTERNET_SEARCH]   3. Pakistan and the United Nations - Wikipediaen.wikipedia.org › wiki › Pakistan_and_the_United_Nations - https://en.wikipedia.org/wiki/Pakistan_and_the_United_Nations
-[2025-10-19T17:59:00.104Z] [INFO] [INTERNET_SEARCH] After social media filtering: 2 results
-[2025-10-19T17:59:00.107Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Permanent Mission of Pakistan to The United Nations | New ... - https://pakun.org
-[2025-10-19T17:59:00.109Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan and the United Nations - Wikipediaen.wikipedia.org › wiki › Pakistan_and_the_United_Nations - https://en.wikipedia.org/wiki/Pakistan_and_the_United_Nations
-[2025-10-19T17:59:00.112Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T17:59:00.116Z] [INFO] [INTERNET_SEARCH] Query: Pakistan secured permanent seat United Nations health safety site:reuters.com OR site:apnews.com OR site:bbc.com
-[2025-10-19T17:59:01.531Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T17:59:01.533Z] [INFO] [INTERNET_SEARCH]   1. Pakistan elected to UNSC for historic eighth term - https://www.dawn.com/news/1838300
-[2025-10-19T17:59:01.534Z] [INFO] [INTERNET_SEARCH]   2. Permanent Representative of Pakistan to the United Nations - Wikipedia - https://en.wikipedia.org/wiki/Pakistan_Ambassador_to_the_United_Nations
-[2025-10-19T17:59:01.536Z] [INFO] [INTERNET_SEARCH]   3. Pakistan Secures A seat on UN Security Council with overwhelming majority | Breaking News - https://www.youtube.com/watch?v=eq_VRE91gqs
-[2025-10-19T17:59:01.540Z] [INFO] [INTERNET_SEARCH] After social media filtering: 2 results
-[2025-10-19T17:59:01.543Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan elected to UNSC for historic eighth term - https://www.dawn.com/news/1838300
-[2025-10-19T17:59:01.546Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Permanent Representative of Pakistan to the United Nations - Wikipedia - https://en.wikipedia.org/wiki/Pakistan_Ambassador_to_the_United_Nations
-[2025-10-19T17:59:01.553Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T17:59:01.556Z] [INFO] [INTERNET_SEARCH] Query: Pakistan secured permanent seat United Nations health safety site:nytimes.com OR site:washingtonpost.com OR site:theguardian.com
-[2025-10-19T17:59:02.113Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T17:59:02.116Z] [INFO] [INTERNET_SEARCH]   1. Pakistan elected to UNSC for historic eighth term - https://www.dawn.com/news/1838300
-[2025-10-19T17:59:02.118Z] [INFO] [INTERNET_SEARCH]   2. Pakistan and the United Nations - Wikipediaen.wikipedia.org › wiki › Pakistan_and_the_United_Nations - https://en.wikipedia.org/wiki/Pakistan_and_the_United_Nations
-[2025-10-19T17:59:02.119Z] [INFO] [INTERNET_SEARCH]   3. Pakistan opposes India's demand for UNSC seat - World - https://www.dawn.com/news/1581834
-[2025-10-19T17:59:02.120Z] [INFO] [INTERNET_SEARCH] After social media filtering: 3 results
-[2025-10-19T17:59:02.122Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan elected to UNSC for historic eighth term - https://www.dawn.com/news/1838300
-[2025-10-19T17:59:02.126Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan and the United Nations - Wikipediaen.wikipedia.org › wiki › Pakistan_and_the_United_Nations - https://en.wikipedia.org/wiki/Pakistan_and_the_United_Nations
-[2025-10-19T17:59:02.129Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan opposes India's demand for UNSC seat - World - https://www.dawn.com/news/1581834
-[2025-10-19T17:59:02.133Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T17:59:02.136Z] [INFO] [INTERNET_SEARCH] Query: Pakistan secured permanent seat United Nations health safety site:techcrunch.com OR site:theverge.com OR site:wired.com
-[2025-10-19T17:59:03.294Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T17:59:03.296Z] [INFO] [INTERNET_SEARCH]   1. Pakistan elected to UNSC for historic eighth term - https://www.dawn.com/news/1838300
-[2025-10-19T17:59:03.297Z] [INFO] [INTERNET_SEARCH]   2. Russian government hackers found using exploits made by ... - https://techcrunch.com/2024/08/29/russian-government-hackers-found-using-exploits-made-by-spyware-companies-nso-and-intellexa/
-[2025-10-19T17:59:03.303Z] [INFO] [INTERNET_SEARCH]   3. Pakistan enters UN Security Council at key juncture in ... - https://www.dawn.com/news/1882311
-[2025-10-19T17:59:03.309Z] [INFO] [INTERNET_SEARCH] After social media filtering: 3 results
-[2025-10-19T17:59:03.313Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan elected to UNSC for historic eighth term - https://www.dawn.com/news/1838300
-[2025-10-19T17:59:03.316Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan enters UN Security Council at key juncture in ... - https://www.dawn.com/news/1882311
-[2025-10-19T17:59:03.322Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 1 results
-[2025-10-19T17:59:03.325Z] [INFO] [INTERNET_SEARCH] Query: Pakistan secured permanent seat United Nations health safety news report authentic source verification
-[2025-10-19T17:59:03.845Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T17:59:03.852Z] [INFO] [INTERNET_SEARCH]   1. Permanent Mission of Pakistan to The United Nations | New ... - https://pakun.org
-[2025-10-19T17:59:03.858Z] [INFO] [INTERNET_SEARCH]   2. Permanent Representative of Pakistan to the United Nations - Wikipedia - https://en.wikipedia.org/wiki/Permanent_Representative_of_Pakistan_to_the_United_Nations
-[2025-10-19T17:59:03.861Z] [INFO] [INTERNET_SEARCH]   3. A Brief History: Pakistan at the United Nations Security Council | Dawn News English - https://www.youtube.com/watch?v=JsWjwh_Qqf4
-[2025-10-19T17:59:03.865Z] [INFO] [INTERNET_SEARCH] After social media filtering: 2 results
-[2025-10-19T17:59:03.869Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Permanent Mission of Pakistan to The United Nations | New ... - https://pakun.org
-[2025-10-19T17:59:03.872Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Permanent Representative of Pakistan to the United Nations - Wikipedia - https://en.wikipedia.org/wiki/Permanent_Representative_of_Pakistan_to_the_United_Nations
-[2025-10-19T17:59:03.874Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T17:59:03.877Z] [INFO] [INTERNET_SEARCH] Results: 1 authentic sources found
-[2025-10-19T17:59:03.879Z] [JSON] [INTERNET_SEARCH] Internet Sources:
-[
-  {
-    "title": "Russian government hackers found using exploits made by ...",
-    "url": "https://techcrunch.com/2024/08/29/russian-government-hackers-found-using-exploits-made-by-spyware-companies-nso-and-intellexa/",
+    "title": "YouTube's Neal Mohan describes the company's efforts on ...",
+    "url": "https://techcrunch.com/2019/10/02/youtubes-neal-mohan-describes-the-companys-efforts-on-safety-and-trust/",
     "source": "TechCrunch",
     "credibilityScore": 85,
     "category": "tech"
   }
 ]
-[2025-10-19T17:59:03.883Z] [SEP] [INTERNET_SEARCH] 
+[2025-10-19T22:26:05.931Z] [SEP] [INTERNET_SEARCH] 
 ==========================================
 🌐 INTERNET SEARCH API FINAL RESPONSE
 ==========================================
-[2025-10-19T17:59:03.887Z] [JSON] [INTERNET_SEARCH] Final Response:
+[2025-10-19T22:26:05.933Z] [JSON] [INTERNET_SEARCH] Final Response:
 {
   "success": true,
-  "query": "Pakistan secured permanent seat United Nations health safety",
-  "viralContentAnalysis": "Find sources for fact-checking this social media claim: Pakistan secured permanent seat United Nations health safety",
+  "query": "Neal Mohan current YouTube health safety",
+  "viralContentAnalysis": "Find sources for fact-checking this social media claim: Neal Mohan current YouTube health safety",
   "extractedLinks": [],
   "internetSources": [
     {
-      "title": "Russian government hackers found using exploits made by ...",
-      "url": "https://techcrunch.com/2024/08/29/russian-government-hackers-found-using-exploits-made-by-spyware-companies-nso-and-intellexa/",
+      "title": "YouTube's Neal Mohan describes the company's efforts on ...",
+      "url": "https://techcrunch.com/2019/10/02/youtubes-neal-mohan-describes-the-companys-efforts-on-safety-and-trust/",
       "source": "TechCrunch",
       "credibilityScore": 85,
       "category": "tech"
@@ -461,617 +100,104 @@ ERROR: [youtube] Rb-ZAAcTjoc: Video unavailable. This content is currently unava
   "averageCredibilityScore": 85,
   "searchType": "authentic_news_sources"
 }
-[2025-10-19T17:59:04.816Z] [INFO] [SEGREGATE] Starting segregation process
-[2025-10-19T17:59:04.820Z] [INFO] [SEGREGATE] Processing 1 social media posts
-[2025-10-19T17:59:04.821Z] [INFO] [SEGREGATE] Analyzing post 1: Russian government hackers found using exploits made by ...
-[2025-10-19T17:59:06.189Z] [INFO] [SEGREGATE] Downloaded: other_1760896746138_0.jpg (7664 bytes)
-[2025-10-19T17:59:06.422Z] [INFO] [SEGREGATE] Downloaded: other_1760896746139_1.jpg (389 bytes)
-[2025-10-19T17:59:06.429Z] [INFO] [SEGREGATE] Downloaded: other_1760896746142_4.jpg (6759 bytes)
-[2025-10-19T17:59:06.444Z] [INFO] [SEGREGATE] Downloaded: other_1760896746143_6.jpg (248 bytes)
-[2025-10-19T17:59:06.647Z] [INFO] [SEGREGATE] Downloaded: other_1760896746142_5.jpg (207049 bytes)
-[2025-10-19T17:59:07.480Z] [INFO] [SEGREGATE] Downloaded: other_1760896746141_3.jpg (84413 bytes)
-[2025-10-19T17:59:07.486Z] [INFO] [SEGREGATE] Downloaded: other_1760896746140_2.jpg (98485 bytes)
-[2025-10-19T17:59:07.496Z] [INFO] [SEGREGATE] Segregation complete: 1 posts processed
-[2025-10-19T17:59:07.628Z] [JSON] [SEGREGATE] Segregated Posts:
+[2025-10-19T22:26:06.451Z] [INFO] [SEGREGATE] Starting segregation process
+[2025-10-19T22:26:06.453Z] [INFO] [SEGREGATE] Processing 1 social media posts
+[2025-10-19T22:26:06.453Z] [INFO] [SEGREGATE] Analyzing post 1: YouTube's Neal Mohan describes the company's efforts on ...
+[2025-10-19T22:26:08.028Z] [INFO] [SEGREGATE] Downloaded: other_1760912767893_1.jpg (389 bytes)
+[2025-10-19T22:26:08.029Z] [INFO] [SEGREGATE] Downloaded: other_1760912767891_0.jpg (7664 bytes)
+[2025-10-19T22:26:08.049Z] [INFO] [SEGREGATE] Downloaded: other_1760912767894_5.jpg (2633 bytes)
+[2025-10-19T22:26:08.068Z] [INFO] [SEGREGATE] Downloaded: other_1760912767895_7.jpg (248 bytes)
+[2025-10-19T22:26:08.209Z] [INFO] [SEGREGATE] Downloaded: other_1760912767895_6.jpg (207049 bytes)
+[2025-10-19T22:26:08.869Z] [INFO] [SEGREGATE] Downloaded: other_1760912767893_2.jpg (75786 bytes)
+[2025-10-19T22:26:09.272Z] [INFO] [SEGREGATE] Downloaded: other_1760912767894_3.jpg (632507 bytes)
+[2025-10-19T22:26:09.355Z] [INFO] [SEGREGATE] Downloaded: other_1760912767894_4.jpg (672220 bytes)
+[2025-10-19T22:26:09.358Z] [INFO] [SEGREGATE] Segregation complete: 1 posts processed
+[2025-10-19T22:26:09.359Z] [JSON] [SEGREGATE] Segregated Posts:
 [
   {
-    "url": "https://techcrunch.com/2024/08/29/russian-government-hackers-found-using-exploits-made-by-spyware-companies-nso-and-intellexa/",
+    "url": "https://techcrunch.com/2019/10/02/youtubes-neal-mohan-describes-the-companys-efforts-on-safety-and-trust/",
     "platform": "other",
-    "title": "Russian government hackers found using exploits made by ...",
+    "title": "YouTube's Neal Mohan describes the company's efforts on ...",
     "content": {
       "text": [
-        "\n\t\n\t\tLatest\t\n\n\t\n\t\tAI\t\n\n\t\n\t\tAmazon\t\n\n\t\n\t\tApps\t\n\n\t\n\t\tBiotech & Health\t\n\n\t\n\t\tClimate\t\n\n\t\n\t\tCloud Computing\t\n\n\t\n\t\tCommerce\t\n\n\t\n\t\tCrypto\t\n\n\t\n\t\tEnterprise\t\n\n\t\n\t\tEVs\t\n\n\t\n\t\tFintech\t\n\n\t\n\t\tFundraising\t\n\n\t\n\t\tGadgets\t\n\n\t\n\t\tGaming\t\n\n\t\n\t\tGoogle\t\n\n\t\n\t\tGovernment & Policy\t\n\n\t\n\t\tHardware\t\n\n\t\n\t\tInstagram\t\n\n\t\n\t\tLayoffs\t\n\n\t\n\t\tMedia & Entertainment\t\n\n\t\n\t\tMeta\t\n\n\t\n\t\tMicrosoft\t\n\n\t\n\t\tPrivacy\t\n\n\t\n\t\tRobotics\t\n\n\t\n\t\tSecurity\t\n\n\t\n\t\tSocial\t\n\n\t\n\t\tSpace\t\n\n\t\n\t\tStartups\t\n\n\t\n\t\tTikTok\t\n\n\t\n\t\tTransportation\t\n\n\t\n\t\tVenture\t\n\n\t\n\t\tStaff\t\n\n\t\n\t\tEvents\t\n\n\t\n\t\tStartup Battlefield\t\n\n\t\n\t\tStrictlyVC\t\n\n\t\n\t\tNewsletters\t\n\n\t\n\t\tPodcasts\t\n\n\t\n\t\tVideos\t\n\n\t\n\t\tPartner Content\t\n\n\t\n\t\tTechCrunch Brand Studio\t\n\n\t\n\t\tCrunchboard\t\n\n\t\n\t\tContact Us\t\nGoogle says it has evidence that Russian government hackers are using exploits that are “identical or strikingly similar” to those previously made by spyware makers Intellexa and NSO Group.In a blog post on Thursday, Google said it is not sure how the Russian government acquired the exploits, but said this is an example of how exploits developed by spyware makers can end up in the hands of “dangerous threat actors.”In this case, Google says the threat actors are APT29, a group of hackers widely attributed to Russia’s Foreign Intelligence Service, or the SVR. APT29 is a highly capable group of hackers, known for its long-running and persistent campaigns aimed at conducting espionage and data theft against a range of targets, including tech giants Microsoft and SolarWinds, as well as foreign governments.Google said it found the hidden exploit code embedded on Mongolian government websites between November 2023 and July 2024. During this time, anyone who visited these sites using an iPhone or Android device could have had their phone hacked and data stolen, including passwords, in what is known as a “watering hole” attack.The exploits took advantage of vulnerabilities in the iPhone’s Safari browser and Google Chrome on Android that had already been fixed at the time of the suspected Russian campaign. Still, those exploits nevertheless could be effective in compromising unpatched devices.According to the blog post, the exploit targeting iPhones and iPads was designed to steal user account cookies stored in Safari specifically across a range of online email providers that host the personal and work accounts of the Mongolian government. The attackers could use the stolen cookies to then access those government accounts. Google said the campaign aimed at targeting Android devices used two separate exploits together to steal user cookies stored in the Chrome browser.Google security researcher Clement Lecigne, who authored the blog post, told TechCrunch that it is not known for certain who the Russian government hackers were targeting in this campaign. “But based on where the exploit was hosted and who would normally visit these sites, we believe that Mongolian government employees were a likely target,” he said.Lecigne, who works for Google’s Threat Analysis Group, the security research unit that investigates government-backed cyber threats, said Google is linking the reuse of the code to Russia because the researchers previously observed the same cookie-stealing code used by APT29 during an earlier campaign in 2021.A key question remains: How did the Russian government hackers obtain the exploit code to begin with? Google said both iterations of the watering hole campaign targeting the Mongolian government used code resembling or matching exploits from Intellexa and NSO Group. These two companies are known for developing exploits capable of delivering spyware that can compromise fully patched iPhones and Android phones.Google said the exploit code used in the watering hole attack targeting Chrome users on Android shared a “very similar trigger” with an exploit developed earlier by NSO Group. In the case of the exploit targeting iPhones and iPads, Google said the code used the “exact same trigger as the exploit used by Intellexa,” which Google said strongly suggested that the exploit authors or providers “are the same.”When asked by TechCrunch about the reuse of exploit code, Lecigne said: “We do not believe the actor recreated the exploit,” ruling out the likelihood that the exploit was independently discovered by the Russian hackers. “There are multiple possibilities as to how they could have acquired the same exploit, including purchasing it after it was patched or stealing a copy of the exploit from another customer,” said Lecigne.NSO Group did not respond to TechCrunch’s inquiry prior to publication. In a statement provided after publication, NSO spokesperson Gil Lainer said: “NSO does not sell its products to Russia. Our technologies are sold exclusively to vetted U.S. & Israel-allied intelligence and law enforcement agencies. Our systems and technologies are highly secure and are continuously monitored to detect and neutralize external threats.”TechCrunch contacted the Russian Embassy in Washington, DC and Mongolia’s Permanent Mission to the United Nations in New York for comment, but did not hear back by press time. Intellexa could not be reached for comment. Apple spokesperson Shane Bauer did not respond to a request for comment.Google said users should “apply patches quickly” and keep software up-to-date to help prevent malicious cyberattacks. According to Lecigne, iPhone and iPad users with the high-security feature Lockdown Mode switched on were not affected even when running a vulnerable software version.Updated with post-publish response from NSO.Topics\n\t\tSecurity Editor\n\t\t\tZack Whittaker is the security editor at TechCrunch. He also authors the weekly cybersecurity newsletter, this week in security. He can be reached via encrypted message at zackwhittaker.1337 on Signal. You can also contact him by email, or to verify outreach, at zack.whittaker@techcrunch.com. Bring a +1 and save 60%Have a +1 you’d like to bring to Disrupt? Bring them along and save 60% on their pass. Or get up to 30% off on group passes.Join 10,000 founders, investors, and tech leaders — and save when you come together to the tech epicenter of the year.\t\t\t\tWhatsApp will curb the number of messages people and businesses can send without a response\n\t\t\t\t\t\t\tAmazon’s Ring to partner with Flock, a network of AI cameras used by ICE, feds, and police\n\t\t\t\t\t\t\tEightfold co-founders raise $35M for Viven, an AI digital twin startup for querying unavailable co-workers\n\t\t\t\t\t\t\tOpenAI has five years to turn $13 billion into $1 trillion\n\t\t\t\t\t\t\tSam Altman says ChatGPT will soon allow erotica for adult users\n\t\t\t\t\t\t\tGoogle’s Gemini can now help you schedule Google Calendar meetings\n\t\t\t\t\t\t\tCalifornia becomes first state to regulate AI companion chatbots\n\t\t\t© 2025 TechCrunch Media LLC."
+        "\n\t\n\t\tLatest\t\n\n\t\n\t\tAI\t\n\n\t\n\t\tAmazon\t\n\n\t\n\t\tApps\t\n\n\t\n\t\tBiotech & Health\t\n\n\t\n\t\tClimate\t\n\n\t\n\t\tCloud Computing\t\n\n\t\n\t\tCommerce\t\n\n\t\n\t\tCrypto\t\n\n\t\n\t\tEnterprise\t\n\n\t\n\t\tEVs\t\n\n\t\n\t\tFintech\t\n\n\t\n\t\tFundraising\t\n\n\t\n\t\tGadgets\t\n\n\t\n\t\tGaming\t\n\n\t\n\t\tGoogle\t\n\n\t\n\t\tGovernment & Policy\t\n\n\t\n\t\tHardware\t\n\n\t\n\t\tInstagram\t\n\n\t\n\t\tLayoffs\t\n\n\t\n\t\tMedia & Entertainment\t\n\n\t\n\t\tMeta\t\n\n\t\n\t\tMicrosoft\t\n\n\t\n\t\tPrivacy\t\n\n\t\n\t\tRobotics\t\n\n\t\n\t\tSecurity\t\n\n\t\n\t\tSocial\t\n\n\t\n\t\tSpace\t\n\n\t\n\t\tStartups\t\n\n\t\n\t\tTikTok\t\n\n\t\n\t\tTransportation\t\n\n\t\n\t\tVenture\t\n\n\t\n\t\tStaff\t\n\n\t\n\t\tEvents\t\n\n\t\n\t\tStartup Battlefield\t\n\n\t\n\t\tStrictlyVC\t\n\n\t\n\t\tNewsletters\t\n\n\t\n\t\tPodcasts\t\n\n\t\n\t\tVideos\t\n\n\t\n\t\tPartner Content\t\n\n\t\n\t\tTechCrunch Brand Studio\t\n\n\t\n\t\tCrunchboard\t\n\n\t\n\t\tContact Us\t\nYouTube Chief Product Officer Neal Mohan gave an update on all things YouTube at TechCrunch Disrupt SF. He touched on many different subjects, from YouTube Music updates to advertiser-friendly guidelines and tweaking YouTube’s recommendation algorithm.Mohan started right away with an update on YouTube Music. YouTube has accidentally become one of the biggest music streaming services in the world. And the company plans to take advantage of that.“Everybody knows music has been a core part of YouTube really since the day of the founding of the product,” he said.While YouTube Premium started as YouTube Red, the company rebranded its premium subscription service with a focus on YouTube Music. “It’s a music subscription service and it also brings the best of YouTube,” Mohan said.It is now available in 71 countries and YouTube is rolling out three personalized playlists today to make the service more competitive with Spotify and Apple Music.YouTube Music is launching three new personalized playlistsWith a renewed focus on YouTube Music, Google has decided to phase out Google Play Music to focus on YouTube Music instead. But there are still some missing features on YouTube Music.In particular, YouTube is working on porting three Google Play Music features: The ability to have a locker with personal music files, the ability to play local audio files on your Android device and the ability to transfer your playlists from Google Play Music to the YouTube Music app.“We’d like to do it in the near future but we want to make sure we nail that,” Mohan said. So it’s still a work in progress.Many YouTube creators have criticized the platform as some of their videos have been demonetized. Mohan mostly recapped some of YouTube’s efforts on this front to make sure that videos aren’t demonetized for no reason.“In addition to our community guidelines, we also have something called the advertiser-friendly guidelines. Those are the sets of rules that govern what type of content is eligible for monetization and what is not,” Mohan said.The company now has an appeal system so that creators can contest a demonetization decision. “There’s an SLA turnaround time for processing that appeal,” Mohan said.YouTube creators themselves can give advance warnings by saying what’s in a video, such as swear words, etc. Mohan believes that this model will make monetization more stable for YouTube creators.When it comes to autoplaying videos, watch next and personalized recommendations, YouTube has also been criticized for recommending conspiracy videos or simply weird stuff that makes you uncomfortable.“Lots of users are recommending content that you would call sort of more mainstream, sometimes it’s in the other direction,” Mohan said. “And one thing that we want to avoid is sending users down paths to more and more extreme content, especially when that content might not be quite policy violations — so it still exists on our platform — but it’s borderline in nature or maybe it’s spreading, you know, harmful misinformation in some way or the other.”YouTube started tweaking the recommendation algorithm back in January. Mohan says that there’s been a 50% reduction in user exposure to content “that we would deem to be in that bucket of sort of borderline or maybe harmful misinformation.”TechCrunch’s Matthew Panzarino and Neal Mohan also talked about Lilly Singh, a YouTube star who now has her own late night talk show on NBC — A Little Late with Lilly Singh.“When they were looking for a replacement host for that late night show, it made sense,” Mohan said. “Lilly has this natural way of connecting with the audience. But also because the nature of a lot of that late night content in particular is that it’s often viewed — not as it’s linearly broadcasted on live channels — but the next day on YouTube.”And Mohan doesn’t think she’s turning her back to YouTube. “She knows that her core audience, her most passionate fans are on YouTube,” he said.Finally, Mohan had two pieces of advice for people working on subscription businesses. First, make sure that the message is clear and that people know why they should subscribe. Second, optimize the funnel from user acquisition to retention, monetization, etc.[tc_unified_video code=”27280912-ce02-3655-b137-9e08ee34d61a”]Topics\n\t\tSenior Reporter\n\t\t\tBring a +1 and save 60%Have a +1 you’d like to bring to Disrupt? Bring them along and save 60% on their pass. Or get up to 30% off on group passes.Join 10,000 founders, investors, and tech leaders — and save when you come together to the tech epicenter of the year.\t\t\t\tWhatsApp will curb the number of messages people and businesses can send without a response\n\t\t\t\t\t\t\tAmazon’s Ring to partner with Flock, a network of AI cameras used by ICE, feds, and police\n\t\t\t\t\t\t\tEightfold co-founders raise $35M for Viven, an AI digital twin startup for querying unavailable co-workers\n\t\t\t\t\t\t\tOpenAI has five years to turn $13 billion into $1 trillion\n\t\t\t\t\t\t\tSam Altman says ChatGPT will soon allow erotica for adult users\n\t\t\t\t\t\t\tGoogle’s Gemini can now help you schedule Google Calendar meetings\n\t\t\t\t\t\t\tCalifornia becomes first state to regulate AI companion chatbots\n\t\t\t© 2025 TechCrunch Media LLC."
       ],
       "images": [
         {
           "url": "https://techcrunch.com/wp-content/uploads/2024/09/tc-lockup.svg",
-          "filename": "other_1760896746138_0.jpg",
+          "filename": "other_1760912767891_0.jpg",
           "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760896746138_0.jpg"
+          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767891_0.jpg"
         },
         {
           "url": "https://techcrunch.com/wp-content/uploads/2024/09/tc-logo-mobile.svg",
-          "filename": "other_1760896746139_1.jpg",
+          "filename": "other_1760912767893_1.jpg",
           "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760896746139_1.jpg"
+          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767893_1.jpg"
         },
         {
-          "url": "https://techcrunch.com/wp-content/uploads/2017/02/phone-encryption.png?w=1024",
-          "filename": "other_1760896746140_2.jpg",
+          "url": "https://techcrunch.com/wp-content/uploads/2019/10/disrupt-neal-mohan-youtube-0142.jpg?w=1024",
+          "filename": "other_1760912767893_2.jpg",
           "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760896746140_2.jpg"
+          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767893_2.jpg"
         },
         {
-          "url": "https://techcrunch.com/wp-content/uploads/2020/12/GettyImages-102512514.jpg?w=680",
-          "filename": "other_1760896746141_3.jpg",
+          "url": "https://techcrunch.com/wp-content/uploads/2019/10/disrupt-neal-mohan-youtube-0153.jpg",
+          "filename": "other_1760912767894_3.jpg",
           "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760896746141_3.jpg"
+          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767894_3.jpg"
         },
         {
-          "url": "https://techcrunch.com/wp-content/uploads/2024/10/whittaker_headshot_disrupt2024.jpg?w=150",
-          "filename": "other_1760896746142_4.jpg",
+          "url": "https://techcrunch.com/wp-content/uploads/2019/10/disrupt-neal-mohan-youtube-0137.jpg",
+          "filename": "other_1760912767894_4.jpg",
           "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760896746142_4.jpg"
+          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767894_4.jpg"
+        },
+        {
+          "url": "https://techcrunch.com/wp-content/uploads/2024/05/Romain-Dillet.jpg?w=150",
+          "filename": "other_1760912767894_5.jpg",
+          "type": "image",
+          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767894_5.jpg"
         },
         {
           "url": "https://techcrunch.com/wp-content/uploads/2025/07/TC25_Disrupt-Color.png",
-          "filename": "other_1760896746142_5.jpg",
+          "filename": "other_1760912767895_6.jpg",
           "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760896746142_5.jpg"
+          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767895_6.jpg"
         },
         {
           "url": "https://techcrunch.com/wp-content/themes/tc-24/dist/svg/tc-logo.svg",
-          "filename": "other_1760896746143_6.jpg",
+          "filename": "other_1760912767895_7.jpg",
           "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760896746143_6.jpg"
-        }
-      ],
-      "videos": [],
-      "audio": []
-    }
-  }
-]
-[2025-10-19T17:59:09.097Z] [INFO] [ANALYZE] Analyzing content: text=87chars, type=general, mediaType=image
-[2025-10-19T17:59:09.139Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760896746138_0.jpg
-[2025-10-19T17:59:09.189Z] [ERROR] [ANALYZE] ❌ Python backend error response: 500 Internal Server Error | Error: "{\"success\":false,\"error\":{\"code\":\"INTERNAL_ERROR\",\"message\":\"Image analysis failed: Unknown error\"},\"timestamp\":\"2025-10-19T17:59:09.181180Z\"}"
-[2025-10-19T17:59:09.195Z] [ERROR] [ANALYZE] image analysis failed: | Error: Python backend error: 500 Internal Server Error - {"success":false,"error":{"code":"INTERNAL_ERROR","message":"Image analysis failed: Unknown error"},"timestamp":"2025-10-19T17:59:09.181180Z"}
-[2025-10-19T17:59:09.647Z] [INFO] [ANALYZE] 🗑️  Cleaned up file after error: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760896746138_0.jpg
-[2025-10-19T17:59:09.650Z] [INFO] [ANALYZE] Analysis complete: success=false
-[2025-10-19T17:59:10.494Z] [INFO] [ANALYZE] Analyzing content: text=87chars, type=general, mediaType=image
-[2025-10-19T17:59:10.501Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760896746139_1.jpg
-[2025-10-19T17:59:10.523Z] [ERROR] [ANALYZE] ❌ Python backend error response: 500 Internal Server Error | Error: "{\"success\":false,\"error\":{\"code\":\"INTERNAL_ERROR\",\"message\":\"Image analysis failed: Unknown error\"},\"timestamp\":\"2025-10-19T17:59:10.514798Z\"}"
-[2025-10-19T17:59:10.527Z] [ERROR] [ANALYZE] image analysis failed: | Error: Python backend error: 500 Internal Server Error - {"success":false,"error":{"code":"INTERNAL_ERROR","message":"Image analysis failed: Unknown error"},"timestamp":"2025-10-19T17:59:10.514798Z"}
-[2025-10-19T17:59:10.616Z] [INFO] [ANALYZE] 🗑️  Cleaned up file after error: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760896746139_1.jpg
-[2025-10-19T17:59:10.617Z] [INFO] [ANALYZE] Analysis complete: success=false
-[2025-10-19T17:59:21.335Z] [INFO] [INTERNET_SEARCH] Request: query=62chars, links=0, analysis=118chars
-[2025-10-19T17:59:21.337Z] [INFO] [INTERNET_SEARCH] Query: Pakistan held presidency United Nations Security health safety site:snopes.com OR site:factcheck.org OR site:politifact.com
-[2025-10-19T17:59:24.161Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T17:59:24.162Z] [INFO] [INTERNET_SEARCH]   1. FACT CHECK: Has Pakistan Won Permanent Presidency of UNSC with 182 out of 193 Votes? - https://www.youtube.com/watch?v=Cxzyji_fvD4
-[2025-10-19T17:59:24.164Z] [INFO] [INTERNET_SEARCH]   2. Pakistan's Presidency of the UN Security Council - Press Conference | United Nations - https://www.youtube.com/watch?v=1c-3wr9yNEs
-[2025-10-19T17:59:24.165Z] [INFO] [INTERNET_SEARCH]   3. Pakistan and the United Nations - Wikipediaen.wikipedia.org › wiki › Pakistan_and_the_United_Nations - https://en.wikipedia.org/wiki/Pakistan_and_the_United_Nations
-[2025-10-19T17:59:24.167Z] [INFO] [INTERNET_SEARCH] After social media filtering: 1 results
-[2025-10-19T17:59:24.175Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan and the United Nations - Wikipediaen.wikipedia.org › wiki › Pakistan_and_the_United_Nations - https://en.wikipedia.org/wiki/Pakistan_and_the_United_Nations
-[2025-10-19T17:59:24.178Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T17:59:24.180Z] [INFO] [INTERNET_SEARCH] Query: Pakistan held presidency United Nations Security health safety fact check verification debunk
-[2025-10-19T17:59:28.131Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T17:59:28.132Z] [INFO] [INTERNET_SEARCH]   1. FACT CHECK: Has Pakistan Won Permanent Presidency of UNSC ... - https://www.youtube.com/watch?v=Cxzyji_fvD4
-[2025-10-19T17:59:28.133Z] [INFO] [INTERNET_SEARCH]   2. Pakistan has not won a permanent UNSC presidency - FACTLY - https://factly.in/pakistan-has-not-won-a-permanent-unsc-presidency-it-has-been-elected-only-as-a-non-permanent-member-for-a-two-year-term/
-[2025-10-19T17:59:28.134Z] [INFO] [INTERNET_SEARCH]   3. Pakistan and the United Nations - Wikipediaen.wikipedia.org › wiki › Pakistan_and_the_United_Nations - https://en.wikipedia.org/wiki/Pakistan_and_the_United_Nations
-[2025-10-19T17:59:28.136Z] [INFO] [INTERNET_SEARCH] After social media filtering: 2 results
-[2025-10-19T17:59:28.136Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan has not won a permanent UNSC presidency - FACTLY - https://factly.in/pakistan-has-not-won-a-permanent-unsc-presidency-it-has-been-elected-only-as-a-non-permanent-member-for-a-two-year-term/
-[2025-10-19T17:59:28.137Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan and the United Nations - Wikipediaen.wikipedia.org › wiki › Pakistan_and_the_United_Nations - https://en.wikipedia.org/wiki/Pakistan_and_the_United_Nations
-[2025-10-19T17:59:28.138Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T17:59:28.140Z] [INFO] [INTERNET_SEARCH] Query: Pakistan held presidency United Nations Security health safety site:reuters.com OR site:apnews.com OR site:bbc.com
-[2025-10-19T17:59:29.086Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T17:59:29.088Z] [INFO] [INTERNET_SEARCH]   1. Big Win For Pakistan | Pakistan Becomes President of UN Security Council | Pakistan News - https://www.youtube.com/watch?v=9i1_A3Wm_EM
-[2025-10-19T17:59:29.089Z] [INFO] [INTERNET_SEARCH]   2. Pakistan and the United Nations - Wikipediaen.wikipedia.org › wiki › Pakistan_and_the_United_Nations - https://en.wikipedia.org/wiki/Pakistan_and_the_United_Nations
-[2025-10-19T17:59:29.090Z] [INFO] [INTERNET_SEARCH]   3. Pakistan assumes UNSC presidency today - https://ground.news/article/pakistan-assumes-unsc-presidency-today
-[2025-10-19T17:59:29.091Z] [INFO] [INTERNET_SEARCH] After social media filtering: 2 results
-[2025-10-19T17:59:29.092Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan and the United Nations - Wikipediaen.wikipedia.org › wiki › Pakistan_and_the_United_Nations - https://en.wikipedia.org/wiki/Pakistan_and_the_United_Nations
-[2025-10-19T17:59:29.093Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan assumes UNSC presidency today - https://ground.news/article/pakistan-assumes-unsc-presidency-today
-[2025-10-19T17:59:29.094Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T17:59:29.095Z] [INFO] [INTERNET_SEARCH] Query: Pakistan held presidency United Nations Security health safety site:nytimes.com OR site:washingtonpost.com OR site:theguardian.com
-[2025-10-19T17:59:29.915Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T17:59:29.918Z] [INFO] [INTERNET_SEARCH]   1. Pakistan and the United Nations - Wikipediaen.wikipedia.org › wiki › Pakistan_and_the_United_Nations - https://en.wikipedia.org/wiki/Pakistan_and_the_United_Nations
-[2025-10-19T17:59:29.921Z] [INFO] [INTERNET_SEARCH]   2. Pakistan Secures UN Security Council Presidency: Did PM Modi’s Foreign Trips Hit a Vein? | LIVE - https://www.youtube.com/watch?v=RP19gOeM-48
-[2025-10-19T17:59:29.926Z] [INFO] [INTERNET_SEARCH]   3. Pakistan Shocks the world Becomes UN Security Council President | Global Shift Begins! - https://www.youtube.com/watch?v=BtnubXS0xpc
-[2025-10-19T17:59:29.929Z] [INFO] [INTERNET_SEARCH] After social media filtering: 1 results
-[2025-10-19T17:59:29.930Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan and the United Nations - Wikipediaen.wikipedia.org › wiki › Pakistan_and_the_United_Nations - https://en.wikipedia.org/wiki/Pakistan_and_the_United_Nations
-[2025-10-19T17:59:29.931Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T17:59:29.939Z] [INFO] [INTERNET_SEARCH] Query: Pakistan held presidency United Nations Security health safety site:techcrunch.com OR site:theverge.com OR site:wired.com
-[2025-10-19T17:59:30.804Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T17:59:30.806Z] [INFO] [INTERNET_SEARCH]   1. Pakistan and the United Nations - Wikipediaen.wikipedia.org › wiki › Pakistan_and_the_United_Nations - https://en.wikipedia.org/wiki/Pakistan_and_the_United_Nations
-[2025-10-19T17:59:30.807Z] [INFO] [INTERNET_SEARCH]   2. Pakistan on the ending of it's G77 Presidency  - Press Conference | United Nations - https://www.youtube.com/watch?v=8_P9XNaPaP0
-[2025-10-19T17:59:30.808Z] [INFO] [INTERNET_SEARCH]   3. Pakistan Shocks the world Becomes UN Security Council President | Global Shift Begins! - https://www.youtube.com/watch?v=BtnubXS0xpc
-[2025-10-19T17:59:30.809Z] [INFO] [INTERNET_SEARCH] After social media filtering: 1 results
-[2025-10-19T17:59:30.810Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Pakistan and the United Nations - Wikipediaen.wikipedia.org › wiki › Pakistan_and_the_United_Nations - https://en.wikipedia.org/wiki/Pakistan_and_the_United_Nations
-[2025-10-19T17:59:30.811Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T17:59:30.814Z] [INFO] [INTERNET_SEARCH] Query: Pakistan held presidency United Nations Security health safety news report authentic source verification
-[2025-10-19T17:59:32.361Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T17:59:32.363Z] [INFO] [INTERNET_SEARCH]   1. FACT CHECK: Has Pakistan Won Permanent Presidency of UNSC ... - https://www.youtube.com/watch?v=Cxzyji_fvD4
-[2025-10-19T17:59:32.365Z] [INFO] [INTERNET_SEARCH]   2. Pakistan's Presidency of the UN Security Council - Press Conference | United Nations - https://www.youtube.com/watch?v=1c-3wr9yNEs
-[2025-10-19T17:59:32.368Z] [INFO] [INTERNET_SEARCH]   3. Fake News Alert - | Department of Political and Peacebuilding Affairs - https://dppa.un.org/en/node/208251
-[2025-10-19T17:59:32.370Z] [INFO] [INTERNET_SEARCH] After social media filtering: 1 results
-[2025-10-19T17:59:32.371Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Fake News Alert - | Department of Political and Peacebuilding Affairs - https://dppa.un.org/en/node/208251
-[2025-10-19T17:59:32.373Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T17:59:32.375Z] [INFO] [INTERNET_SEARCH] Results: 0 authentic sources found
-[2025-10-19T17:59:32.377Z] [JSON] [INTERNET_SEARCH] Internet Sources:
-[]
-[2025-10-19T17:59:32.378Z] [SEP] [INTERNET_SEARCH] 
-==========================================
-🌐 INTERNET SEARCH API FINAL RESPONSE
-==========================================
-[2025-10-19T17:59:32.379Z] [JSON] [INTERNET_SEARCH] Final Response:
-{
-  "success": true,
-  "query": "Pakistan held presidency United Nations Security health safety",
-  "viralContentAnalysis": "Find sources for fact-checking this social media claim: Pakistan held presidency United Nations Security health safety",
-  "extractedLinks": [],
-  "internetSources": [],
-  "totalResults": 0,
-  "averageCredibilityScore": 0,
-  "searchType": "authentic_news_sources"
-}
-[2025-10-19T17:59:32.934Z] [INFO] [CLEANUP] 🧹 Starting old files cleanup via API
-[2025-10-19T17:59:32.939Z] [INFO] [CLEANUP] 🔍 Checking 117 files for cleanup...
-[2025-10-19T17:59:32.943Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822481_3.jpg
-[2025-10-19T17:59:32.947Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822481_4.jpg
-[2025-10-19T17:59:32.952Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822482_10.jpg
-[2025-10-19T17:59:32.957Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822482_6.jpg
-[2025-10-19T17:59:32.962Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822482_7.jpg
-[2025-10-19T17:59:32.968Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822482_8.jpg
-[2025-10-19T17:59:32.974Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822482_9.jpg
-[2025-10-19T17:59:32.978Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822483_11.jpg
-[2025-10-19T17:59:32.982Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822483_12.jpg
-[2025-10-19T17:59:32.988Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822483_13.jpg
-[2025-10-19T17:59:32.992Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822483_14.jpg
-[2025-10-19T17:59:32.997Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822483_16.jpg
-[2025-10-19T17:59:33.003Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822484_17.jpg
-[2025-10-19T17:59:33.011Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822484_18.jpg
-[2025-10-19T17:59:33.019Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822484_19.jpg
-[2025-10-19T17:59:33.025Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822484_20.jpg
-[2025-10-19T17:59:33.032Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822484_21.jpg
-[2025-10-19T17:59:33.038Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822484_22.jpg
-[2025-10-19T17:59:33.044Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822485_24.jpg
-[2025-10-19T17:59:33.053Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822485_25.jpg
-[2025-10-19T17:59:33.059Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822485_26.jpg
-[2025-10-19T17:59:33.063Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822485_28.jpg
-[2025-10-19T17:59:33.069Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822485_29.jpg
-[2025-10-19T17:59:33.075Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822486_30.jpg
-[2025-10-19T17:59:33.081Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822486_31.jpg
-[2025-10-19T17:59:33.086Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822486_32.jpg
-[2025-10-19T17:59:33.091Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822486_33.jpg
-[2025-10-19T17:59:33.096Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822486_34.jpg
-[2025-10-19T17:59:33.101Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822486_35.jpg
-[2025-10-19T17:59:33.109Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822486_36.jpg
-[2025-10-19T17:59:33.113Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822486_37.jpg
-[2025-10-19T17:59:33.118Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822487_38.jpg
-[2025-10-19T17:59:33.123Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822487_40.jpg
-[2025-10-19T17:59:33.128Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822487_41.jpg
-[2025-10-19T17:59:33.133Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822487_42.jpg
-[2025-10-19T17:59:33.138Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822487_43.jpg
-[2025-10-19T17:59:33.143Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822487_44.jpg
-[2025-10-19T17:59:33.147Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822487_45.jpg
-[2025-10-19T17:59:33.152Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822488_46.jpg
-[2025-10-19T17:59:33.157Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822488_48.jpg
-[2025-10-19T17:59:33.161Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822488_49.jpg
-[2025-10-19T17:59:33.166Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822488_50.jpg
-[2025-10-19T17:59:33.170Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822488_51.jpg
-[2025-10-19T17:59:33.174Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822488_52.jpg
-[2025-10-19T17:59:33.181Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822488_53.jpg
-[2025-10-19T17:59:33.188Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822488_54.jpg
-[2025-10-19T17:59:33.197Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822489_55.jpg
-[2025-10-19T17:59:33.204Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822489_56.jpg
-[2025-10-19T17:59:33.209Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822489_57.jpg
-[2025-10-19T17:59:33.215Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822489_58.jpg
-[2025-10-19T17:59:33.220Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822489_59.jpg
-[2025-10-19T17:59:33.224Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822489_60.jpg
-[2025-10-19T17:59:33.228Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822489_61.jpg
-[2025-10-19T17:59:33.233Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822489_62.jpg
-[2025-10-19T17:59:33.237Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822490_63.jpg
-[2025-10-19T17:59:33.242Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822490_64.jpg
-[2025-10-19T17:59:33.247Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822490_65.jpg
-[2025-10-19T17:59:33.253Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822490_66.jpg
-[2025-10-19T17:59:33.259Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822490_67.jpg
-[2025-10-19T17:59:33.263Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822490_68.jpg
-[2025-10-19T17:59:33.268Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822491_69.jpg
-[2025-10-19T17:59:33.273Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822491_70.jpg
-[2025-10-19T17:59:33.281Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822491_72.jpg
-[2025-10-19T17:59:33.289Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822491_73.jpg
-[2025-10-19T17:59:33.293Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822492_74.jpg
-[2025-10-19T17:59:33.300Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822492_75.jpg
-[2025-10-19T17:59:33.306Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822493_76.jpg
-[2025-10-19T17:59:33.310Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822493_77.jpg
-[2025-10-19T17:59:33.313Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822493_78.jpg
-[2025-10-19T17:59:33.319Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822493_79.jpg
-[2025-10-19T17:59:33.323Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822494_80.jpg
-[2025-10-19T17:59:33.327Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822494_81.jpg
-[2025-10-19T17:59:33.332Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822494_82.jpg
-[2025-10-19T17:59:33.339Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822494_83.jpg
-[2025-10-19T17:59:33.344Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822495_84.jpg
-[2025-10-19T17:59:33.349Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822495_85.jpg
-[2025-10-19T17:59:33.354Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822495_86.jpg
-[2025-10-19T17:59:33.358Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822495_87.jpg
-[2025-10-19T17:59:33.363Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822496_88.jpg
-[2025-10-19T17:59:33.370Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822496_89.jpg
-[2025-10-19T17:59:33.374Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822496_90.jpg
-[2025-10-19T17:59:33.384Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822496_92.jpg
-[2025-10-19T17:59:33.389Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822496_93.jpg
-[2025-10-19T17:59:33.394Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822497_94.jpg
-[2025-10-19T17:59:33.400Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822497_95.jpg
-[2025-10-19T17:59:33.405Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822497_96.jpg
-[2025-10-19T17:59:33.412Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822497_97.jpg
-[2025-10-19T17:59:33.416Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822498_100.jpg
-[2025-10-19T17:59:33.422Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822498_101.jpg
-[2025-10-19T17:59:33.428Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822498_102.jpg
-[2025-10-19T17:59:33.433Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822498_103.jpg
-[2025-10-19T17:59:33.441Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822498_98.jpg
-[2025-10-19T17:59:33.446Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822499_104.jpg
-[2025-10-19T17:59:33.452Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822499_105.jpg
-[2025-10-19T17:59:33.457Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822499_106.jpg
-[2025-10-19T17:59:33.461Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822499_108.jpg
-[2025-10-19T17:59:33.465Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822500_109.jpg
-[2025-10-19T17:59:33.471Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822500_110.jpg
-[2025-10-19T17:59:33.479Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822500_112.jpg
-[2025-10-19T17:59:33.489Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822500_113.jpg
-[2025-10-19T17:59:33.493Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822501_114.jpg
-[2025-10-19T17:59:33.497Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822501_115.jpg
-[2025-10-19T17:59:33.502Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822501_116.jpg
-[2025-10-19T17:59:33.507Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760895822501_117.jpg
-[2025-10-19T17:59:33.528Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: youtube_1760895654107_0.mp4.part
-[2025-10-19T17:59:33.536Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: youtube_1760895654107_0.mp4.part-Frag166.part
-[2025-10-19T17:59:33.543Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: youtube_1760895654107_0.mp4.ytdl
-[2025-10-19T17:59:33.547Z] [INFO] [CLEANUP] 📊 Cleanup complete: 107 cleaned, 0 failed, 10 kept
-[2025-10-19T18:04:15.036Z] [INFO] [HANDLE] POST - Prompt: 140chars, Files: 0
-[2025-10-19T18:04:28.665Z] [INFO] [HANDLE] 🤖 Gemini Raw Response:
-[2025-10-19T18:04:28.669Z] [JSON] [HANDLE] Raw Response:
-"```json\n{\n  \"refinedText\": \"A large sinkhole was reportedly attributed to metro construction in Delhi. In reality, the sinkhole occurred in Bangkok and was related to subway construction there.\",\n  \"links\": []\n}\n```"
-[2025-10-19T18:04:28.673Z] [INFO] [HANDLE] 🧹 Cleaned Response
-[2025-10-19T18:04:28.681Z] [INFO] [HANDLE] Gemini Success: 0 links, 140→165 chars
-[2025-10-19T18:04:28.685Z] [JSON] [HANDLE] Parsed Result:
-{
-  "refinedText": "A large sinkhole was reportedly attributed to metro construction in Delhi. In reality, the sinkhole occurred in Bangkok and was related to subway construction there.",
-  "links": []
-}
-[2025-10-19T18:04:28.694Z] [INFO] [HANDLE] FormData keys: prompt
-[2025-10-19T18:04:28.708Z] [INFO] [HANDLE] Checking file_0: null
-[2025-10-19T18:04:28.715Z] [INFO] [HANDLE] Checking file_1: null
-[2025-10-19T18:04:28.733Z] [INFO] [HANDLE] Checking file_2: null
-[2025-10-19T18:04:28.737Z] [INFO] [HANDLE] Files: 0 saved, 0 failed
-[2025-10-19T18:04:28.746Z] [INFO] [HANDLE] Complete: 14246ms | 140→165chars | 0links | 0files
-[2025-10-19T18:04:28.753Z] [SEP] [HANDLE] 
-==========================================
-📋 HANDLE API RESPONSE
-==========================================
-[2025-10-19T18:04:28.759Z] [JSON] [HANDLE] Final Response:
-{
-  "success": true,
-  "data": {
-    "refinedText": "A large sinkhole was reportedly attributed to metro construction in Delhi. In reality, the sinkhole occurred in Bangkok and was related to subway construction there.",
-    "extractedLinks": [],
-    "mediaFiles": [],
-    "originalPrompt": "a large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there.",
-    "timeframeSelections": []
-  },
-  "message": "Request processed successfully",
-  "meta": {
-    "processingTimeMs": 14246,
-    "geminiUsed": true,
-    "filesProcessed": 0,
-    "linksExtracted": 0
-  }
-}
-[2025-10-19T18:04:29.374Z] [INFO] [INITIAL] Starting analysis pipeline
-[2025-10-19T18:04:29.383Z] [INFO] [INITIAL] Calling handle API: 140chars, 0files
-[2025-10-19T18:04:29.972Z] [INFO] [HANDLE] POST - Prompt: 140chars, Files: 0
-[2025-10-19T18:04:37.135Z] [INFO] [HANDLE] 🤖 Gemini Raw Response:
-[2025-10-19T18:04:37.137Z] [JSON] [HANDLE] Raw Response:
-"```json\n{\n  \"refinedText\": \"A large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there.\",\n  \"links\": []\n}\n```"
-[2025-10-19T18:04:37.139Z] [INFO] [HANDLE] 🧹 Cleaned Response
-[2025-10-19T18:04:37.141Z] [INFO] [HANDLE] Gemini Success: 0 links, 140→140 chars
-[2025-10-19T18:04:37.144Z] [JSON] [HANDLE] Parsed Result:
-{
-  "refinedText": "A large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there.",
-  "links": []
-}
-[2025-10-19T18:04:37.147Z] [INFO] [HANDLE] FormData keys: prompt
-[2025-10-19T18:04:37.149Z] [INFO] [HANDLE] Checking file_0: null
-[2025-10-19T18:04:37.151Z] [INFO] [HANDLE] Checking file_1: null
-[2025-10-19T18:04:37.152Z] [INFO] [HANDLE] Checking file_2: null
-[2025-10-19T18:04:37.154Z] [INFO] [HANDLE] Files: 0 saved, 0 failed
-[2025-10-19T18:04:37.156Z] [INFO] [HANDLE] Complete: 7186ms | 140→140chars | 0links | 0files
-[2025-10-19T18:04:37.158Z] [SEP] [HANDLE] 
-==========================================
-📋 HANDLE API RESPONSE
-==========================================
-[2025-10-19T18:04:37.160Z] [JSON] [HANDLE] Final Response:
-{
-  "success": true,
-  "data": {
-    "refinedText": "A large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there.",
-    "extractedLinks": [],
-    "mediaFiles": [],
-    "originalPrompt": "a large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there.",
-    "timeframeSelections": []
-  },
-  "message": "Request processed successfully",
-  "meta": {
-    "processingTimeMs": 7186,
-    "geminiUsed": true,
-    "filesProcessed": 0,
-    "linksExtracted": 0
-  }
-}
-[2025-10-19T18:04:37.179Z] [INFO] [INITIAL] HANDLE API RESPONSE
-[2025-10-19T18:04:37.190Z] [INFO] [INITIAL] Step 2: Analyzing 0 media files
-[2025-10-19T18:04:37.192Z] [INFO] [INITIAL] MEDIA ANALYSES COMPLETED
-[2025-10-19T18:04:37.193Z] [INFO] [INITIAL] Step 3: Generating conclusion (fallback mode)
-[2025-10-19T18:04:37.194Z] [INFO] [INITIAL] Analyzing viral content with Gemini...
-[2025-10-19T18:04:46.547Z] [INFO] [INITIAL] Viral analysis complete: 454chars
-[2025-10-19T18:04:46.549Z] [JSON] [INITIAL] Viral Content Analysis:
-"This represents **Misinformation Debunking / Fact-checking** regarding a misattributed event (likely visual content). Key topics would include **spread of fake news, geographical misattribution, urban infrastructure issues, and media literacy**. Search terms: \"**Delhi sinkhole metro fake**, **Bangkok sinkhole debunked**, **misinformation construction**.\" Likely shared on **Twitter, Facebook, Reddit, and WhatsApp** (for initial misinformation spread)."
-[2025-10-19T18:04:46.551Z] [INFO] [INITIAL] Searching social media posts...
-[2025-10-19T18:04:46.990Z] [INFO] [SEARCH] Request: query=140chars, links=0, analysis=454chars
-[2025-10-19T18:04:46.992Z] [INFO] [SEARCH] Query: A large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there. site:reddit.com
-[2025-10-19T18:04:47.620Z] [INFO] [SEARCH] Query: A large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there. site:twitter.com OR site:x.com
-[2025-10-19T18:04:48.232Z] [INFO] [SEARCH] Query: A large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there. site:youtube.com
-[2025-10-19T18:04:48.891Z] [INFO] [SEARCH] Query: A large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there. site:instagram.com
-[2025-10-19T18:04:49.444Z] [INFO] [SEARCH] Query: A large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there. viral social media reddit twitter youtube instagram
-[2025-10-19T18:04:50.177Z] [INFO] [SEARCH] Results: 1 posts found
-[2025-10-19T18:04:50.181Z] [JSON] [SEARCH] Social Media Results:
-[
-  "Massive sinkhole in Bangkok causes construction concerns: https://www.youtube.com/watch?v=oFIKVH-vRk4"
-]
-[2025-10-19T18:04:50.183Z] [SEP] [SEARCH] 
-==========================================
-🔍 SEARCH API FINAL RESPONSE
-==========================================
-[2025-10-19T18:04:50.186Z] [JSON] [SEARCH] Final Response:
-{
-  "success": true,
-  "query": "A large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there.",
-  "viralContentAnalysis": "This represents **Misinformation Debunking / Fact-checking** regarding a misattributed event (likely visual content). Key topics would include **spread of fake news, geographical misattribution, urban infrastructure issues, and media literacy**. Search terms: \"**Delhi sinkhole metro fake**, **Bangkok sinkhole debunked**, **misinformation construction**.\" Likely shared on **Twitter, Facebook, Reddit, and WhatsApp** (for initial misinformation spread).",
-  "extractedLinks": [],
-  "socialMediaResults": [
-    "Massive sinkhole in Bangkok causes construction concerns: https://www.youtube.com/watch?v=oFIKVH-vRk4"
-  ],
-  "totalResults": 1
-}
-[2025-10-19T18:04:50.207Z] [INFO] [INITIAL] Social media search complete: 1 posts
-[2025-10-19T18:04:50.208Z] [JSON] [INITIAL] Search Results:
-{
-  "success": true,
-  "query": "A large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there.",
-  "viralContentAnalysis": "This represents **Misinformation Debunking / Fact-checking** regarding a misattributed event (likely visual content). Key topics would include **spread of fake news, geographical misattribution, urban infrastructure issues, and media literacy**. Search terms: \"**Delhi sinkhole metro fake**, **Bangkok sinkhole debunked**, **misinformation construction**.\" Likely shared on **Twitter, Facebook, Reddit, and WhatsApp** (for initial misinformation spread).",
-  "extractedLinks": [],
-  "socialMediaResults": [
-    "Massive sinkhole in Bangkok causes construction concerns: https://www.youtube.com/watch?v=oFIKVH-vRk4"
-  ],
-  "totalResults": 1
-}
-[2025-10-19T18:04:50.211Z] [INFO] [INITIAL] Complete: 20839ms | 0/0 media | 0links | 1posts | 0.0% confidence
-[2025-10-19T18:04:50.213Z] [SEP] [INITIAL] 
-==========================================
-🎉 INITIAL API FINAL RESPONSE
-==========================================
-[2025-10-19T18:04:50.215Z] [JSON] [INITIAL] Final Response:
-{
-  "textAnalysis": {
-    "originalPrompt": "a large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there.",
-    "refinedText": "A large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there.",
-    "extractedLinks": []
-  },
-  "mediaAnalysis": [],
-  "aggregatedConclusion": "Analysis of \"A large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there.\" completed. Processed 0 media files with 0 successful analyses. Review complete.",
-  "confidence": 0,
-  "viralContentAnalysis": "This represents **Misinformation Debunking / Fact-checking** regarding a misattributed event (likely visual content). Key topics would include **spread of fake news, geographical misattribution, urban infrastructure issues, and media literacy**. Search terms: \"**Delhi sinkhole metro fake**, **Bangkok sinkhole debunked**, **misinformation construction**.\" Likely shared on **Twitter, Facebook, Reddit, and WhatsApp** (for initial misinformation spread).",
-  "socialMediaSearch": {
-    "success": true,
-    "query": "A large sinkhole happened in Delhi due to metro construction. In reality, it was a sinkhole in Bangkok related to subway construction there.",
-    "viralContentAnalysis": "This represents **Misinformation Debunking / Fact-checking** regarding a misattributed event (likely visual content). Key topics would include **spread of fake news, geographical misattribution, urban infrastructure issues, and media literacy**. Search terms: \"**Delhi sinkhole metro fake**, **Bangkok sinkhole debunked**, **misinformation construction**.\" Likely shared on **Twitter, Facebook, Reddit, and WhatsApp** (for initial misinformation spread).",
-    "extractedLinks": [],
-    "socialMediaResults": [
-      "Massive sinkhole in Bangkok causes construction concerns: https://www.youtube.com/watch?v=oFIKVH-vRk4"
-    ],
-    "totalResults": 1
-  },
-  "processingStats": {
-    "totalFiles": 0,
-    "successfulAnalyses": 0,
-    "failedAnalyses": 0,
-    "totalProcessingTime": 20839
-  }
-}
-[2025-10-19T18:05:02.038Z] [INFO] [SEGREGATE] Starting segregation process
-[2025-10-19T18:05:02.049Z] [INFO] [SEGREGATE] Processing 1 social media posts
-[2025-10-19T18:05:02.053Z] [INFO] [SEGREGATE] Analyzing post 1: Massive sinkhole in Bangkok causes construction concerns
-[2025-10-19T18:05:04.448Z] [INFO] [SEGREGATE] Downloaded: youtube_1760897103912_1000.jpg (39174 bytes)
-[2025-10-19T18:05:07.671Z] [INFO] [SEGREGATE] ✅ yt-dlp found via Python module
-[2025-10-19T18:05:07.673Z] [INFO] [SEGREGATE] ✅ yt-dlp found via Python module
-[2025-10-19T18:05:07.677Z] [INFO] [SEGREGATE] 🎥 Downloading YouTube video: https://www.youtube.com/watch?v=oFIKVH-vRk4
-[2025-10-19T18:05:07.699Z] [INFO] [SEGREGATE] 🎵 Downloading YouTube audio: https://www.youtube.com/watch?v=oFIKVH-vRk4
-[2025-10-19T18:05:35.126Z] [INFO] [SEGREGATE] ✅ YouTube audio downloaded: youtube_1760897104450_0.mp3 (2.96 MB)
-[2025-10-19T18:06:31.056Z] [INFO] [SEGREGATE] ✅ YouTube video downloaded: youtube_1760897104450_0.mp4 (79.56 MB)
-[2025-10-19T18:06:31.059Z] [INFO] [SEGREGATE] 🎉 YouTube video and audio downloaded successfully!
-[2025-10-19T18:06:31.064Z] [INFO] [SEGREGATE] Segregation complete: 1 posts processed
-[2025-10-19T18:06:31.066Z] [JSON] [SEGREGATE] Segregated Posts:
-[
-  {
-    "url": "https://www.youtube.com/watch?v=oFIKVH-vRk4",
-    "platform": "youtube",
-    "title": "Massive sinkhole in Bangkok causes construction concerns",
-    "content": {
-      "text": [],
-      "images": [
-        {
-          "url": "https://i.ytimg.com/vi/oFIKVH-vRk4/hqdefault.jpg",
-          "filename": "youtube_1760897103912_1000.jpg",
-          "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\youtube_1760897103912_1000.jpg"
+          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767895_7.jpg"
         }
       ],
       "videos": [
         {
-          "url": "https://www.youtube.com/watch?v=oFIKVH-vRk4",
-          "filename": "youtube_1760897104450_0.mp4",
+          "url": "https://techcrunch.com/2019/10/02/youtube-music-is-launching-three-personalized-playlists/embed/#?secret=vTTlBuDLDi#?secret=w9SI7HqkCD",
+          "filename": "other_1760912769357_0.mp4",
           "type": "video",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\youtube_1760897104450_0.mp4",
-          "linkedAudio": "youtube_1760897104450_0.mp3"
+          "localPath": null,
+          "linkedAudio": "other_1760912769357_0.mp3"
         }
       ],
       "audio": [
         {
-          "url": "https://www.youtube.com/watch?v=oFIKVH-vRk4",
-          "filename": "youtube_1760897104450_0.mp3",
+          "url": "https://techcrunch.com/2019/10/02/youtube-music-is-launching-three-personalized-playlists/embed/#?secret=vTTlBuDLDi#?secret=w9SI7HqkCD",
+          "filename": "other_1760912769357_0.mp3",
           "type": "audio",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\youtube_1760897104450_0.mp3",
-          "linkedVideo": "youtube_1760897104450_0.mp4"
+          "localPath": null,
+          "linkedVideo": "other_1760912769357_0.mp4"
         }
       ]
     }
   }
 ]
-[2025-10-19T18:06:31.551Z] [INFO] [ANALYZE_HANDLER] Starting analysis for session session_1760897100967 with 1 posts
-[2025-10-19T18:06:31.553Z] [INFO] [ANALYZE_HANDLER] 📁 Using local file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760897103912_1000.jpg
-[2025-10-19T18:06:32.001Z] [INFO] [ANALYZE] Analyzing content: text=73chars, type=social_media_post, mediaType=image
-[2025-10-19T18:06:32.003Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760897103912_1000.jpg
-[2025-10-19T18:06:36.604Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760897103912_1000.jpg
-[2025-10-19T18:06:36.606Z] [INFO] [ANALYZE] Analysis complete: success=true
-[2025-10-19T18:06:36.624Z] [WARN] [ANALYZE_HANDLER] ⚠️  Failed to cleanup file youtube_1760897103912_1000.jpg: Error: ENOENT: no such file or directory, unlink 'C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760897103912_1000.jpg'
-[2025-10-19T18:06:36.626Z] [INFO] [ANALYZE_HANDLER] Image analysis completed: youtube_1760897103912_1000.jpg
-[2025-10-19T18:06:36.630Z] [INFO] [ANALYZE_HANDLER] ✅ Image Analysis Result for youtube_1760897103912_1000.jpg:
-[2025-10-19T18:06:36.632Z] [INFO] [ANALYZE_HANDLER] 📝 Description: Here is what I found:
-
-A massive sinkhole has appeared in the heart of Bangkok, Thailand, raising concerns about the stability of nearby construction projects. The sinkhole, which is approximately 10 ...
-[2025-10-19T18:06:36.634Z] [INFO] [ANALYZE_HANDLER] 🤖 Model: amazon.nova-pro-v1:0
-[2025-10-19T18:06:36.636Z] [INFO] [ANALYZE_HANDLER] 📁 Using local file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760897104450_0.mp4
-[2025-10-19T18:06:37.101Z] [INFO] [ANALYZE] Analyzing content: text=73chars, type=social_media_post, mediaType=video
-[2025-10-19T18:06:37.105Z] [INFO] [ANALYZE] Sending to /api/analyze/video/path: video - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760897104450_0.mp4
-[2025-10-19T18:06:48.105Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760897104450_0.mp4
-[2025-10-19T18:06:48.109Z] [INFO] [ANALYZE] Analysis complete: success=true
-[2025-10-19T18:06:48.129Z] [WARN] [ANALYZE_HANDLER] ⚠️  Failed to cleanup file youtube_1760897104450_0.mp4: Error: ENOENT: no such file or directory, unlink 'C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760897104450_0.mp4'
-[2025-10-19T18:06:48.153Z] [INFO] [ANALYZE_HANDLER] Video analysis completed: youtube_1760897104450_0.mp4
-[2025-10-19T18:06:48.157Z] [INFO] [ANALYZE_HANDLER] ✅ Video Analysis Result for youtube_1760897104450_0.mp4:
-[2025-10-19T18:06:48.161Z] [INFO] [ANALYZE_HANDLER] 📝 Description: The video appears to focus on a significant incident at a construction site in Bangkok, Thailand, which has resulted in a large sinkhole. Here is a summary of the key events and discussions captured i...
-[2025-10-19T18:06:48.165Z] [INFO] [ANALYZE_HANDLER] 🤖 Model: Unknown
-[2025-10-19T18:06:48.168Z] [INFO] [ANALYZE_HANDLER] 📁 Using local file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760897104450_0.mp3
-[2025-10-19T18:06:48.627Z] [INFO] [ANALYZE] Analyzing content: text=73chars, type=social_media_post, mediaType=audio
-[2025-10-19T18:06:48.630Z] [INFO] [ANALYZE] Sending to /api/analyze/audio/path: audio - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760897104450_0.mp3
-[2025-10-19T18:06:51.250Z] [ERROR] [ANALYZE] ❌ Python backend error response: 500 Internal Server Error | Error: "{\"success\":false,\"error\":{\"code\":\"INTERNAL_ERROR\",\"message\":\"Comprehensive audio analysis failed: Unknown error\"},\"timestamp\":\"2025-10-19T18:06:51.244204Z\"}"
-[2025-10-19T18:06:51.255Z] [ERROR] [ANALYZE] audio analysis failed: | Error: Python backend error: 500 Internal Server Error - {"success":false,"error":{"code":"INTERNAL_ERROR","message":"Comprehensive audio analysis failed: Unknown error"},"timestamp":"2025-10-19T18:06:51.244204Z"}
-[2025-10-19T18:06:51.571Z] [INFO] [ANALYZE] 🗑️  Cleaned up file after error: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760897104450_0.mp3
-[2025-10-19T18:06:51.572Z] [INFO] [ANALYZE] Analysis complete: success=false
-[2025-10-19T18:06:51.590Z] [WARN] [ANALYZE_HANDLER] ⚠️  Failed to cleanup file youtube_1760897104450_0.mp3: Error: ENOENT: no such file or directory, unlink 'C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\youtube_1760897104450_0.mp3'
-[2025-10-19T18:06:51.594Z] [INFO] [ANALYZE_HANDLER] Audio analysis completed: youtube_1760897104450_0.mp3
-[2025-10-19T18:06:51.599Z] [INFO] [ANALYZE_HANDLER] Analysis complete for session session_1760897100967: 3 completed, 0 errors
-[2025-10-19T18:06:51.601Z] [INFO] [ANALYZE_HANDLER] 🎉 ANALYSIS SUMMARY:
-[2025-10-19T18:06:51.603Z] [INFO] [ANALYZE_HANDLER] 📊 Total Items: 3
-[2025-10-19T18:06:51.606Z] [INFO] [ANALYZE_HANDLER] ✅ Successful: 2
-[2025-10-19T18:06:51.608Z] [INFO] [ANALYZE_HANDLER] ❌ Failed: 0
-[2025-10-19T18:06:51.613Z] [INFO] [ANALYZE_HANDLER] 🖼️  Images analyzed: 1
-[2025-10-19T18:06:51.619Z] [INFO] [ANALYZE_HANDLER] 🎥 Videos analyzed: 1
-[2025-10-19T18:06:51.627Z] [INFO] [ANALYZE_HANDLER] 🎯 FINAL CLAIMS ANALYSIS:
-[2025-10-19T18:06:51.632Z] [INFO] [ANALYZE_HANDLER] [
-  {
-    "postIndex": 0,
-    "postTitle": "Massive sinkhole in Bangkok causes construction concerns",
-    "postUrl": "https://www.youtube.com/watch?v=oFIKVH-vRk4",
-    "platform": "youtube",
-    "overallClaim": "Comprehensive evidence supports: Massive sinkhole in Bangkok causes construction concerns - Multiple media sources provide detailed documentation of events.",
-    "evidenceAnalysis": {
-      "images": [
-        "Here is what I found:\n\nA massive sinkhole has appeared in the heart of Bangkok, Thailand, raising concerns about the stability of nearby construction projects. The sinkhole, which is approximately 10 meters deep and 30 meters wide, opened up in front of a shopping mall under construction. The incident has prompted authorities to halt construction work in the area and investigate the cause of the sinkhole.\n\nExperts believe that the sinkhole was caused by the excavation of the construction site, which may have destabilized the ground beneath the mall. The incident has highlighted the need for stricter regulations and oversight of construction projects in Bangkok, which is prone to flooding and subsidence due to its location on the Chao Phraya River delta.\n\nThe appearance of the sinkhole has also raised concerns about the safety of other construction projects in the city, particularly those located in areas with weak soil or high groundwater levels. Authorities are now conducting a thorough investigation to determine the cause of the sinkhole and assess the impact on nearby structures.\n\nIn the meantime, construction work in the area has been halted, and authorities are working to stabilize the ground and prevent further subsidence. The incident serves as a reminder of the importance of proper planning and oversight in construction projects, particularly in areas with challenging geological conditions."
-      ],
-      "videos": [
-        "The video appears to focus on a significant incident at a construction site in Bangkok, Thailand, which has resulted in a large sinkhole. Here is a summary of the key events and discussions captured in the video:\n\n1. **Construction Site Incident**: The video begins by showing a construction site with a large hole in the ground, surrounded by various construction materials and equipment, indicating an ongoing or recent construction incident.\n\n2. **Press Conference on Police Station Security**: At 0:65, Bangkok Governor Chadchart Sittipunt addresses the media at a press conference. He discusses the issue of police station security, which is a current concern, suggesting that the incident may be related to or impacting nearby infrastructure.\n\n3. **Site Examination by Engineers/Workers**: At 130.5 seconds, a group of people, possibly engineers or construction workers, are seen examining the site of the incident. They are discussing the cause of the collapse and the structural integrity of the building, indicating an ongoing investigation and assessment of the damage.\n\n4. **Large Sinkhole Inspection**: At 195.8 seconds, the video shows a large sinkhole in Bangkok, with construction workers inspecting the damage. This reinforces the severity of the incident and the efforts to understand and address it.\n\n5. **Prime Minister's Address**: At 0:04:21, the Prime Minister of Thailand is seen speaking to the press. He is surrounded by media reporters, and other officials are standing behind him. The background appears to be a construction site with green tarps and helmets visible, suggesting that the incident is of significant public and governmental concern.\n\nOverall, the video highlights the response to a significant construction-related incident in Bangkok, involving high-level officials and on-site inspections, and emphasizes the importance of addressing both the immediate damage and broader security concerns."
-      ],
-      "audio": []
-    },
-    "confidenceLevel": "medium",
-    "analysisCount": {
-      "total": 3,
-      "successful": 2,
-      "failed": 1
-    }
-  }
-]
-[2025-10-19T18:07:08.966Z] [INFO] [INTERNET_SEARCH] Request: query=63chars, links=0, analysis=119chars
-[2025-10-19T18:07:09.181Z] [INFO] [INTERNET_SEARCH] Query: large sinkhole appeared construction site Bangkok health safety site:snopes.com OR site:factcheck.org OR site:politifact.com
-[2025-10-19T18:07:12.239Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T18:07:12.355Z] [INFO] [INTERNET_SEARCH]   1. Vajira Hospital - https://en.wikipedia.org/wiki/Vajira_Hospital
-[2025-10-19T18:07:12.539Z] [INFO] [INTERNET_SEARCH]   2. Samsen Road - https://en.wikipedia.org/wiki/Samsen_Road
-[2025-10-19T18:07:12.721Z] [INFO] [INTERNET_SEARCH]   3. The Scary Truth Behind Bangkok’s Mega Sinkhole - https://www.youtube.com/watch?v=TkqO-dzoZ1E
-[2025-10-19T18:07:12.845Z] [INFO] [INTERNET_SEARCH] After social media filtering: 2 results
-[2025-10-19T18:07:12.944Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Vajira Hospital - https://en.wikipedia.org/wiki/Vajira_Hospital
-[2025-10-19T18:07:13.074Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Samsen Road - https://en.wikipedia.org/wiki/Samsen_Road
-[2025-10-19T18:07:13.175Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T18:07:13.369Z] [INFO] [INTERNET_SEARCH] Query: large sinkhole appeared construction site Bangkok health safety fact check verification debunk
-[2025-10-19T18:07:14.058Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T18:07:14.077Z] [INFO] [INTERNET_SEARCH]   1. Vajira Hospital - https://en.wikipedia.org/wiki/Vajira_Hospital
-[2025-10-19T18:07:14.082Z] [INFO] [INTERNET_SEARCH]   2. 2025 Bangkok road collapse - https://en.wikipedia.org/wiki/2025_Bangkok_road_collapse
-[2025-10-19T18:07:14.085Z] [INFO] [INTERNET_SEARCH]   3. Massive sinkhole swallows cars, electricity poles near Bangkok hospital - https://www.scmp.com/week-asia/health-environment/article/3326618/massive-sinkhole-swallows-cars-pedestrian-crossing-near-bangkok-hospital
-[2025-10-19T18:07:14.087Z] [INFO] [INTERNET_SEARCH] After social media filtering: 3 results
-[2025-10-19T18:07:14.090Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Vajira Hospital - https://en.wikipedia.org/wiki/Vajira_Hospital
-[2025-10-19T18:07:14.092Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): 2025 Bangkok road collapse - https://en.wikipedia.org/wiki/2025_Bangkok_road_collapse
-[2025-10-19T18:07:14.094Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Massive sinkhole swallows cars, electricity poles near Bangkok hospital - https://www.scmp.com/week-asia/health-environment/article/3326618/massive-sinkhole-swallows-cars-pedestrian-crossing-near-bangkok-hospital
-[2025-10-19T18:07:14.098Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T18:07:14.100Z] [INFO] [INTERNET_SEARCH] Query: large sinkhole appeared construction site Bangkok health safety site:reuters.com OR site:apnews.com OR site:bbc.com
-[2025-10-19T18:07:14.691Z] [INFO] [INTERNET_SEARCH] Found 2 raw results from Perplexity
-[2025-10-19T18:07:14.693Z] [INFO] [INTERNET_SEARCH]   1. Vajira Hospital - https://en.wikipedia.org/wiki/Vajira_Hospital
-[2025-10-19T18:07:14.695Z] [INFO] [INTERNET_SEARCH]   2. Massive sinkhole opens up outside Bangkok hospital - https://www.channelnewsasia.com/asia/thailand-bangkok-sinkhole-injuries-vajira-hospital-5365671
-[2025-10-19T18:07:14.698Z] [INFO] [INTERNET_SEARCH] After social media filtering: 2 results
-[2025-10-19T18:07:14.699Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Vajira Hospital - https://en.wikipedia.org/wiki/Vajira_Hospital
-[2025-10-19T18:07:14.701Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Massive sinkhole opens up outside Bangkok hospital - https://www.channelnewsasia.com/asia/thailand-bangkok-sinkhole-injuries-vajira-hospital-5365671
-[2025-10-19T18:07:14.704Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T18:07:14.706Z] [INFO] [INTERNET_SEARCH] Query: large sinkhole appeared construction site Bangkok health safety site:nytimes.com OR site:washingtonpost.com OR site:theguardian.com
-[2025-10-19T18:07:15.286Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T18:07:15.292Z] [INFO] [INTERNET_SEARCH]   1. Vajira Hospital - https://en.wikipedia.org/wiki/Vajira_Hospital
-[2025-10-19T18:07:15.298Z] [INFO] [INTERNET_SEARCH]   2. Massive sinkhole swallows cars, electricity poles near Bangkok hospital - https://www.scmp.com/week-asia/health-environment/article/3326618/massive-sinkhole-swallows-cars-pedestrian-crossing-near-bangkok-hospital
-[2025-10-19T18:07:15.300Z] [INFO] [INTERNET_SEARCH]   3. Samsen Road - https://en.wikipedia.org/wiki/Samsen_Road
-[2025-10-19T18:07:15.303Z] [INFO] [INTERNET_SEARCH] After social media filtering: 3 results
-[2025-10-19T18:07:15.305Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Vajira Hospital - https://en.wikipedia.org/wiki/Vajira_Hospital
-[2025-10-19T18:07:15.307Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Massive sinkhole swallows cars, electricity poles near Bangkok hospital - https://www.scmp.com/week-asia/health-environment/article/3326618/massive-sinkhole-swallows-cars-pedestrian-crossing-near-bangkok-hospital
-[2025-10-19T18:07:15.309Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Samsen Road - https://en.wikipedia.org/wiki/Samsen_Road
-[2025-10-19T18:07:15.311Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T18:07:15.312Z] [INFO] [INTERNET_SEARCH] Query: large sinkhole appeared construction site Bangkok health safety site:techcrunch.com OR site:theverge.com OR site:wired.com
-[2025-10-19T18:07:15.863Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T18:07:15.866Z] [INFO] [INTERNET_SEARCH]   1. Vajira Hospital - https://en.wikipedia.org/wiki/Vajira_Hospital
-[2025-10-19T18:07:15.868Z] [INFO] [INTERNET_SEARCH]   2. Massive sinkhole opens up outside Bangkok hospital - https://www.channelnewsasia.com/asia/thailand-bangkok-sinkhole-injuries-vajira-hospital-5365671
-[2025-10-19T18:07:15.869Z] [INFO] [INTERNET_SEARCH]   3. The Scary Truth Behind Bangkok’s Mega Sinkhole - https://www.youtube.com/watch?v=TkqO-dzoZ1E
-[2025-10-19T18:07:15.871Z] [INFO] [INTERNET_SEARCH] After social media filtering: 2 results
-[2025-10-19T18:07:15.872Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Vajira Hospital - https://en.wikipedia.org/wiki/Vajira_Hospital
-[2025-10-19T18:07:15.874Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Massive sinkhole opens up outside Bangkok hospital - https://www.channelnewsasia.com/asia/thailand-bangkok-sinkhole-injuries-vajira-hospital-5365671
-[2025-10-19T18:07:15.876Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T18:07:15.878Z] [INFO] [INTERNET_SEARCH] Query: large sinkhole appeared construction site Bangkok health safety news report authentic source verification
-[2025-10-19T18:07:16.431Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T18:07:16.433Z] [INFO] [INTERNET_SEARCH]   1. Vajira Hospital - https://en.wikipedia.org/wiki/Vajira_Hospital
-[2025-10-19T18:07:16.434Z] [INFO] [INTERNET_SEARCH]   2. Massive sinkhole opens up outside Bangkok hospital - https://www.channelnewsasia.com/asia/thailand-bangkok-sinkhole-injuries-vajira-hospital-5365671
-[2025-10-19T18:07:16.436Z] [INFO] [INTERNET_SEARCH]   3. Massive sinkhole swallows cars, electricity poles near Bangkok hospital - https://www.scmp.com/week-asia/health-environment/article/3326618/massive-sinkhole-swallows-cars-pedestrian-crossing-near-bangkok-hospital
-[2025-10-19T18:07:16.439Z] [INFO] [INTERNET_SEARCH] After social media filtering: 3 results
-[2025-10-19T18:07:16.441Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Vajira Hospital - https://en.wikipedia.org/wiki/Vajira_Hospital
-[2025-10-19T18:07:16.443Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Massive sinkhole opens up outside Bangkok hospital - https://www.channelnewsasia.com/asia/thailand-bangkok-sinkhole-injuries-vajira-hospital-5365671
-[2025-10-19T18:07:16.448Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Massive sinkhole swallows cars, electricity poles near Bangkok hospital - https://www.scmp.com/week-asia/health-environment/article/3326618/massive-sinkhole-swallows-cars-pedestrian-crossing-near-bangkok-hospital
-[2025-10-19T18:07:16.450Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T18:07:16.452Z] [INFO] [INTERNET_SEARCH] Results: 0 authentic sources found
-[2025-10-19T18:07:16.454Z] [JSON] [INTERNET_SEARCH] Internet Sources:
-[]
-[2025-10-19T18:07:16.456Z] [SEP] [INTERNET_SEARCH] 
-==========================================
-🌐 INTERNET SEARCH API FINAL RESPONSE
-==========================================
-[2025-10-19T18:07:16.458Z] [JSON] [INTERNET_SEARCH] Final Response:
-{
-  "success": true,
-  "query": "large sinkhole appeared construction site Bangkok health safety",
-  "viralContentAnalysis": "Find sources for fact-checking this social media claim: large sinkhole appeared construction site Bangkok health safety",
-  "extractedLinks": [],
-  "internetSources": [],
-  "totalResults": 0,
-  "averageCredibilityScore": 0,
-  "searchType": "authentic_news_sources"
-}
-[2025-10-19T18:07:17.048Z] [INFO] [CLEANUP] 🧹 Starting old files cleanup via API
-[2025-10-19T18:07:17.053Z] [INFO] [CLEANUP] 🔍 Checking 10 files for cleanup...
-[2025-10-19T18:07:17.071Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: youtube_1760896575473_0.mp3
-[2025-10-19T18:07:17.079Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: youtube_1760896575473_0.webm
-[2025-10-19T18:07:17.083Z] [INFO] [CLEANUP] 📊 Cleanup complete: 2 cleaned, 0 failed, 8 kept
+[2025-10-19T22:26:09.704Z] [INFO] [ANALYZE] Analyzing content: text=87chars, type=general, mediaType=image
+[2025-10-19T22:26:09.706Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912767891_0.jpg
+[2025-10-19T22:26:10.719Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912767891_0.jpg
+[2025-10-19T22:26:10.721Z] [INFO] [ANALYZE] Analysis complete: success=true
+[2025-10-19T22:26:11.064Z] [INFO] [ANALYZE] Analyzing content: text=87chars, type=general, mediaType=image
+[2025-10-19T22:26:11.065Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912767893_1.jpg
+[2025-10-19T22:26:12.066Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912767893_1.jpg
+[2025-10-19T22:26:12.069Z] [INFO] [ANALYZE] Analysis complete: success=true

@@ -13,14 +13,22 @@ try:
     load_dotenv(env_path)
     print(f"✅ Loaded environment variables from: {env_path}")
     
-    # Debug: Check if audio API keys are loaded
+    # Debug: Check if API keys are loaded
     hf_key = os.getenv('HUGGINGFACE_API_KEY')
     openai_key = os.getenv('OPENAI_API_KEY')
     assembly_key = os.getenv('ASSEMBLYAI_API_KEY')
     
+    # Debug: Check if AWS credentials are loaded
+    aws_access_key = os.getenv('AWS_ACCESS_KEY_ID')
+    aws_secret_key = os.getenv('AWS_SECRET_ACCESS_KEY')
+    aws_region = os.getenv('AWS_DEFAULT_REGION')
+    
     print(f"🔑 Hugging Face API Key: {'✅ Found' if hf_key else '❌ Not found'}")
     print(f"🔑 OpenAI API Key: {'✅ Found' if openai_key else '❌ Not found'}")
     print(f"🔑 Assembly AI API Key: {'✅ Found' if assembly_key else '❌ Not found'}")
+    print(f"🔑 AWS Access Key: {'✅ Found' if aws_access_key else '❌ Not found'}")
+    print(f"🔑 AWS Secret Key: {'✅ Found' if aws_secret_key else '❌ Not found'}")
+    print(f"🌍 AWS Region: {aws_region or '❌ Not set'}")
     
 except ImportError:
     print("⚠️  python-dotenv not installed. Install with: pip install python-dotenv")

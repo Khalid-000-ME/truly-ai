@@ -6,28 +6,69 @@ import base64
 import json
 import time
 import tempfile
-import os
 from pathlib import Path
 
 class WorkingAWSAnalyzer:
     """AWS Bedrock analyzer using working Nova models"""
     
-    def __init__(self, region_name='us-east-1'):
-        """Initialize with direct AWS credentials"""
-        # Force use of default credentials without session tokens
+    def __init__(self, region_name='us-west-2'):
+        """Initialize with direct AWS credentials - Nova models available in us-west-2"""
         import os
+        from pathlib import Path
         
-        # Temporarily clear any session token environment variables
+        # Load .env file to ensure we have access to credentials
+        try:
+            from dotenv import load_dotenv
+            env_path = Path(__file__).parent / '.env'
+            load_dotenv(env_path)
+            print(f"🔧 AWS Analyzer loaded .env from: {env_path}")
+        except ImportError:
+            print("⚠️  python-dotenv not available in AWS analyzer")
+        except Exception as e:
+            print(f"⚠️  Could not load .env in AWS analyzer: {e}")
+        
+        # Ensure we have the required environment variables
+        required_vars = ['AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY']
+        missing_vars = [var for var in required_vars if not os.environ.get(var)]
+        
+        if missing_vars:
+            print(f"❌ Missing AWS environment variables: {missing_vars}")
+            print("💡 Make sure your .env file contains:")
+            print("   AWS_ACCESS_KEY_ID=your_access_key_here")
+            print("   AWS_SECRET_ACCESS_KEY=your_secret_access_key_here")
+            print("   AWS_DEFAULT_REGION=us-west-2")
+            raise ValueError(f"Missing required AWS environment variables: {missing_vars}")
+        
+        # Debug: Show what credentials we're using (masked)
+        access_key = os.environ.get('AWS_ACCESS_KEY_ID')
+        secret_key = os.environ.get('AWS_SECRET_ACCESS_KEY')
+        print(f"🔑 Using AWS Access Key: {access_key[:8]}...{access_key[-4:] if len(access_key) > 12 else access_key}")
+        print(f"🔑 Using AWS Secret Key: {'*' * (len(secret_key) - 4)}{secret_key[-4:] if len(secret_key) > 4 else '****'}")
+        print(f"🌍 Using AWS Region: {region_name}")
+        
+        # Clear any session tokens that might interfere with permanent credentials
+        access_key_id = os.environ.pop('AWS_ACCESS_KEY_ID', None)
+        secret_access_key = os.environ.pop('AWS_SECRET_ACCESS_KEY', None)
         session_token = os.environ.pop('AWS_SESSION_TOKEN', None)
-        security_token = os.environ.pop('AWS_SECURITY_TOKEN', None)
+        
         
         try:
-            # Create fresh session
-            self.session = boto3.Session()
+            # Create session with explicit credentials
+            self.session = boto3.Session(
+                aws_access_key_id=access_key_id,
+                aws_secret_access_key=secret_access_ke,
+                aws_session_token=session_token
+            )
             self.bedrock_client = self.session.client('bedrock-runtime', region_name=region_name)
             self.s3_client = self.session.client('s3', region_name=region_name)
+            
+            print(f"✅ AWS bos initialized successfully in region: {region_name}")
+            
+        except Exception as e:
+            print(f"❌ Failed to initialize AWS clients: {e}")
+            raise
         finally:
-            # Restore session tokens if they existed
+            # Restore session tokens if they existed (though we don't want them)
             if session_token:
                 os.environ['AWS_SESSION_TOKEN'] = session_token
             if security_token:

@@ -2,7 +2,7 @@ import { writeFileSync, appendFileSync, existsSync, readFileSync } from 'fs';
 import { join } from 'path';
 
 const LOG_FILE_PATH = join(process.cwd(), 'logs.txt');
-const MAX_LOG_LINES = 2000;
+const MAX_LOG_LINES = 1000;
 
 class Logger {
   private static instance: Logger;
