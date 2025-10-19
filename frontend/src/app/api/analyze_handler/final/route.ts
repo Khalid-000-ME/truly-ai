@@ -796,12 +796,18 @@ async function analyzeSourceContent(source: any, claim: string): Promise<{
     // Fetch the source content
     let sourceContent = '';
     try {
+      // Create AbortController for timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+      
       const contentResponse = await fetch(source.url, {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         },
-        timeout: 10000 // 10 second timeout
+        signal: controller.signal
       });
+      
+      clearTimeout(timeoutId); // Clear timeout if request completes
       
       if (contentResponse.ok) {
         const html = await contentResponse.text();

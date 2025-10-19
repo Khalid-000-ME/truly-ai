@@ -1,56 +1,61 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import { cleanupOldFiles, cleanupAllFiles, getCleanupStats } from '@/utils/cleanup';
+import { logger } from '@/utils/logger';
 
 export async function POST(request: NextRequest) {
   try {
-    const uploadsDir = path.join(process.cwd(), 'frontend', 'uploads');
+    const body = await request.json().catch(() => ({}));
+    const { force = false } = body;
     
-    // Check if uploads directory exists
-    if (!fs.existsSync(uploadsDir)) {
-      return NextResponse.json({
-        success: true,
-        message: 'Uploads directory does not exist, nothing to clean',
-        filesDeleted: 0
-      });
-    }
-
-    // Read all files in the uploads directory
-    const files = fs.readdirSync(uploadsDir);
-    let deletedCount = 0;
-    const errors: string[] = [];
-
-    // Delete each file
-    for (const file of files) {
-      try {
-        const filePath = path.join(uploadsDir, file);
-        const stats = fs.statSync(filePath);
-        
-        // Only delete files, not directories
-        if (stats.isFile()) {
-          fs.unlinkSync(filePath);
-          deletedCount++;
-          console.log(`🗑️ Deleted uploaded file: ${file}`);
-        }
-      } catch (error) {
-        const errorMsg = `Failed to delete ${file}: ${error instanceof Error ? error.message : 'Unknown error'}`;
-        errors.push(errorMsg);
-        console.error(`❌ ${errorMsg}`);
-      }
+    logger.log('CLEANUP', `🧹 Starting ${force ? 'force' : 'old files'} cleanup via API`);
+    
+    let result;
+    if (force) {
+      result = await cleanupAllFiles();
+    } else {
+      result = await cleanupOldFiles();
     }
 
     return NextResponse.json({
       success: true,
-      message: `Cleanup completed: ${deletedCount} files deleted`,
-      filesDeleted: deletedCount,
-      errors: errors.length > 0 ? errors : undefined
+      message: `Cleanup completed: ${result.cleaned} files deleted, ${result.failed} failed, ${result.total} total`,
+      filesDeleted: result.cleaned,
+      filesFailed: result.failed,
+      totalFiles: result.total,
+      cleanupType: force ? 'force' : 'old_files'
     });
 
   } catch (error) {
-    console.error('❌ Cleanup API error:', error);
+    logger.error('CLEANUP', '❌ Cleanup API error:', error);
     return NextResponse.json({
       success: false,
       error: error instanceof Error ? error.message : 'Unknown cleanup error'
+    }, { status: 500 });
+  }
+}
+
+export async function GET(request: NextRequest) {
+  try {
+    const stats = await getCleanupStats();
+    
+    return NextResponse.json({
+      success: true,
+      stats: {
+        totalFiles: stats.totalFiles,
+        oldFiles: stats.oldFiles,
+        totalSizeBytes: stats.totalSize,
+        oldSizeBytes: stats.oldSize,
+        totalSizeMB: Math.round(stats.totalSize / (1024 * 1024) * 100) / 100,
+        oldSizeMB: Math.round(stats.oldSize / (1024 * 1024) * 100) / 100
+      },
+      message: `${stats.totalFiles} total files, ${stats.oldFiles} old files ready for cleanup`
+    });
+
+  } catch (error) {
+    logger.error('CLEANUP', '❌ Cleanup stats error:', error);
+    return NextResponse.json({
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error'
     }, { status: 500 });
   }
 }

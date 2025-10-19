@@ -155,8 +155,14 @@ export default function ClarityPage() {
           setIsProcessingComplete(true);
           setInitialData(data);
           
+          // Store backup data in sessionStorage immediately
+          if (typeof window !== 'undefined') {
+            sessionStorage.setItem('trulyai_initial_backup', JSON.stringify(data));
+          }
+          
           console.log('✅ Processing complete, initial data set:', data);
           console.log('🔍 Social media results:', data.socialMediaSearch?.socialMediaResults);
+          console.log('💾 Backup data stored in sessionStorage');
           
           // Start auto-redirect countdown only if we have valid data
           if (data.socialMediaSearch?.socialMediaResults && data.socialMediaSearch.socialMediaResults.length > 0) {
@@ -203,8 +209,30 @@ export default function ClarityPage() {
   };
 
   const continueAnalysis = () => {
+    console.log('🚀 Continue analysis clicked');
+    console.log('📊 Initial data available:', !!initialData);
+    console.log('📱 Social media posts:', socialMediaPosts.length);
+    
     if (!initialData) {
-      console.error('No initial data found');
+      console.error('❌ No initial data found');
+      console.log('🔍 Checking sessionStorage for backup data...');
+      
+      // Try to get data from sessionStorage as backup
+      const backupDataStr = typeof window !== 'undefined' ? sessionStorage.getItem('trulyai_initial_backup') : null;
+      if (backupDataStr) {
+        try {
+          const backupData = JSON.parse(backupDataStr);
+          console.log('✅ Found backup data, using it');
+          setInitialData(backupData);
+          // Retry with backup data
+          setTimeout(() => continueAnalysis(), 100);
+          return;
+        } catch (error) {
+          console.error('❌ Failed to parse backup data:', error);
+        }
+      }
+      
+      console.error('❌ No backup data available either');
       return;
     }
     
@@ -213,10 +241,12 @@ export default function ClarityPage() {
                       initialData.socialMediaSearch.socialMediaResults.length > 0;
     
     if (!hasResults) {
-      console.error('No social media results found in initial data');
-      console.log('Initial data structure:', initialData);
+      console.error('❌ No social media results found in initial data');
+      console.log('📋 Initial data structure:', initialData);
       return;
     }
+
+    console.log('✅ All checks passed, proceeding with analysis');
 
     // Generate session ID and get query data
     const sessionId = `session_${Date.now()}`;
@@ -228,12 +258,17 @@ export default function ClarityPage() {
       query = queryData.prompt || 'Unknown Query';
     }
 
+    console.log('🎯 Session ID:', sessionId);
+    console.log('🔍 Query:', query);
+
     // Store the initial data for the process page to use
     if (typeof window !== 'undefined') {
       sessionStorage.setItem('trulyai_initial_data', JSON.stringify(initialData));
+      console.log('💾 Stored initial data in sessionStorage');
     }
 
     // Redirect to the process page with session ID and query
+    console.log('🚀 Redirecting to process page...');
     router.push(`/clarity/process?sessionId=${sessionId}&query=${encodeURIComponent(query)}`);
   };
 
@@ -301,7 +336,7 @@ export default function ClarityPage() {
               {/* Header */}
               <div className="text-center mb-8">
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-shadow-lg">
-                  🔍 Discovering Truth
+                  🔍 Finding the social media posts you meant
                 </h1>
                 <p className="text-xl text-gray-200 text-shadow">
                   Analyzing your content through our multi-modal AI pipeline
@@ -501,17 +536,21 @@ export default function ClarityPage() {
                   )}
                   
                   {/* Show different button states based on data availability */}
-                  {initialData && initialData.socialMediaSearch?.socialMediaResults && initialData.socialMediaSearch.socialMediaResults.length > 0 ? (
+                  {(initialData && initialData.socialMediaSearch?.socialMediaResults && initialData.socialMediaSearch.socialMediaResults.length > 0) || socialMediaPosts.length > 0 ? (
                     <button 
                       onClick={continueAnalysis}
                       className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 text-lg"
                     >
-                      🚀 Start Fact-Check
+                      🚀 Start Fact-Check ({socialMediaPosts.length} posts found)
                     </button>
                   ) : (
                     <div className="text-center">
                       <div className="text-yellow-400 mb-3">⚠️</div>
                       <p className="text-white mb-4">No social media posts found for analysis</p>
+                      <p className="text-gray-400 text-sm mb-4">
+                        Initial data: {initialData ? '✅ Available' : '❌ Missing'} | 
+                        Posts: {socialMediaPosts.length}
+                      </p>
                       <button 
                         onClick={() => window.location.href = '/ask'}
                         className="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 text-lg"

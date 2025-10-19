@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { readFile } from 'fs/promises';
+import { readFile, unlink } from 'fs/promises';
 import FormData from 'form-data';
 import fetch from 'node-fetch';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { logger } from '@/utils/logger';
+import path from 'path';
 
 // Configuration
 const PYTHON_BACKEND_URL = process.env.PYTHON_BACKEND_URL || 'http://localhost:8000';
@@ -128,6 +129,7 @@ async function analyzeMediaFile(
   timeframe?: { startTime: number; endTime: number; duration: number }
 ): Promise<MediaAnalysisResult> {
   logger.log('INITIAL', `Analyzing ${fileType}: ${originalName}`);
+  let shouldCleanup = false;
   
   try {
     // Check if file exists
@@ -135,6 +137,9 @@ async function analyzeMediaFile(
     if (!fs.existsSync(filePath)) {
       throw new Error(`File not found at path: ${filePath}`);
     }
+    
+    // Mark for cleanup if it's in uploads directory
+    shouldCleanup = filePath.includes('/uploads/') || filePath.includes('\\uploads\\');
     
     // Determine the analysis endpoint based on file type
     let endpoint = '';
@@ -198,14 +203,37 @@ async function analyzeMediaFile(
     logger.log('INITIAL', `${analysisType} analysis complete: ${originalName}`);
     logger.json('INITIAL', 'Analysis Result', analysis);
     
-    return {
+    const result = {
       file: originalName,
       type: analysisType,
       analysis
     };
     
+    // Clean up file after successful analysis
+    if (shouldCleanup) {
+      try {
+        await unlink(filePath);
+        logger.log('INITIAL', `🗑️  Cleaned up file: ${originalName}`);
+      } catch (cleanupError) {
+        logger.warn('INITIAL', `⚠️  Failed to cleanup file ${originalName}: ${cleanupError}`);
+      }
+    }
+    
+    return result;
+    
   } catch (error) {
     logger.error('INITIAL', `❌ Error analyzing ${originalName}`, error);
+    
+    // Clean up file even on error
+    if (shouldCleanup) {
+      try {
+        await unlink(filePath);
+        logger.log('INITIAL', `🗑️  Cleaned up file after error: ${originalName}`);
+      } catch (cleanupError) {
+        logger.warn('INITIAL', `⚠️  Failed to cleanup file after error ${originalName}: ${cleanupError}`);
+      }
+    }
+    
     return {
       file: originalName,
       type: fileType.startsWith('image/') ? 'image' : fileType.startsWith('video/') ? 'video' : 'audio',

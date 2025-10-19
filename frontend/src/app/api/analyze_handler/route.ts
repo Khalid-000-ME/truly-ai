@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/utils/logger';
+import { unlink } from 'fs/promises';
 
 interface MediaItem {
   url: string;
@@ -190,6 +191,8 @@ function generateClaimFromEvidence(postTitle: string, evidenceSummary: string): 
 }
 
 async function analyzeMediaItem(mediaItem: MediaItem, postTitle: string): Promise<any> {
+  const shouldCleanup = !!mediaItem.localPath;
+  
   try {
     // Use local path if available, otherwise use URL
     const mediaPath = mediaItem.localPath || mediaItem.url;
@@ -215,9 +218,32 @@ async function analyzeMediaItem(mediaItem: MediaItem, postTitle: string): Promis
       throw new Error(`Analysis failed: ${response.statusText}`);
     }
 
-    return await response.json();
+    const result = await response.json();
+    
+    // Clean up local file after successful analysis
+    if (shouldCleanup && mediaItem.localPath) {
+      try {
+        await unlink(mediaItem.localPath);
+        logger.log('ANALYZE_HANDLER', `🗑️  Cleaned up file: ${mediaItem.filename}`);
+      } catch (cleanupError) {
+        logger.warn('ANALYZE_HANDLER', `⚠️  Failed to cleanup file ${mediaItem.filename}: ${cleanupError}`);
+      }
+    }
+    
+    return result;
   } catch (error) {
     logger.error('ANALYZE_HANDLER', `Failed to analyze ${mediaItem.type}:`, error);
+    
+    // Clean up local file even on error
+    if (shouldCleanup && mediaItem.localPath) {
+      try {
+        await unlink(mediaItem.localPath);
+        logger.log('ANALYZE_HANDLER', `🗑️  Cleaned up file after error: ${mediaItem.filename}`);
+      } catch (cleanupError) {
+        logger.warn('ANALYZE_HANDLER', `⚠️  Failed to cleanup file after error: ${cleanupError}`);
+      }
+    }
+    
     throw error;
   }
 }

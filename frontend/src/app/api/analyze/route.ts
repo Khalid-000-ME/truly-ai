@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/utils/logger';
+import { unlink } from 'fs/promises';
 
 // Python backend URL
 const PYTHON_BACKEND_URL = process.env.PYTHON_BACKEND_URL || 'http://localhost:8000';
@@ -81,6 +82,9 @@ async function analyzeText(text: string, sourceType: string) {
 }
 
 async function analyzeMedia(mediaUrl: string, mediaType: string, contextText?: string) {
+  let shouldCleanup = false;
+  let filePath = '';
+  
   try {
     // Validate the media URL
     if (!mediaUrl || mediaUrl.trim() === '') {
@@ -92,6 +96,10 @@ async function analyzeMedia(mediaUrl: string, mediaType: string, contextText?: s
         filename: 'unknown'
       };
     }
+    
+    // Check if it's a file in uploads directory that should be cleaned up
+    shouldCleanup = mediaUrl.includes('/uploads/') || mediaUrl.includes('\\uploads\\');
+    filePath = mediaUrl;
 
     // Check if it's a Google login URL (invalid)
     if (mediaUrl.includes('accounts.google.com/ServiceLogin')) {
@@ -176,7 +184,7 @@ async function analyzeMedia(mediaUrl: string, mediaType: string, contextText?: s
 
     const result = await response.json();
     
-    return {
+    const analysisResult = {
       success: result.success,
       description: result.description || result.analysis || result.transcription,
       model_used: result.model_used,
@@ -186,9 +194,32 @@ async function analyzeMedia(mediaUrl: string, mediaType: string, contextText?: s
       mediaType: mediaType,
       error: result.error
     };
+    
+    // Clean up file after successful analysis
+    if (shouldCleanup && filePath) {
+      try {
+        await unlink(filePath);
+        logger.log('ANALYZE', `🗑️  Cleaned up file: ${analysisResult.filename}`);
+      } catch (cleanupError) {
+        logger.warn('ANALYZE', `⚠️  Failed to cleanup file ${analysisResult.filename}: ${cleanupError}`);
+      }
+    }
+    
+    return analysisResult;
 
   } catch (error) {
     logger.error('ANALYZE', `${mediaType} analysis failed:`, error);
+    
+    // Clean up file even on error
+    if (shouldCleanup && filePath) {
+      try {
+        await unlink(filePath);
+        logger.log('ANALYZE', `🗑️  Cleaned up file after error: ${filePath.split('/').pop() || 'unknown'}`);
+      } catch (cleanupError) {
+        logger.warn('ANALYZE', `⚠️  Failed to cleanup file after error: ${cleanupError}`);
+      }
+    }
+    
     return {
       success: false,
       error: error instanceof Error ? error.message : `${mediaType} analysis failed`
