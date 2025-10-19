@@ -1,203 +1,250 @@
-[2025-10-19T22:25:37.389Z] [SYSTEM] [LOGGER] Log file cleared - reached 1799 lines (max: 1000)
-[2025-10-19T22:25:37.390Z] [INFO] [ANALYZE] Analyzing content: text=32chars, type=general, mediaType=image
-[2025-10-19T22:25:37.391Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912718226_1.jpg
-[2025-10-19T22:25:38.412Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912718226_1.jpg
-[2025-10-19T22:25:38.413Z] [INFO] [ANALYZE] Analysis complete: success=true
-[2025-10-19T22:25:38.772Z] [INFO] [ANALYZE] Analyzing content: text=32chars, type=general, mediaType=image
-[2025-10-19T22:25:38.773Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912718227_2.jpg
-[2025-10-19T22:25:39.786Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912718227_2.jpg
-[2025-10-19T22:25:39.787Z] [INFO] [ANALYZE] Analysis complete: success=true
-[2025-10-19T22:25:40.123Z] [INFO] [ANALYZE] Analyzing content: text=68chars, type=general, mediaType=image
-[2025-10-19T22:25:40.124Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912728388_0.jpg
-[2025-10-19T22:25:41.147Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912728388_0.jpg
-[2025-10-19T22:25:41.147Z] [INFO] [ANALYZE] Analysis complete: success=true
-[2025-10-19T22:25:41.470Z] [INFO] [ANALYZE] Analyzing content: text=68chars, type=general, mediaType=image
-[2025-10-19T22:25:41.471Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912728388_1.jpg
-[2025-10-19T22:25:42.496Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912728388_1.jpg
-[2025-10-19T22:25:42.497Z] [INFO] [ANALYZE] Analysis complete: success=true
-[2025-10-19T22:25:58.766Z] [INFO] [INTERNET_SEARCH] Request: query=40chars, links=0, analysis=96chars
-[2025-10-19T22:25:58.769Z] [INFO] [INTERNET_SEARCH] Query: Neal Mohan current YouTube health safety site:snopes.com OR site:factcheck.org OR site:politifact.com
-[2025-10-19T22:25:59.399Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T22:25:59.401Z] [INFO] [INTERNET_SEARCH]   1. Analyzing and Fact Checking - Fake news sources and how to ... - https://library.alamancecc.edu/fake/analyzing
-[2025-10-19T22:25:59.403Z] [INFO] [INTERNET_SEARCH]   2. Fact Checking Sites - Intermediate Senior Media and Digital ... - https://guides.library.queensu.ca/is-media-literacy/fact-checking
-[2025-10-19T22:25:59.405Z] [INFO] [INTERNET_SEARCH]   3. Wired Wednesdays: Fact-Checking Online: Trusted Sources - https://www.youtube.com/watch?v=rGz3p01DXJg
-[2025-10-19T22:25:59.406Z] [INFO] [INTERNET_SEARCH] After social media filtering: 2 results
-[2025-10-19T22:25:59.409Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Analyzing and Fact Checking - Fake news sources and how to ... - https://library.alamancecc.edu/fake/analyzing
-[2025-10-19T22:25:59.411Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Fact Checking Sites - Intermediate Senior Media and Digital ... - https://guides.library.queensu.ca/is-media-literacy/fact-checking
-[2025-10-19T22:25:59.412Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T22:25:59.414Z] [INFO] [INTERNET_SEARCH] Query: Neal Mohan current YouTube health safety fact check verification debunk
-[2025-10-19T22:26:00.632Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T22:26:00.640Z] [INFO] [INTERNET_SEARCH]   1. Welcome to 'Is This Legit?' - https://www.youtube.com/watch?v=5XhjbGpqwmw
-[2025-10-19T22:26:00.646Z] [INFO] [INTERNET_SEARCH]   2. Verification of news and information by using fact checking is easier than you think.  #factscheck - https://www.youtube.com/watch?v=bN0YJeOKT4k
-[2025-10-19T22:26:00.655Z] [INFO] [INTERNET_SEARCH]   3. YouTube says removing videos isn't enough to combat COVID-19 misinformation - https://www.mobihealthnews.com/news/youtube-says-removing-videos-isnt-enough-combat-covid-19-misinformation
-[2025-10-19T22:26:00.663Z] [INFO] [INTERNET_SEARCH] After social media filtering: 1 results
-[2025-10-19T22:26:00.669Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): YouTube says removing videos isn't enough to combat COVID-19 misinformation - https://www.mobihealthnews.com/news/youtube-says-removing-videos-isnt-enough-combat-covid-19-misinformation
-[2025-10-19T22:26:00.674Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T22:26:00.677Z] [INFO] [INTERNET_SEARCH] Query: Neal Mohan current YouTube health safety site:reuters.com OR site:apnews.com OR site:bbc.com
-[2025-10-19T22:26:02.016Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T22:26:02.021Z] [INFO] [INTERNET_SEARCH]   1. YouTube CEO says safety is "above anything else we do" - https://www.youtube.com/watch?v=hnayOg7QjoM
-[2025-10-19T22:26:02.023Z] [INFO] [INTERNET_SEARCH]   2. Reacting to Neal Mohan's 2024 @YouTube Priorities Letter - https://www.youtube.com/watch?v=l2-ktAOxyiA
-[2025-10-19T22:26:02.027Z] [INFO] [INTERNET_SEARCH]   3. YouTube - Wikipedia - https://en.wikipedia.org/wiki/YouTube_user_(identifier)
-[2025-10-19T22:26:02.031Z] [INFO] [INTERNET_SEARCH] After social media filtering: 1 results
-[2025-10-19T22:26:02.034Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): YouTube - Wikipedia - https://en.wikipedia.org/wiki/YouTube_user_(identifier)
-[2025-10-19T22:26:02.039Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T22:26:02.043Z] [INFO] [INTERNET_SEARCH] Query: Neal Mohan current YouTube health safety site:nytimes.com OR site:washingtonpost.com OR site:theguardian.com
-[2025-10-19T22:26:03.261Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T22:26:03.262Z] [INFO] [INTERNET_SEARCH]   1. Reacting to Neal Mohan's 2024 @YouTube Priorities Letter - https://www.youtube.com/watch?v=l2-ktAOxyiA
-[2025-10-19T22:26:03.263Z] [INFO] [INTERNET_SEARCH]   2. Neal Mohan, CEO of YouTube - https://www.youtube.com/watch?v=TwHn-O_GeSg
-[2025-10-19T22:26:03.264Z] [INFO] [INTERNET_SEARCH]   3. Articles by Neal Mohan - YouTube CEO - https://blog.youtube/neal/
-[2025-10-19T22:26:03.265Z] [INFO] [INTERNET_SEARCH] After social media filtering: 1 results
-[2025-10-19T22:26:03.265Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Articles by Neal Mohan - YouTube CEO - https://blog.youtube/neal/
-[2025-10-19T22:26:03.266Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T22:26:03.266Z] [INFO] [INTERNET_SEARCH] Query: Neal Mohan current YouTube health safety site:techcrunch.com OR site:theverge.com OR site:wired.com
-[2025-10-19T22:26:04.757Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T22:26:04.758Z] [INFO] [INTERNET_SEARCH]   1. YouTube's Neal Mohan describes the company's efforts on ... - https://techcrunch.com/2019/10/02/youtubes-neal-mohan-describes-the-companys-efforts-on-safety-and-trust/
-[2025-10-19T22:26:04.759Z] [INFO] [INTERNET_SEARCH]   2. YouTube’s Neal Mohan describes the company’s efforts on safety and trust - People & Tech - https://peopleandtech.org/youtubes-neal-mohan-describes-the-companys-efforts-on-safety-and-trust/
-[2025-10-19T22:26:04.760Z] [INFO] [INTERNET_SEARCH]   3. Q&A with YouTube CEO Neil Mohan ... - https://www.techmeme.com/250918/p41
-[2025-10-19T22:26:04.761Z] [INFO] [INTERNET_SEARCH] After social media filtering: 3 results
-[2025-10-19T22:26:04.763Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): YouTube’s Neal Mohan describes the company’s efforts on safety and trust - People & Tech - https://peopleandtech.org/youtubes-neal-mohan-describes-the-companys-efforts-on-safety-and-trust/
-[2025-10-19T22:26:04.764Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Q&A with YouTube CEO Neil Mohan ... - https://www.techmeme.com/250918/p41
-[2025-10-19T22:26:04.765Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 1 results
-[2025-10-19T22:26:04.766Z] [INFO] [INTERNET_SEARCH] Query: Neal Mohan current YouTube health safety news report authentic source verification
-[2025-10-19T22:26:05.916Z] [INFO] [INTERNET_SEARCH] Found 3 raw results from Perplexity
-[2025-10-19T22:26:05.917Z] [INFO] [INTERNET_SEARCH]   1. YouTube CEO Neal Mohan Shares How the Platform Innovates - https://www.youtube.com/watch?v=9aUSUwZzutQ
-[2025-10-19T22:26:05.920Z] [INFO] [INTERNET_SEARCH]   2. YouTube CEO says safety is "above anything else we do" - https://www.youtube.com/watch?v=hnayOg7QjoM
-[2025-10-19T22:26:05.922Z] [INFO] [INTERNET_SEARCH]   3. Perspective: Tackling Misinformation on YouTube - https://blog.youtube/inside-youtube/tackling-misinfo/
-[2025-10-19T22:26:05.924Z] [INFO] [INTERNET_SEARCH] After social media filtering: 1 results
-[2025-10-19T22:26:05.925Z] [INFO] [INTERNET_SEARCH]   ❌ Filtered out (not in curated list): Perspective: Tackling Misinformation on YouTube - https://blog.youtube/inside-youtube/tackling-misinfo/
-[2025-10-19T22:26:05.925Z] [INFO] [INTERNET_SEARCH] After authentic source filtering: 0 results
-[2025-10-19T22:26:05.927Z] [INFO] [INTERNET_SEARCH] Results: 1 authentic sources found
-[2025-10-19T22:26:05.928Z] [JSON] [INTERNET_SEARCH] Internet Sources:
-[
-  {
-    "title": "YouTube's Neal Mohan describes the company's efforts on ...",
-    "url": "https://techcrunch.com/2019/10/02/youtubes-neal-mohan-describes-the-companys-efforts-on-safety-and-trust/",
-    "source": "TechCrunch",
-    "credibilityScore": 85,
-    "category": "tech"
-  }
-]
-[2025-10-19T22:26:05.931Z] [SEP] [INTERNET_SEARCH] 
-==========================================
-🌐 INTERNET SEARCH API FINAL RESPONSE
-==========================================
-[2025-10-19T22:26:05.933Z] [JSON] [INTERNET_SEARCH] Final Response:
-{
-  "success": true,
-  "query": "Neal Mohan current YouTube health safety",
-  "viralContentAnalysis": "Find sources for fact-checking this social media claim: Neal Mohan current YouTube health safety",
-  "extractedLinks": [],
-  "internetSources": [
-    {
-      "title": "YouTube's Neal Mohan describes the company's efforts on ...",
-      "url": "https://techcrunch.com/2019/10/02/youtubes-neal-mohan-describes-the-companys-efforts-on-safety-and-trust/",
-      "source": "TechCrunch",
-      "credibilityScore": 85,
-      "category": "tech"
-    }
-  ],
-  "totalResults": 1,
-  "averageCredibilityScore": 85,
-  "searchType": "authentic_news_sources"
-}
-[2025-10-19T22:26:06.451Z] [INFO] [SEGREGATE] Starting segregation process
-[2025-10-19T22:26:06.453Z] [INFO] [SEGREGATE] Processing 1 social media posts
-[2025-10-19T22:26:06.453Z] [INFO] [SEGREGATE] Analyzing post 1: YouTube's Neal Mohan describes the company's efforts on ...
-[2025-10-19T22:26:08.028Z] [INFO] [SEGREGATE] Downloaded: other_1760912767893_1.jpg (389 bytes)
-[2025-10-19T22:26:08.029Z] [INFO] [SEGREGATE] Downloaded: other_1760912767891_0.jpg (7664 bytes)
-[2025-10-19T22:26:08.049Z] [INFO] [SEGREGATE] Downloaded: other_1760912767894_5.jpg (2633 bytes)
-[2025-10-19T22:26:08.068Z] [INFO] [SEGREGATE] Downloaded: other_1760912767895_7.jpg (248 bytes)
-[2025-10-19T22:26:08.209Z] [INFO] [SEGREGATE] Downloaded: other_1760912767895_6.jpg (207049 bytes)
-[2025-10-19T22:26:08.869Z] [INFO] [SEGREGATE] Downloaded: other_1760912767893_2.jpg (75786 bytes)
-[2025-10-19T22:26:09.272Z] [INFO] [SEGREGATE] Downloaded: other_1760912767894_3.jpg (632507 bytes)
-[2025-10-19T22:26:09.355Z] [INFO] [SEGREGATE] Downloaded: other_1760912767894_4.jpg (672220 bytes)
-[2025-10-19T22:26:09.358Z] [INFO] [SEGREGATE] Segregation complete: 1 posts processed
-[2025-10-19T22:26:09.359Z] [JSON] [SEGREGATE] Segregated Posts:
-[
-  {
-    "url": "https://techcrunch.com/2019/10/02/youtubes-neal-mohan-describes-the-companys-efforts-on-safety-and-trust/",
-    "platform": "other",
-    "title": "YouTube's Neal Mohan describes the company's efforts on ...",
-    "content": {
-      "text": [
-        "\n\t\n\t\tLatest\t\n\n\t\n\t\tAI\t\n\n\t\n\t\tAmazon\t\n\n\t\n\t\tApps\t\n\n\t\n\t\tBiotech & Health\t\n\n\t\n\t\tClimate\t\n\n\t\n\t\tCloud Computing\t\n\n\t\n\t\tCommerce\t\n\n\t\n\t\tCrypto\t\n\n\t\n\t\tEnterprise\t\n\n\t\n\t\tEVs\t\n\n\t\n\t\tFintech\t\n\n\t\n\t\tFundraising\t\n\n\t\n\t\tGadgets\t\n\n\t\n\t\tGaming\t\n\n\t\n\t\tGoogle\t\n\n\t\n\t\tGovernment & Policy\t\n\n\t\n\t\tHardware\t\n\n\t\n\t\tInstagram\t\n\n\t\n\t\tLayoffs\t\n\n\t\n\t\tMedia & Entertainment\t\n\n\t\n\t\tMeta\t\n\n\t\n\t\tMicrosoft\t\n\n\t\n\t\tPrivacy\t\n\n\t\n\t\tRobotics\t\n\n\t\n\t\tSecurity\t\n\n\t\n\t\tSocial\t\n\n\t\n\t\tSpace\t\n\n\t\n\t\tStartups\t\n\n\t\n\t\tTikTok\t\n\n\t\n\t\tTransportation\t\n\n\t\n\t\tVenture\t\n\n\t\n\t\tStaff\t\n\n\t\n\t\tEvents\t\n\n\t\n\t\tStartup Battlefield\t\n\n\t\n\t\tStrictlyVC\t\n\n\t\n\t\tNewsletters\t\n\n\t\n\t\tPodcasts\t\n\n\t\n\t\tVideos\t\n\n\t\n\t\tPartner Content\t\n\n\t\n\t\tTechCrunch Brand Studio\t\n\n\t\n\t\tCrunchboard\t\n\n\t\n\t\tContact Us\t\nYouTube Chief Product Officer Neal Mohan gave an update on all things YouTube at TechCrunch Disrupt SF. He touched on many different subjects, from YouTube Music updates to advertiser-friendly guidelines and tweaking YouTube’s recommendation algorithm.Mohan started right away with an update on YouTube Music. YouTube has accidentally become one of the biggest music streaming services in the world. And the company plans to take advantage of that.“Everybody knows music has been a core part of YouTube really since the day of the founding of the product,” he said.While YouTube Premium started as YouTube Red, the company rebranded its premium subscription service with a focus on YouTube Music. “It’s a music subscription service and it also brings the best of YouTube,” Mohan said.It is now available in 71 countries and YouTube is rolling out three personalized playlists today to make the service more competitive with Spotify and Apple Music.YouTube Music is launching three new personalized playlistsWith a renewed focus on YouTube Music, Google has decided to phase out Google Play Music to focus on YouTube Music instead. But there are still some missing features on YouTube Music.In particular, YouTube is working on porting three Google Play Music features: The ability to have a locker with personal music files, the ability to play local audio files on your Android device and the ability to transfer your playlists from Google Play Music to the YouTube Music app.“We’d like to do it in the near future but we want to make sure we nail that,” Mohan said. So it’s still a work in progress.Many YouTube creators have criticized the platform as some of their videos have been demonetized. Mohan mostly recapped some of YouTube’s efforts on this front to make sure that videos aren’t demonetized for no reason.“In addition to our community guidelines, we also have something called the advertiser-friendly guidelines. Those are the sets of rules that govern what type of content is eligible for monetization and what is not,” Mohan said.The company now has an appeal system so that creators can contest a demonetization decision. “There’s an SLA turnaround time for processing that appeal,” Mohan said.YouTube creators themselves can give advance warnings by saying what’s in a video, such as swear words, etc. Mohan believes that this model will make monetization more stable for YouTube creators.When it comes to autoplaying videos, watch next and personalized recommendations, YouTube has also been criticized for recommending conspiracy videos or simply weird stuff that makes you uncomfortable.“Lots of users are recommending content that you would call sort of more mainstream, sometimes it’s in the other direction,” Mohan said. “And one thing that we want to avoid is sending users down paths to more and more extreme content, especially when that content might not be quite policy violations — so it still exists on our platform — but it’s borderline in nature or maybe it’s spreading, you know, harmful misinformation in some way or the other.”YouTube started tweaking the recommendation algorithm back in January. Mohan says that there’s been a 50% reduction in user exposure to content “that we would deem to be in that bucket of sort of borderline or maybe harmful misinformation.”TechCrunch’s Matthew Panzarino and Neal Mohan also talked about Lilly Singh, a YouTube star who now has her own late night talk show on NBC — A Little Late with Lilly Singh.“When they were looking for a replacement host for that late night show, it made sense,” Mohan said. “Lilly has this natural way of connecting with the audience. But also because the nature of a lot of that late night content in particular is that it’s often viewed — not as it’s linearly broadcasted on live channels — but the next day on YouTube.”And Mohan doesn’t think she’s turning her back to YouTube. “She knows that her core audience, her most passionate fans are on YouTube,” he said.Finally, Mohan had two pieces of advice for people working on subscription businesses. First, make sure that the message is clear and that people know why they should subscribe. Second, optimize the funnel from user acquisition to retention, monetization, etc.[tc_unified_video code=”27280912-ce02-3655-b137-9e08ee34d61a”]Topics\n\t\tSenior Reporter\n\t\t\tBring a +1 and save 60%Have a +1 you’d like to bring to Disrupt? Bring them along and save 60% on their pass. Or get up to 30% off on group passes.Join 10,000 founders, investors, and tech leaders — and save when you come together to the tech epicenter of the year.\t\t\t\tWhatsApp will curb the number of messages people and businesses can send without a response\n\t\t\t\t\t\t\tAmazon’s Ring to partner with Flock, a network of AI cameras used by ICE, feds, and police\n\t\t\t\t\t\t\tEightfold co-founders raise $35M for Viven, an AI digital twin startup for querying unavailable co-workers\n\t\t\t\t\t\t\tOpenAI has five years to turn $13 billion into $1 trillion\n\t\t\t\t\t\t\tSam Altman says ChatGPT will soon allow erotica for adult users\n\t\t\t\t\t\t\tGoogle’s Gemini can now help you schedule Google Calendar meetings\n\t\t\t\t\t\t\tCalifornia becomes first state to regulate AI companion chatbots\n\t\t\t© 2025 TechCrunch Media LLC."
-      ],
-      "images": [
-        {
-          "url": "https://techcrunch.com/wp-content/uploads/2024/09/tc-lockup.svg",
-          "filename": "other_1760912767891_0.jpg",
-          "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767891_0.jpg"
-        },
-        {
-          "url": "https://techcrunch.com/wp-content/uploads/2024/09/tc-logo-mobile.svg",
-          "filename": "other_1760912767893_1.jpg",
-          "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767893_1.jpg"
-        },
-        {
-          "url": "https://techcrunch.com/wp-content/uploads/2019/10/disrupt-neal-mohan-youtube-0142.jpg?w=1024",
-          "filename": "other_1760912767893_2.jpg",
-          "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767893_2.jpg"
-        },
-        {
-          "url": "https://techcrunch.com/wp-content/uploads/2019/10/disrupt-neal-mohan-youtube-0153.jpg",
-          "filename": "other_1760912767894_3.jpg",
-          "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767894_3.jpg"
-        },
-        {
-          "url": "https://techcrunch.com/wp-content/uploads/2019/10/disrupt-neal-mohan-youtube-0137.jpg",
-          "filename": "other_1760912767894_4.jpg",
-          "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767894_4.jpg"
-        },
-        {
-          "url": "https://techcrunch.com/wp-content/uploads/2024/05/Romain-Dillet.jpg?w=150",
-          "filename": "other_1760912767894_5.jpg",
-          "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767894_5.jpg"
-        },
-        {
-          "url": "https://techcrunch.com/wp-content/uploads/2025/07/TC25_Disrupt-Color.png",
-          "filename": "other_1760912767895_6.jpg",
-          "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767895_6.jpg"
-        },
-        {
-          "url": "https://techcrunch.com/wp-content/themes/tc-24/dist/svg/tc-logo.svg",
-          "filename": "other_1760912767895_7.jpg",
-          "type": "image",
-          "localPath": "C:\\Users\\sl\\OneDrive\\Documents\\Hackathons\\TrulyAI\\frontend\\uploads\\other_1760912767895_7.jpg"
-        }
-      ],
-      "videos": [
-        {
-          "url": "https://techcrunch.com/2019/10/02/youtube-music-is-launching-three-personalized-playlists/embed/#?secret=vTTlBuDLDi#?secret=w9SI7HqkCD",
-          "filename": "other_1760912769357_0.mp4",
-          "type": "video",
-          "localPath": null,
-          "linkedAudio": "other_1760912769357_0.mp3"
-        }
-      ],
-      "audio": [
-        {
-          "url": "https://techcrunch.com/2019/10/02/youtube-music-is-launching-three-personalized-playlists/embed/#?secret=vTTlBuDLDi#?secret=w9SI7HqkCD",
-          "filename": "other_1760912769357_0.mp3",
-          "type": "audio",
-          "localPath": null,
-          "linkedVideo": "other_1760912769357_0.mp4"
-        }
-      ]
-    }
-  }
-]
-[2025-10-19T22:26:09.704Z] [INFO] [ANALYZE] Analyzing content: text=87chars, type=general, mediaType=image
-[2025-10-19T22:26:09.706Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912767891_0.jpg
-[2025-10-19T22:26:10.719Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912767891_0.jpg
-[2025-10-19T22:26:10.721Z] [INFO] [ANALYZE] Analysis complete: success=true
-[2025-10-19T22:26:11.064Z] [INFO] [ANALYZE] Analyzing content: text=87chars, type=general, mediaType=image
-[2025-10-19T22:26:11.065Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912767893_1.jpg
-[2025-10-19T22:26:12.066Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912767893_1.jpg
-[2025-10-19T22:26:12.069Z] [INFO] [ANALYZE] Analysis complete: success=true
+[2025-10-19T22:26:37.322Z] [SYSTEM] [LOGGER] Log file cleared - reached 1269 lines (max: 1000)
+[2025-10-19T22:26:37.323Z] [INFO] [ANALYZE] Analyzing content: text=89chars, type=general, mediaType=image
+[2025-10-19T22:26:37.324Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912789742_0.jpg
+[2025-10-19T22:26:38.347Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912789742_0.jpg
+[2025-10-19T22:26:38.348Z] [INFO] [ANALYZE] Analysis complete: success=true
+[2025-10-19T22:26:38.703Z] [INFO] [ANALYZE] Analyzing content: text=89chars, type=general, mediaType=image
+[2025-10-19T22:26:38.704Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912789743_1.jpg
+[2025-10-19T22:26:39.715Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912789743_1.jpg
+[2025-10-19T22:26:39.716Z] [INFO] [ANALYZE] Analysis complete: success=true
+[2025-10-19T22:26:40.066Z] [INFO] [ANALYZE] Analyzing content: text=97chars, type=general, mediaType=image
+[2025-10-19T22:26:40.068Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912796253_0.jpg
+[2025-10-19T22:26:41.075Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912796253_0.jpg
+[2025-10-19T22:26:41.078Z] [INFO] [ANALYZE] Analysis complete: success=true
+[2025-10-19T22:26:41.412Z] [INFO] [ANALYZE] Analyzing content: text=97chars, type=general, mediaType=image
+[2025-10-19T22:26:41.413Z] [INFO] [ANALYZE] Sending to /api/analyze/image/path: image - C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912796254_1.jpg
+[2025-10-19T22:26:42.409Z] [INFO] [ANALYZE] 🗑️  Cleaned up file: C:\Users\sl\OneDrive\Documents\Hackathons\TrulyAI\frontend\uploads\other_1760912796254_1.jpg
+[2025-10-19T22:26:42.411Z] [INFO] [ANALYZE] Analysis complete: success=true
+[2025-10-19T22:26:51.455Z] [INFO] [CLEANUP] 🧹 Starting old files cleanup via API
+[2025-10-19T22:26:51.460Z] [INFO] [CLEANUP] 🔍 Checking 458 files for cleanup...
+[2025-10-19T22:26:51.467Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: 1760910512955_655rhb_0.jpg
+[2025-10-19T22:26:51.479Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: 1760911748732_nha7ds_0.jpg
+[2025-10-19T22:26:51.485Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: 1760912166033_gbubkf_0.jpg
+[2025-10-19T22:26:51.491Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998110_3.jpg
+[2025-10-19T22:26:51.496Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998110_4.jpg
+[2025-10-19T22:26:51.499Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998110_5.jpg
+[2025-10-19T22:26:51.504Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998111_6.jpg
+[2025-10-19T22:26:51.507Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998112_7.jpg
+[2025-10-19T22:26:51.510Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998112_8.jpg
+[2025-10-19T22:26:51.513Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998112_9.jpg
+[2025-10-19T22:26:51.519Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998113_10.jpg
+[2025-10-19T22:26:51.525Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998116_12.jpg
+[2025-10-19T22:26:51.528Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998116_13.jpg
+[2025-10-19T22:26:51.536Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998117_14.jpg
+[2025-10-19T22:26:51.540Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998117_15.jpg
+[2025-10-19T22:26:51.543Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998117_16.jpg
+[2025-10-19T22:26:51.545Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998118_17.jpg
+[2025-10-19T22:26:51.548Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998118_18.jpg
+[2025-10-19T22:26:51.551Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998118_19.jpg
+[2025-10-19T22:26:51.554Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998119_20.jpg
+[2025-10-19T22:26:51.558Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998119_21.jpg
+[2025-10-19T22:26:51.562Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998120_22.jpg
+[2025-10-19T22:26:51.565Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998120_23.jpg
+[2025-10-19T22:26:51.568Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998120_24.jpg
+[2025-10-19T22:26:51.572Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998121_25.jpg
+[2025-10-19T22:26:51.576Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998121_26.jpg
+[2025-10-19T22:26:51.580Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998122_28.jpg
+[2025-10-19T22:26:51.584Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998123_29.jpg
+[2025-10-19T22:26:51.588Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998123_30.jpg
+[2025-10-19T22:26:51.591Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998124_31.jpg
+[2025-10-19T22:26:51.595Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998124_32.jpg
+[2025-10-19T22:26:51.599Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998125_33.jpg
+[2025-10-19T22:26:51.602Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998127_34.jpg
+[2025-10-19T22:26:51.606Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998128_35.jpg
+[2025-10-19T22:26:51.610Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998128_36.jpg
+[2025-10-19T22:26:51.613Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998129_37.jpg
+[2025-10-19T22:26:51.616Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998130_38.jpg
+[2025-10-19T22:26:51.619Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998131_39.jpg
+[2025-10-19T22:26:51.622Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998131_40.jpg
+[2025-10-19T22:26:51.625Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998132_41.jpg
+[2025-10-19T22:26:51.628Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998135_42.jpg
+[2025-10-19T22:26:51.630Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998135_43.jpg
+[2025-10-19T22:26:51.633Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998135_44.jpg
+[2025-10-19T22:26:51.638Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998136_45.jpg
+[2025-10-19T22:26:51.641Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998136_46.jpg
+[2025-10-19T22:26:51.644Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998137_47.jpg
+[2025-10-19T22:26:51.647Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998137_48.jpg
+[2025-10-19T22:26:51.651Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998138_49.jpg
+[2025-10-19T22:26:51.655Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998139_50.jpg
+[2025-10-19T22:26:51.658Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998140_51.jpg
+[2025-10-19T22:26:51.661Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998140_52.jpg
+[2025-10-19T22:26:51.664Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998141_53.jpg
+[2025-10-19T22:26:51.668Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998141_54.jpg
+[2025-10-19T22:26:51.671Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998143_55.jpg
+[2025-10-19T22:26:51.674Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998143_56.jpg
+[2025-10-19T22:26:51.678Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998144_57.jpg
+[2025-10-19T22:26:51.681Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998144_58.jpg
+[2025-10-19T22:26:51.685Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998146_60.jpg
+[2025-10-19T22:26:51.689Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998146_61.jpg
+[2025-10-19T22:26:51.692Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998147_62.jpg
+[2025-10-19T22:26:51.697Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998147_63.jpg
+[2025-10-19T22:26:51.701Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998147_64.jpg
+[2025-10-19T22:26:51.705Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998148_65.jpg
+[2025-10-19T22:26:51.708Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998149_66.jpg
+[2025-10-19T22:26:51.710Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998151_68.jpg
+[2025-10-19T22:26:51.713Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998152_69.jpg
+[2025-10-19T22:26:51.716Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998152_70.jpg
+[2025-10-19T22:26:51.719Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998153_71.jpg
+[2025-10-19T22:26:51.722Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998153_72.jpg
+[2025-10-19T22:26:51.725Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998154_73.jpg
+[2025-10-19T22:26:51.727Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998154_74.jpg
+[2025-10-19T22:26:51.730Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998155_75.jpg
+[2025-10-19T22:26:51.732Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998155_76.jpg
+[2025-10-19T22:26:51.737Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998156_77.jpg
+[2025-10-19T22:26:51.741Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998156_78.jpg
+[2025-10-19T22:26:51.744Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998156_79.jpg
+[2025-10-19T22:26:51.747Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998157_80.jpg
+[2025-10-19T22:26:51.750Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998159_81.jpg
+[2025-10-19T22:26:51.753Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998160_82.jpg
+[2025-10-19T22:26:51.755Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998160_83.jpg
+[2025-10-19T22:26:51.760Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998161_84.jpg
+[2025-10-19T22:26:51.763Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998161_85.jpg
+[2025-10-19T22:26:51.766Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998162_86.jpg
+[2025-10-19T22:26:51.769Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998162_87.jpg
+[2025-10-19T22:26:51.774Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998163_88.jpg
+[2025-10-19T22:26:51.776Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998163_89.jpg
+[2025-10-19T22:26:51.779Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998164_90.jpg
+[2025-10-19T22:26:51.781Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998165_92.jpg
+[2025-10-19T22:26:51.784Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998165_93.jpg
+[2025-10-19T22:26:51.787Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998166_94.jpg
+[2025-10-19T22:26:51.790Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998166_95.jpg
+[2025-10-19T22:26:51.793Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998167_96.jpg
+[2025-10-19T22:26:51.796Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998167_97.jpg
+[2025-10-19T22:26:51.799Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998168_98.jpg
+[2025-10-19T22:26:51.803Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998169_100.jpg
+[2025-10-19T22:26:51.806Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998169_99.jpg
+[2025-10-19T22:26:51.809Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998170_101.jpg
+[2025-10-19T22:26:51.814Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998170_102.jpg
+[2025-10-19T22:26:51.818Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998171_103.jpg
+[2025-10-19T22:26:51.821Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998172_104.jpg
+[2025-10-19T22:26:51.824Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760909998172_105.jpg
+[2025-10-19T22:26:51.827Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910007429_2.jpg
+[2025-10-19T22:26:51.830Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910007430_3.jpg
+[2025-10-19T22:26:51.833Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910007430_4.jpg
+[2025-10-19T22:26:51.836Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910007431_5.jpg
+[2025-10-19T22:26:51.841Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910007431_6.jpg
+[2025-10-19T22:26:51.844Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910007433_7.jpg
+[2025-10-19T22:26:51.847Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910007434_10.jpg
+[2025-10-19T22:26:51.851Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910007434_8.jpg
+[2025-10-19T22:26:51.854Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910007434_9.jpg
+[2025-10-19T22:26:51.857Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910046806_2.jpg
+[2025-10-19T22:26:51.860Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910046807_3.jpg
+[2025-10-19T22:26:51.863Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910046808_4.jpg
+[2025-10-19T22:26:51.865Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910046809_5.jpg
+[2025-10-19T22:26:51.868Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910046811_6.jpg
+[2025-10-19T22:26:51.872Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910046812_7.jpg
+[2025-10-19T22:26:51.875Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910046812_8.jpg
+[2025-10-19T22:26:51.879Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910046813_10.jpg
+[2025-10-19T22:26:51.882Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910046813_9.jpg
+[2025-10-19T22:26:51.885Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910049519_2.jpg
+[2025-10-19T22:26:51.890Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910049520_3.jpg
+[2025-10-19T22:26:51.893Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910049520_4.jpg
+[2025-10-19T22:26:51.895Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910049520_5.jpg
+[2025-10-19T22:26:51.899Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076483_3.jpg
+[2025-10-19T22:26:51.902Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076483_4.jpg
+[2025-10-19T22:26:51.906Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076484_10.jpg
+[2025-10-19T22:26:51.909Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076484_5.jpg
+[2025-10-19T22:26:51.912Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076484_6.jpg
+[2025-10-19T22:26:51.915Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076484_7.jpg
+[2025-10-19T22:26:51.918Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076484_8.jpg
+[2025-10-19T22:26:51.921Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076484_9.jpg
+[2025-10-19T22:26:51.924Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076485_12.jpg
+[2025-10-19T22:26:51.928Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076485_13.jpg
+[2025-10-19T22:26:51.931Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076485_14.jpg
+[2025-10-19T22:26:51.935Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076485_15.jpg
+[2025-10-19T22:26:51.938Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076485_16.jpg
+[2025-10-19T22:26:51.941Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076485_17.jpg
+[2025-10-19T22:26:51.944Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076485_18.jpg
+[2025-10-19T22:26:51.947Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076485_19.jpg
+[2025-10-19T22:26:51.949Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076486_20.jpg
+[2025-10-19T22:26:51.953Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076486_21.jpg
+[2025-10-19T22:26:51.958Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076486_22.jpg
+[2025-10-19T22:26:51.963Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076486_23.jpg
+[2025-10-19T22:26:51.965Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076486_24.jpg
+[2025-10-19T22:26:51.969Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076486_25.jpg
+[2025-10-19T22:26:51.972Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076486_26.jpg
+[2025-10-19T22:26:51.975Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076487_28.jpg
+[2025-10-19T22:26:51.978Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076487_29.jpg
+[2025-10-19T22:26:51.982Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076487_30.jpg
+[2025-10-19T22:26:51.985Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076487_31.jpg
+[2025-10-19T22:26:51.991Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076487_32.jpg
+[2025-10-19T22:26:51.994Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076487_33.jpg
+[2025-10-19T22:26:51.998Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076487_34.jpg
+[2025-10-19T22:26:52.001Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076487_35.jpg
+[2025-10-19T22:26:52.005Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076487_36.jpg
+[2025-10-19T22:26:52.010Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076488_37.jpg
+[2025-10-19T22:26:52.014Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076488_38.jpg
+[2025-10-19T22:26:52.017Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076488_39.jpg
+[2025-10-19T22:26:52.023Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076488_40.jpg
+[2025-10-19T22:26:52.027Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076488_41.jpg
+[2025-10-19T22:26:52.030Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076488_42.jpg
+[2025-10-19T22:26:52.035Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076488_43.jpg
+[2025-10-19T22:26:52.038Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076488_44.jpg
+[2025-10-19T22:26:52.041Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076488_45.jpg
+[2025-10-19T22:26:52.044Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076488_46.jpg
+[2025-10-19T22:26:52.047Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076489_47.jpg
+[2025-10-19T22:26:52.049Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076489_48.jpg
+[2025-10-19T22:26:52.054Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076489_49.jpg
+[2025-10-19T22:26:52.057Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076489_50.jpg
+[2025-10-19T22:26:52.061Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076489_51.jpg
+[2025-10-19T22:26:52.064Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076489_52.jpg
+[2025-10-19T22:26:52.068Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076489_53.jpg
+[2025-10-19T22:26:52.073Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076489_54.jpg
+[2025-10-19T22:26:52.079Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076489_55.jpg
+[2025-10-19T22:26:52.082Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076490_56.jpg
+[2025-10-19T22:26:52.089Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076490_57.jpg
+[2025-10-19T22:26:52.094Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076490_58.jpg
+[2025-10-19T22:26:52.098Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076490_60.jpg
+[2025-10-19T22:26:52.101Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076490_61.jpg
+[2025-10-19T22:26:52.104Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076490_62.jpg
+[2025-10-19T22:26:52.107Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076490_63.jpg
+[2025-10-19T22:26:52.110Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076491_64.jpg
+[2025-10-19T22:26:52.114Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076491_65.jpg
+[2025-10-19T22:26:52.117Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076491_66.jpg
+[2025-10-19T22:26:52.121Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076492_68.jpg
+[2025-10-19T22:26:52.123Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076492_69.jpg
+[2025-10-19T22:26:52.126Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076492_70.jpg
+[2025-10-19T22:26:52.129Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076492_71.jpg
+[2025-10-19T22:26:52.131Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076492_72.jpg
+[2025-10-19T22:26:52.134Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076492_73.jpg
+[2025-10-19T22:26:52.138Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076492_74.jpg
+[2025-10-19T22:26:52.141Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076492_75.jpg
+[2025-10-19T22:26:52.144Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076493_76.jpg
+[2025-10-19T22:26:52.148Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076493_77.jpg
+[2025-10-19T22:26:52.151Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076493_78.jpg
+[2025-10-19T22:26:52.154Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076493_79.jpg
+[2025-10-19T22:26:52.157Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076493_80.jpg
+[2025-10-19T22:26:52.160Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076493_81.jpg
+[2025-10-19T22:26:52.163Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076493_82.jpg
+[2025-10-19T22:26:52.166Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076493_83.jpg
+[2025-10-19T22:26:52.169Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076493_84.jpg
+[2025-10-19T22:26:52.174Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076494_85.jpg
+[2025-10-19T22:26:52.179Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076494_86.jpg
+[2025-10-19T22:26:52.182Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076494_87.jpg
+[2025-10-19T22:26:52.185Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076494_88.jpg
+[2025-10-19T22:26:52.188Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076494_89.jpg
+[2025-10-19T22:26:52.191Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076494_90.jpg
+[2025-10-19T22:26:52.194Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076495_92.jpg
+[2025-10-19T22:26:52.196Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076495_93.jpg
+[2025-10-19T22:26:52.199Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076495_94.jpg
+[2025-10-19T22:26:52.205Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076495_95.jpg
+[2025-10-19T22:26:52.208Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076495_96.jpg
+[2025-10-19T22:26:52.211Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076496_100.jpg
+[2025-10-19T22:26:52.214Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076496_101.jpg
+[2025-10-19T22:26:52.219Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076496_102.jpg
+[2025-10-19T22:26:52.222Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076496_97.jpg
+[2025-10-19T22:26:52.228Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076496_98.jpg
+[2025-10-19T22:26:52.231Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076496_99.jpg
+[2025-10-19T22:26:52.235Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076497_103.jpg
+[2025-10-19T22:26:52.238Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076497_104.jpg
+[2025-10-19T22:26:52.241Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910076497_105.jpg
+[2025-10-19T22:26:52.244Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910080125_2.jpg
+[2025-10-19T22:26:52.247Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910080125_3.jpg
+[2025-10-19T22:26:52.252Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910080125_4.jpg
+[2025-10-19T22:26:52.258Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910080126_10.jpg
+[2025-10-19T22:26:52.263Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910080126_5.jpg
+[2025-10-19T22:26:52.268Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910080126_6.jpg
+[2025-10-19T22:26:52.273Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910080126_7.jpg
+[2025-10-19T22:26:52.278Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910080126_8.jpg
+[2025-10-19T22:26:52.281Z] [INFO] [CLEANUP] 🗑️  Cleaned up file: other_1760910080126_9.jpg
+[2025-10-19T22:26:52.348Z] [INFO] [CLEANUP] 📊 Cleanup complete: 230 cleaned, 0 failed, 228 kept
