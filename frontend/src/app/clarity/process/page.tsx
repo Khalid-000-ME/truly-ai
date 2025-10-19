@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Squares from '@/components/Squares';
 
@@ -30,7 +30,7 @@ interface PostProgress {
   overallStatus: 'pending' | 'processing' | 'completed' | 'error';
 }
 
-export default function ProcessPage() {
+function ProcessPageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const sessionId = searchParams.get('sessionId');
@@ -639,5 +639,20 @@ export default function ProcessPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function ProcessPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading process page...</p>
+        </div>
+      </div>
+    }>
+      <ProcessPageContent />
+    </Suspense>
   );
 }
