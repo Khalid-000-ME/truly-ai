@@ -7,7 +7,7 @@ import { logger } from '@/utils/logger';
 import path from 'path';
 
 // Configuration
-const PYTHON_BACKEND_URL = process.env.PYTHON_BACKEND_URL || 'http://localhost:8000';
+const PYTHON_BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8000';
 const HANDLE_API_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
 // Initialize Gemini AI

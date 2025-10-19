@@ -340,7 +340,7 @@ cp .env.example .env.local
 
 # Configure environment
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
-PYTHON_BACKEND_URL=http://localhost:8000
+BACKEND_URL=http://localhost:8000
 GEMINI_API_KEY=your_gemini_key
 PERPLEXITY_API_KEY=your_perplexity_key
 
@@ -465,7 +465,7 @@ python test_aws_setup.py
 ```bash
 # API Configuration
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
-PYTHON_BACKEND_URL=http://localhost:8000
+BACKEND_URL=http://localhost:8000
 
 # External APIs
 GEMINI_API_KEY=your_gemini_api_key

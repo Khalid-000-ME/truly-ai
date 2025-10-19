@@ -3,7 +3,7 @@ import { logger } from '@/utils/logger';
 import { unlink } from 'fs/promises';
 
 // Python backend URL
-const PYTHON_BACKEND_URL = process.env.PYTHON_BACKEND_URL || 'http://localhost:8000';
+const PYTHON_BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8000';
 
 export async function POST(request: NextRequest) {
   try {

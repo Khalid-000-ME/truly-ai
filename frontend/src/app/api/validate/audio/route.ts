@@ -59,7 +59,7 @@ async function transcribeAudio(audioBuffer: Buffer): Promise<string> {
   try {
     // Convert buffer to form data
     const formData = new FormData();
-    const blob = new Blob([audioBuffer], { type: 'audio/mp3' });
+    const blob = new Blob([new Uint8Array(audioBuffer)], { type: 'audio/mp3' });
     formData.append('file', blob, 'audio.mp3');
     formData.append('model', 'whisper-1');
 

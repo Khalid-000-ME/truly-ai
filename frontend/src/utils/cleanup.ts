@@ -7,8 +7,8 @@ import { logger } from './logger';
  */
 
 const UPLOADS_DIR = path.join(process.cwd(), 'uploads');
-const MAX_FILE_AGE_MS = 60 * 60 * 1000; // 1 hour in milliseconds
-const CLEANUP_INTERVAL_MS = 30 * 60 * 1000; // 30 minutes in milliseconds
+const MAX_FILE_AGE_MS = 10 * 60 * 1000; // 10 minutes in milliseconds (more aggressive cleanup)
+const CLEANUP_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes in milliseconds
 
 /**
  * Clean up a specific file

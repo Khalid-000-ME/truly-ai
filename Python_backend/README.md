@@ -1,23 +1,24 @@
-# Multimodal Analysis Backend API
+# TrulyAI Python Backend API
 
-A FastAPI-based backend service that provides multimodal analysis capabilities for images, videos, and audio files using local AI models.
+A FastAPI-based backend service that provides multimodal analysis capabilities for images, videos, and audio files using AWS Bedrock Nova models and cloud-based transcription services.
 
 ## Features
 
-- **Image Analysis**: Detailed description generation using Moondream2
+- **Image Analysis**: Detailed description generation using AWS Bedrock Nova Pro
 - **Video Analysis**: Frame-by-frame analysis with temporal understanding
-- **Audio Transcription**: Speech-to-text using OpenAI Whisper
-- **Batch Processing**: Analyze multiple files in a single request
-- **Local Inference**: Runs completely offline after model downloads
-- **CPU Optimized**: Designed for consumer hardware without GPU
+- **Audio Transcription**: Speech-to-text using AWS Transcribe or OpenAI Whisper API
+- **Text Analysis**: Content analysis and insights using AWS Bedrock
+- **Cloud-Native**: Leverages AWS infrastructure for scalable processing
+- **Multi-Service Fallback**: Automatic fallback between AWS and OpenAI services
 
 ## Quick Start
 
 ### Prerequisites
 
 - Python 3.11+
-- 16GB RAM (recommended)
-- 5GB free disk space for models
+- AWS Account with Bedrock access
+- AWS credentials configured
+- Optional: OpenAI API key for Whisper fallback
 
 ### Installation
 
@@ -37,15 +38,26 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. **Set up environment (optional):**
+4. **Configure AWS credentials:**
+```bash
+# Option 1: AWS CLI
+aws configure
+
+# Option 2: Environment variables
+export AWS_ACCESS_KEY_ID=your_access_key
+export AWS_SECRET_ACCESS_KEY=your_secret_key
+export AWS_DEFAULT_REGION=us-west-2
+```
+
+5. **Set up environment:**
 ```bash
 cp .env.example .env
 # Edit .env with your preferred settings
 ```
 
-5. **Start the server:**
+6. **Start the server:**
 ```bash
-python run.py
+python -m uvicorn app.main:app --reload
 ```
 
 The API will be available at:
@@ -59,38 +71,44 @@ The API will be available at:
 
 #### Image Analysis
 ```http
-POST /api/analyze/image
+POST /api/analyze/image/path
 Content-Type: multipart/form-data
 
 Parameters:
-- image: Image file (JPG, PNG, WEBP, BMP, GIF)
+- image_path: Path to image file or image file
 - prompt: Custom analysis prompt (optional)
-- max_length: Maximum description length (default: 200)
 ```
 
 #### Video Analysis
 ```http
-POST /api/analyze/video
+POST /api/analyze/video/path
 Content-Type: multipart/form-data
 
 Parameters:
-- video: Video file (MP4, AVI, MOV, MKV)
+- video_path: Path to video file or video file
 - num_frames: Number of frames to analyze (default: 5)
 - prompt: Custom analysis prompt (optional)
-- include_timestamps: Include frame timestamps (default: true)
-- frame_sampling: Sampling method - "uniform" or "keyframes" (default: "uniform")
 ```
 
-#### Audio Transcription
+#### Audio Analysis
 ```http
-POST /api/analyze/audio
+POST /api/analyze/audio/path
 Content-Type: multipart/form-data
 
 Parameters:
-- audio: Audio file (MP3, WAV, M4A, FLAC, OGG)
+- audio_path: Path to audio file or audio file
 - language: Language code or "auto" (default: "auto")
-- include_timestamps: Include segment timestamps (default: true)
-- word_level_timestamps: Include word-level timestamps (default: false)
+```
+
+#### Text Analysis
+```http
+POST /api/analyze/text
+Content-Type: application/json
+
+Parameters:
+- text: Text content to analyze
+- analysis_type: Type of analysis (default: "insights")
+- context: Additional context (optional)
 ```
 
 #### Batch Analysis
@@ -254,19 +272,20 @@ All API responses follow this structure:
 Create a `.env` file based on `.env.example`:
 
 ```bash
-# Model Configuration
-MODEL_CACHE_DIR=~/.cache/multimodal_models
-WHISPER_MODEL_SIZE=base  # tiny, base, small, medium
+# AWS Configuration
+AWS_ACCESS_KEY_ID=your_aws_access_key
+AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+AWS_DEFAULT_REGION=us-west-2
+
+# Optional: OpenAI API Key (for Whisper fallback)
+OPENAI_API_KEY=your_openai_api_key
 
 # Server Configuration
 HOST=0.0.0.0
 PORT=8000
-WORKERS=1
 
 # File Upload Limits
 MAX_UPLOAD_SIZE_MB=100
-MAX_CONCURRENT_REQUESTS=2
-REQUEST_TIMEOUT_SECONDS=60
 
 # CORS Configuration
 CORS_ORIGINS=http://localhost:3000,http://localhost:3001
@@ -291,28 +310,34 @@ LOG_LEVEL=INFO
 
 ### Expected Response Times
 
-- **Image Analysis**: < 3 seconds
-- **Video Analysis**: < 5 seconds per frame
-- **Audio Transcription**: ~0.5x realtime (30s for 1min audio)
+- **Image Analysis**: 2-5 seconds (AWS Bedrock)
+- **Video Analysis**: 3-8 seconds per frame
+- **Audio Transcription**: Variable (AWS Transcribe: 1-2x realtime, OpenAI Whisper: ~0.5x realtime)
 
 ### System Requirements
 
-- **CPU**: Intel Core i5 13th Gen or equivalent
-- **RAM**: 16GB (4GB used by models under load)
-- **Storage**: 5GB for models and temporary files
+- **CPU**: Any modern processor (cloud processing)
+- **RAM**: 4GB minimum
+- **Storage**: Minimal (temporary file storage only)
+- **Network**: Stable internet connection for AWS API calls
 - **OS**: Windows, Linux, or macOS
 
 ## Models Used
 
-### Moondream2 (Image/Video Analysis)
-- **Size**: ~1.6GB
-- **Purpose**: Vision-language understanding
-- **Capabilities**: Detailed image description, scene understanding
+### AWS Bedrock Nova Pro (Image/Video Analysis)
+- **Service**: Amazon Bedrock
+- **Purpose**: Multimodal understanding
+- **Capabilities**: Detailed image/video description, scene understanding
 
-### OpenAI Whisper (Audio Transcription)
-- **Size**: 142MB (base model)
+### AWS Transcribe (Audio Transcription - Primary)
+- **Service**: Amazon Transcribe
 - **Purpose**: Speech-to-text transcription
-- **Capabilities**: Multi-language support, timestamp generation
+- **Capabilities**: Multi-language support, high accuracy
+
+### OpenAI Whisper API (Audio Transcription - Fallback)
+- **Service**: OpenAI API
+- **Purpose**: Speech-to-text transcription
+- **Capabilities**: 99+ languages, high accuracy
 
 ## Error Codes
 
