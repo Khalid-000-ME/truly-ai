@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import Galaxy from '@/components/Galaxy';
 
 interface ProcessingStep {
@@ -19,6 +20,7 @@ interface SocialMediaPost {
 }
 
 export default function ClarityPage() {
+  const router = useRouter();
   const [steps, setSteps] = useState<ProcessingStep[]>([
     {
       id: 'handle',
@@ -42,8 +44,9 @@ export default function ClarityPage() {
 
   const [socialMediaPosts, setSocialMediaPosts] = useState<SocialMediaPost[]>([]);
   const [isProcessingComplete, setIsProcessingComplete] = useState(false);
-  const [finalResults, setFinalResults] = useState<any>(null);
   const [initialData, setInitialData] = useState<any>(null);
+  const [countdown, setCountdown] = useState(3);
+  const [autoRedirectStarted, setAutoRedirectStarted] = useState(false);
   const hasProcessedRef = useRef(false);
 
   // Real processing pipeline
@@ -149,15 +152,21 @@ export default function ClarityPage() {
           }
 
           // Complete processing
-          const totalTime = Date.now() - startTime;
           setIsProcessingComplete(true);
           setInitialData(data);
-          setFinalResults({
-            totalProcessingTime: `${(totalTime / 1000).toFixed(1)}s`,
-            confidence: `${(data.confidence * 100).toFixed(1)}%`,
-            socialMediaPosts: data.socialMediaSearch?.totalResults || 0,
-            analysisComplete: true
-          });
+          
+          console.log('✅ Processing complete, initial data set:', data);
+          console.log('🔍 Social media results:', data.socialMediaSearch?.socialMediaResults);
+          
+          // Start auto-redirect countdown only if we have valid data
+          if (data.socialMediaSearch?.socialMediaResults && data.socialMediaSearch.socialMediaResults.length > 0) {
+            setTimeout(() => {
+              setAutoRedirectStarted(true);
+              startCountdown();
+            }, 1000);
+          } else {
+            console.warn('⚠️ No social media results found, auto-redirect disabled');
+          }
 
         } else {
           updateStepStatus('initial', 'error', null, initialResult.error);
@@ -180,85 +189,52 @@ export default function ClarityPage() {
     processRealData();
   }, []);
 
-  const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+  const startCountdown = () => {
+    const timer = setInterval(() => {
+      setCountdown(prev => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          continueAnalysis();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+  };
 
-  const continueAnalysis = async () => {
-    if (!initialData || !initialData.socialMediaSearch?.socialMediaResults) {
-      console.error('No initial data or social media results found');
+  const continueAnalysis = () => {
+    if (!initialData) {
+      console.error('No initial data found');
+      return;
+    }
+    
+    // Check if we have social media results
+    const hasResults = initialData.socialMediaSearch?.socialMediaResults && 
+                      initialData.socialMediaSearch.socialMediaResults.length > 0;
+    
+    if (!hasResults) {
+      console.error('No social media results found in initial data');
+      console.log('Initial data structure:', initialData);
       return;
     }
 
-    try {
-      // Reset processing state
-      setIsProcessingComplete(false);
-      setSteps(prev => prev.map(step => ({ ...step, status: 'pending' })));
-
-      const sessionId = `session_${Date.now()}`;
-      const socialMediaResults = initialData.socialMediaSearch.socialMediaResults;
-
-      // Step 1: Segregate social media posts
-      updateStepStatus('segregate', 'processing');
-      
-      const segregateResponse = await fetch('/api/segregate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          sessionId,
-          socialMediaResults
-        })
-      });
-
-      if (!segregateResponse.ok) {
-        throw new Error(`Segregation failed: ${segregateResponse.statusText}`);
-      }
-
-      const segregateData = await segregateResponse.json();
-      updateStepStatus('segregate', 'completed', {
-        postsProcessed: segregateData.posts?.length || 0,
-        mediaItems: segregateData.posts?.reduce((acc: number, post: any) => 
-          acc + post.content.images.length + post.content.videos.length + post.content.audio.length, 0) || 0
-      });
-
-      // Step 2: Analyze segregated content
-      updateStepStatus('analyze', 'processing');
-
-      const analyzeResponse = await fetch('/api/analyze_handler', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          sessionId,
-          posts: segregateData.posts
-        })
-      });
-
-      if (!analyzeResponse.ok) {
-        throw new Error(`Analysis failed: ${analyzeResponse.statusText}`);
-      }
-
-      const analyzeData = await analyzeResponse.json();
-      updateStepStatus('analyze', 'completed', {
-        totalItems: analyzeData.totalItems,
-        completed: analyzeData.completed,
-        errors: analyzeData.errors
-      });
-
-      // Complete the full analysis
-      setIsProcessingComplete(true);
-      setFinalResults((prev: any) => ({
-        ...prev,
-        fullAnalysisComplete: true,
-        segregatedPosts: segregateData.posts?.length || 0,
-        analyzedItems: analyzeData.completed || 0,
-        analysisErrors: analyzeData.errors || 0
-      }));
-
-    } catch (error) {
-      console.error('Continue analysis error:', error);
-      const currentStep = steps.find(s => s.status === 'processing');
-      if (currentStep) {
-        updateStepStatus(currentStep.id, 'error', null, error instanceof Error ? error.message : 'Unknown error');
-      }
+    // Generate session ID and get query data
+    const sessionId = `session_${Date.now()}`;
+    const queryDataStr = typeof window !== 'undefined' ? sessionStorage.getItem('trulyai_query_data') : null;
+    
+    let query = 'Unknown Query';
+    if (queryDataStr) {
+      const queryData = JSON.parse(queryDataStr);
+      query = queryData.prompt || 'Unknown Query';
     }
+
+    // Store the initial data for the process page to use
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('trulyai_initial_data', JSON.stringify(initialData));
+    }
+
+    // Redirect to the process page with session ID and query
+    router.push(`/clarity/process?sessionId=${sessionId}&query=${encodeURIComponent(query)}`);
   };
 
   const updateStepStatus = (stepId: string, status: 'pending' | 'processing' | 'completed' | 'error', result?: any, error?: string) => {
@@ -452,46 +428,99 @@ export default function ClarityPage() {
           )}
           </>
         ) : (
-            <div className="max-w-md mx-auto">
-              <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur-md rounded-2xl border border-green-500/20 p-6 text-center">
+            <div className="max-w-4xl mx-auto">
+              {/* Completion Header */}
+              <div className="text-center mb-8">
                 <div className="text-4xl mb-3">✅</div>
-                <h2 className="text-2xl font-bold text-white mb-3">
-                  Input Processing Done
+                <h2 className="text-3xl font-bold text-white mb-3">
+                  Analysis Complete
                 </h2>
-                
-                {finalResults && (
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    <div className="bg-white/10 rounded-lg p-3">
-                      <div className="text-lg font-bold text-green-400">{finalResults.totalProcessingTime}</div>
-                      <div className="text-xs text-gray-300">Time</div>
-                    </div>
-                    <div className="bg-white/10 rounded-lg p-3">
-                      <div className="text-lg font-bold text-blue-400">{finalResults.confidence}</div>
-                      <div className="text-xs text-gray-300">Confidence</div>
-                    </div>
-                    <div className="bg-white/10 rounded-lg p-3">
-                      <div className="text-lg font-bold text-purple-400">{finalResults.socialMediaPosts}</div>
-                      <div className="text-xs text-gray-300">Posts</div>
-                    </div>
-                    <div className="bg-white/10 rounded-lg p-3">
-                      <div className="text-lg font-bold text-yellow-400">
-                        {finalResults.fullAnalysisComplete ? finalResults.analyzedItems || '✓' : '✓'}
-                      </div>
-                      <div className="text-xs text-gray-300">
-                        {finalResults.fullAnalysisComplete ? 'Analyzed' : 'Complete'}
-                      </div>
-                    </div>
-                  </div>
-                )}
+                <p className="text-gray-300">
+                  Found {socialMediaPosts.length} related social media posts
+                </p>
+              </div>
 
-                {!finalResults?.fullAnalysisComplete && (
-                  <button 
-                    onClick={continueAnalysis}
-                    className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105 text-sm"
-                  >
-                    Continue Analysis
-                  </button>
-                )}
+              {/* Found Posts */}
+              {socialMediaPosts.length > 0 && (
+                <div className="bg-black/20 backdrop-blur-md rounded-2xl border border-white/10 p-8 mb-8">
+                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
+                    📱 Found Posts
+                    <span className="ml-3 text-sm font-normal text-gray-300">
+                      ({socialMediaPosts.length} posts)
+                    </span>
+                  </h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {socialMediaPosts.map((post, index) => (
+                      <div key={index} className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 p-4 hover:bg-white/10 transition-all duration-300">
+                        <div className="flex items-start space-x-3">
+                          <div className="text-2xl">
+                            {getPlatformIcon(post.platform)}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="text-white font-medium text-sm mb-2 line-clamp-2">
+                              {post.title}
+                            </h4>
+                            <a 
+                              href={post.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue-400 hover:text-blue-300 text-xs truncate block transition-colors"
+                            >
+                              {post.url}
+                            </a>
+                            <div className="mt-2">
+                              <span className="inline-block px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full capitalize">
+                                {post.platform}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Start Fact-Check Button */}
+              <div className="text-center">
+                <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur-md rounded-2xl border border-green-500/20 p-6">
+                  {autoRedirectStarted ? (
+                    <div className="mb-4">
+                      <div className="text-2xl mb-2">🚀</div>
+                      <p className="text-white mb-2">Starting fact-check in {countdown} seconds...</p>
+                      <div className="w-full bg-white/10 rounded-full h-2 mb-4">
+                        <div 
+                          className="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full transition-all duration-1000"
+                          style={{ width: `${((3 - countdown) / 3) * 100}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-2xl mb-4">🔍</div>
+                  )}
+                  
+                  {/* Show different button states based on data availability */}
+                  {initialData && initialData.socialMediaSearch?.socialMediaResults && initialData.socialMediaSearch.socialMediaResults.length > 0 ? (
+                    <button 
+                      onClick={continueAnalysis}
+                      className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 text-lg"
+                    >
+                      🚀 Start Fact-Check
+                    </button>
+                  ) : (
+                    <div className="text-center">
+                      <div className="text-yellow-400 mb-3">⚠️</div>
+                      <p className="text-white mb-4">No social media posts found for analysis</p>
+                      <button 
+                        onClick={() => window.location.href = '/ask'}
+                        className="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 text-lg"
+                      >
+                        🔍 Try New Search
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           )}

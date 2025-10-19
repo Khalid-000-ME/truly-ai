@@ -51,14 +51,12 @@ class MultimodalAnalysisService:
         except Exception as e:
             logger.warning(f"Failed to initialize AWS Analyzer: {e}")
         
-        # Local Audio Analyzer disabled - using AWS Nova Sonic exclusively
-        # try:
-        #     if LocalAudioAnalyzer:
-        #         self.local_audio_analyzer = LocalAudioAnalyzer(whisper_model='base')
-        #         logger.info("Local Audio Analyzer initialized successfully")
-        # except Exception as e:
-        #     logger.warning(f"Failed to initialize Local Audio Analyzer: {e}")
-        logger.info("Local Audio Analyzer disabled - using AWS Nova Sonic v1:0 for all audio transcription")
+        try:
+            if LocalAudioAnalyzer:
+                self.local_audio_analyzer = LocalAudioAnalyzer(whisper_model='base')
+                logger.info("Local Audio Analyzer initialized successfully")
+        except Exception as e:
+            logger.warning(f"Failed to initialize Local Audio Analyzer: {e}")
     
     def _is_http_url(self, path: str) -> bool:
         """Check if the path is an HTTP/HTTPS URL"""
@@ -477,7 +475,7 @@ class MultimodalAnalysisService:
     
     async def transcribe_audio(self, audio_path_or_url: str, language: Optional[str] = None) -> Dict[str, Any]:
         """
-        Transcribe audio using Amazon Nova Sonic v1:0
+        Transcribe audio using Whisper
         
         Args:
             audio_path_or_url: Path to audio file or HTTP URL
@@ -487,8 +485,11 @@ class MultimodalAnalysisService:
             Transcription results
         """
         if not self.aws_analyzer:
-            logger.warning("AWS Analyzer not available, using fallback service")
-            return await fallback_service.transcribe_audio(audio_path_or_url, language)
+            return {
+                "success": False,
+                "error": "AWS Analyzer not available",
+                "transcription": None
+            }
         
         temp_file_path = None
         try:
@@ -540,19 +541,16 @@ class MultimodalAnalysisService:
         end_time: Optional[float] = None
     ) -> Dict[str, Any]:
         """
-        Comprehensive audio analysis using AWS Nova Sonic for transcription
+        Comprehensive audio analysis using librosa
         
         Args:
             audio_path_or_url: Path to audio file or HTTP URL
-            start_time: Optional start time for timeframe analysis
-            end_time: Optional end time for timeframe analysis
         
         Returns:
-            Comprehensive analysis results with Nova Sonic transcription
+            Comprehensive audio analysis results
         """
-        # Prioritize AWS analyzer for transcription, use fallback if not available
-        if not self.aws_analyzer:
-            logger.warning("AWS Analyzer not available, using fallback service")
+        if not self.local_audio_analyzer:
+            logger.warning("Local Audio Analyzer not available, using fallback service")
             return await fallback_service.analyze_audio_comprehensive(
                 audio_path_or_url,
                 start_time,
@@ -567,61 +565,20 @@ class MultimodalAnalysisService:
             if is_temp:
                 temp_file_path = local_path
             
-            # Use AWS Nova Sonic for transcription
-            logger.info(f"Using AWS Nova Sonic for audio transcription: {local_path}")
-            transcription_result = await self.transcribe_audio(local_path, language=None)
-            
-            if not transcription_result['success']:
-                logger.error(f"Nova Sonic transcription failed: {transcription_result.get('error')}")
-                return transcription_result
-            
-            # Create comprehensive analysis result with Nova Sonic transcription
-            file_size = os.path.getsize(local_path) if os.path.exists(local_path) else 0
-            duration = file_size / 16000  # Rough estimate for duration
-            
-            # Build comprehensive response with Nova Sonic data
-            analysis_result = {
-                "audio_type": "speech",
-                "duration": duration,
-                "analyzed_timeframe": {
-                    "start_time": start_time,
-                    "end_time": end_time,
-                    "duration": (end_time - start_time) if start_time and end_time else duration
-                } if start_time is not None and end_time is not None else None,
-                "transcription": {
-                    "text": transcription_result['transcription'],
-                    "language": transcription_result['language'],
-                    "segments": len(transcription_result.get('segments', []))
-                },
-                "mood": {
-                    "mood": "neutral",
-                    "valence": "neutral", 
-                    "arousal": "medium",
-                    "tempo": 120.0,
-                    "energy": 0.5
-                },
-                "features": {
-                    "tempo": 120.0,
-                    "beats_detected": 0,
-                    "spectral_centroid_mean": 1000.0,
-                    "spectral_centroid_std": 200.0,
-                    "spectral_rolloff_mean": 2000.0,
-                    "spectral_bandwidth_mean": 1500.0,
-                    "rms_energy_mean": 0.1,
-                    "rms_energy_std": 0.05,
-                    "zero_crossing_rate_mean": 0.1,
-                    "mfcc_means": [0.0] * 13
-                },
-                "summary": f"Audio transcribed using Amazon Nova Sonic v1:0. Transcription: {transcription_result['transcription'][:100]}{'...' if len(transcription_result['transcription']) > 100 else ''}"
-            }
+            # Run in thread pool to avoid blocking
+            loop = asyncio.get_event_loop()
+            result = await loop.run_in_executor(
+                None,
+                self.local_audio_analyzer.analyze_complete_audio,
+                local_path
+            )
             
             return {
                 "success": True,
-                "analysis": analysis_result,
+                "analysis": result,
                 "audio_path": audio_path_or_url,
-                "file_size": file_size,
-                "source_type": "url" if self._is_http_url(audio_path_or_url) else "local_path",
-                "transcription_model": transcription_result.get('model_used', 'amazon.nova-sonic-v1:0')
+                "file_size": os.path.getsize(local_path) if os.path.exists(local_path) else 0,
+                "source_type": "url" if self._is_http_url(audio_path_or_url) else "local_path"
             }
             
         except Exception as e:
@@ -643,16 +600,14 @@ class MultimodalAnalysisService:
         """Get status of all available services"""
         return {
             "aws_analyzer_available": self.aws_analyzer is not None,
-            "local_audio_analyzer_available": False,  # Disabled - using Nova Sonic exclusively
+            "local_audio_analyzer_available": self.local_audio_analyzer is not None,
             "supported_features": {
                 "text_analysis": self.aws_analyzer is not None,
                 "image_analysis": self.aws_analyzer is not None,
                 "video_analysis": self.aws_analyzer is not None,
-                "audio_transcription": self.aws_analyzer is not None,  # Now uses Nova Sonic v1:0
-                "comprehensive_audio_analysis": self.aws_analyzer is not None  # Now uses Nova Sonic v1:0
-            },
-            "audio_transcription_model": "amazon.nova-sonic-v1:0" if self.aws_analyzer else "fallback",
-            "audio_analysis_model": "amazon.nova-sonic-v1:0" if self.aws_analyzer else "fallback"
+                "audio_transcription": self.aws_analyzer is not None,
+                "comprehensive_audio_analysis": self.local_audio_analyzer is not None
+            }
         }
 
 # Global service instance

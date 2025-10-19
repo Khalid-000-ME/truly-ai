@@ -5,6 +5,28 @@ import os
 from pathlib import Path
 from typing import Dict, Any
 
+# Load environment variables from .env file
+try:
+    from dotenv import load_dotenv
+    # Load .env file from the project root
+    env_path = Path(__file__).parent.parent / '.env'
+    load_dotenv(env_path)
+    print(f"✅ Loaded environment variables from: {env_path}")
+    
+    # Debug: Check if audio API keys are loaded
+    hf_key = os.getenv('HUGGINGFACE_API_KEY')
+    openai_key = os.getenv('OPENAI_API_KEY')
+    assembly_key = os.getenv('ASSEMBLYAI_API_KEY')
+    
+    print(f"🔑 Hugging Face API Key: {'✅ Found' if hf_key else '❌ Not found'}")
+    print(f"🔑 OpenAI API Key: {'✅ Found' if openai_key else '❌ Not found'}")
+    print(f"🔑 Assembly AI API Key: {'✅ Found' if assembly_key else '❌ Not found'}")
+    
+except ImportError:
+    print("⚠️  python-dotenv not installed. Install with: pip install python-dotenv")
+except Exception as e:
+    print(f"⚠️  Could not load .env file: {e}")
+
 # Environment variables with defaults
 MODEL_CACHE_DIR = os.getenv("MODEL_CACHE_DIR", str(Path.home() / ".cache" / "multimodal_models"))
 MAX_UPLOAD_SIZE_MB = int(os.getenv("MAX_UPLOAD_SIZE_MB", "100"))

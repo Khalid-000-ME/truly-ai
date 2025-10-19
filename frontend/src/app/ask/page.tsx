@@ -549,7 +549,7 @@ export default function AskPage() {
             {/* Subtle Helper Text */}
             <div className="text-center mt-8">
               <p className="text-sm text-gray-500 leading-relaxed max-w-2xl mx-auto">
-                Uncover insights from images, videos, social media posts, or any content. 
+                Use the power of Multi-modal analysis to know the real truth against social media misinformations.
                 <br />
                 <span className="text-gray-400">
                   Your journey to truth starts with a single question.

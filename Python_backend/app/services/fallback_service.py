@@ -141,6 +141,47 @@ class FallbackAnalysisService:
             "filename": filename
         }
     
+    async def transcribe_audio(self, audio_path_or_url: str, language: Optional[str] = None) -> Dict[str, Any]:
+        """
+        Provide fallback audio transcription
+        """
+        logger.info(f"Fallback audio transcription for: {audio_path_or_url}")
+        
+        # Simulate processing time
+        await asyncio.sleep(1.0)
+        
+        # Check if file exists (for local paths)
+        if not audio_path_or_url.startswith(('http://', 'https://')):
+            if not os.path.exists(audio_path_or_url):
+                return {
+                    "success": False,
+                    "error": f"Audio file not found: {audio_path_or_url}",
+                    "transcription": None
+                }
+        
+        filename = os.path.basename(audio_path_or_url)
+        file_ext = Path(audio_path_or_url).suffix.lower()
+        
+        # Generate mock transcription
+        mock_text = f"Mock transcription of {filename}: Audio content detected. This is a placeholder transcription as AWS Nova Sonic is not available."
+        
+        return {
+            "success": True,
+            "transcription": mock_text,
+            "language": language or "en",
+            "segments": [
+                {
+                    "start": 0.0,
+                    "end": 5.0,
+                    "text": mock_text
+                }
+            ],
+            "model_used": "fallback-mock-transcriber",
+            "audio_path": audio_path_or_url,
+            "file_size": os.path.getsize(audio_path_or_url) if os.path.exists(audio_path_or_url) else 0,
+            "source_type": "url" if audio_path_or_url.startswith(('http://', 'https://')) else "local_path"
+        }
+    
     async def analyze_audio_comprehensive(
         self, 
         audio_path: str,

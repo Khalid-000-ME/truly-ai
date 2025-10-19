@@ -436,18 +436,35 @@ export async function POST(request: Request) {
     
     for (let i = 0; i < socialMediaResults.length; i++) {
       const result = socialMediaResults[i];
-      // Extract URL from "Title: URL" format
-      const urlMatch = result.match(/: (https?:\/\/[^\s]+)$/);
-      if (urlMatch) {
-        const url = urlMatch[1];
-        const title = result.replace(/: https?:\/\/[^\s]+$/, '');
-        
-        logger.log('SEGREGATE', `Analyzing post ${i + 1}: ${title}`);
-        
-        const post = await analyzeSocialMediaPost(url);
-        post.title = title; // Override with the provided title
-        segregatedPosts.push(post);
+      
+      let url: string;
+      let title: string;
+      
+      // Handle both old string format and new object format
+      if (typeof result === 'string') {
+        // Old format: "Title: URL"
+        const urlMatch = result.match(/: (https?:\/\/[^\s]+)$/);
+        if (urlMatch) {
+          url = urlMatch[1];
+          title = result.replace(/: https?:\/\/[^\s]+$/, '');
+        } else {
+          logger.error('SEGREGATE', `Invalid result format: ${result}`);
+          continue;
+        }
+      } else if (typeof result === 'object' && result.url) {
+        // New object format: { title, url, ... }
+        url = result.url;
+        title = result.title || result.snippet || 'Unknown Title';
+      } else {
+        logger.error('SEGREGATE', `Invalid result format:`, result);
+        continue;
       }
+      
+      logger.log('SEGREGATE', `Analyzing post ${i + 1}: ${title}`);
+      
+      const post = await analyzeSocialMediaPost(url);
+      post.title = title; // Override with the provided title
+      segregatedPosts.push(post);
     }
 
     logger.log('SEGREGATE', `Segregation complete: ${segregatedPosts.length} posts processed`);
