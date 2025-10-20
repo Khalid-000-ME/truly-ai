@@ -1,30 +1,21 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Button from '@/components/button';
 import { useRouter } from 'next/navigation';
 
-// Load Google Fonts
-const loadGoogleFonts = () => {
-  if (typeof window !== 'undefined') {
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap';
-    link.rel = 'stylesheet';
-    document.head.appendChild(link);
-  }
-};
-
 export default function Home() {
   const router = useRouter();
 
-  // Load fonts on component mount
-  useEffect(() => {
-    loadGoogleFonts();
-  }, []);
-
   const handleGetStarted = () => {
-    router.push('/ask');
+    console.log('🚀 Start Fact-Checking button clicked');
+    try {
+      router.push('/ask');
+      console.log('✅ Navigation to /ask initiated');
+    } catch (error) {
+      console.error('❌ Navigation error:', error);
+    }
   };
 
   return (
@@ -112,9 +103,16 @@ export default function Home() {
               onClick={handleGetStarted}
               size="md"
               className="mx-auto transform hover:scale-105 transition-all duration-300 rounded-full"
+              type="button"
             >
               Start Fact-Checking
             </Button>
+            
+            {/* Debug info - remove in production */}
+            <div className="mt-4 text-xs text-gray-500 text-center">
+              <p>Debug: Button should navigate to /ask</p>
+              <p>Check browser console for navigation logs</p>
+            </div>
           </div>
 
           {/* Subtitle */}

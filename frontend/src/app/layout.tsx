@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Space_Grotesk, Unbounded } from "next/font/google";
+import { IBM_Plex_Mono, Space_Grotesk, Unbounded, Instrument_Serif, Inter } from "next/font/google";
 import "./globals.css";
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -18,6 +18,18 @@ const unbounded = Unbounded({
   weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: '--font-unbounded',
+});
+
+const instrumentSerif = Instrument_Serif({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-instrument-serif',
+});
+
+const inter = Inter({
+  weight: ['300', '400', '500', '600'],
+  subsets: ['latin'],
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -67,7 +79,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body
-        className={`${ibmPlexMono.variable} ${spaceGrotesk.variable} ${unbounded.variable} font-space-grotesk antialiased`}
+        className={`${ibmPlexMono.variable} ${spaceGrotesk.variable} ${unbounded.variable} ${instrumentSerif.variable} ${inter.variable} font-space-grotesk antialiased`}
       >
         {children}
       </body>
