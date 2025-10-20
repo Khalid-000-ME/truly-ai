@@ -107,12 +107,6 @@ export default function Home() {
             >
               Start Fact-Checking
             </Button>
-            
-            {/* Debug info - remove in production */}
-            <div className="mt-4 text-xs text-gray-500 text-center">
-              <p>Debug: Button should navigate to /ask</p>
-              <p>Check browser console for navigation logs</p>
-            </div>
           </div>
 
           {/* Subtitle */}

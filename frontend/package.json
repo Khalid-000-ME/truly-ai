@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start"
   },
   "dependencies": {
@@ -34,7 +34,10 @@
     "@types/node-fetch": "^2.6.13",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.20",
+    "critters": "^0.0.24",
     "node-fetch": "^3.3.2",
+    "postcss": "^8.4.49",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
