@@ -2,7 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -35,7 +34,6 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.20",
-    "critters": "^0.0.24",
     "node-fetch": "^3.3.2",
     "postcss": "^8.4.49",
     "tailwindcss": "^4",
